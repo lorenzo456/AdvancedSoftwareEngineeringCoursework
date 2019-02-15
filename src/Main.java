@@ -1,21 +1,21 @@
+import domain.Basket;
 import domain.MenuList;
 import domain.OrderList;
 import domain.ShopManager;
-import gui.OrderGUI;
+
+//import gui.OrderGUI;
 
 public class Main {
-
     public static void main(String[] args){
-        MenuList menuList = MenuList.fromFile("menuItems.csv");
-        System.out.println(menuList);
-
-        OrderList orderList = OrderList.fromFile("customerOrders.csv");
-        System.out.println(orderList);
-
-
-        ShopManager manager = new ShopManager(menuList, orderList);
-        OrderGUI orderGUI = new OrderGUI();
-
-        manager.generateReport();
+    	MenuList menuList = new MenuList();
+    	//System.out.println(menuList.displayTree());
+    	
+    	Basket basket = new Basket();
+    	basket.AddToBasket(menuList.GetItemByID("HD01"), 1);
+    	basket.AddToBasket(menuList.GetItemByID("HD02"), 1);
+    	basket.AddToBasket(menuList.GetItemByID("HD01"), 1);
+    	basket.AddToBasket(menuList.GetItemByID("HD01"), 1);
+    	System.out.println(basket.DisplayBasket());
+    	
     }
 }

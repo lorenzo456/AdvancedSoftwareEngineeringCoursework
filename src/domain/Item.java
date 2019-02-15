@@ -1,10 +1,11 @@
 package domain;
 
-public class Item {
+public class Item implements Comparable<Item>{
     private String Id;
     private String name;
     private String description;
     private double cost;
+    public boolean isDiscounted;
 
     private ItemCategory category;
     private ItemType type;
@@ -17,7 +18,22 @@ public class Item {
         this.category = category;
         this.type = type;
     }
-
+    
+    public boolean getIsDiscounted() 
+    {
+    	return isDiscounted;
+    }
+    
+    public void setIsDiscounted(boolean value) 
+    {
+    	isDiscounted = value;
+    }
+    
+    public int compareTo(Item i) 
+    {
+    	return name.compareTo(i.getName());
+    }
+    
     public String getId() {
         return Id;
     }
