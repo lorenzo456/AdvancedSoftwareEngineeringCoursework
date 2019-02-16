@@ -41,8 +41,50 @@ public class MenuList {
     	return temp;
     }
     
+    public int getNumberOfDesserts() {
+    	int i = 0;
+    	for (Item a : menuList) {
+    		if (a.getCategory() == ItemCategory.Dessert) {	
+    			i++;
+    		}
+    	}
+    	return i;
+    }
     
-    public String HotDrinks() {
+    public int getNumberOfMeals() {
+    	int i = 0;
+    	for (Item a : menuList) {
+    		if (a.getCategory() == ItemCategory.Meal) {	
+    			i++;
+    		}
+    	}
+    	return i;
+    }
+    
+    public int getNumberOfColdDrinks() {
+    	int i = 0;
+    	for (Item a : menuList) {
+    		if (a.getCategory() == ItemCategory.ColdDrink) {	
+    			i++;
+    		}
+    	}
+    	return i;
+    }
+    
+    public int getNumberOfHotDrinks() {
+    	int i = 0;
+    	for (Item a : menuList) {
+    		if (a.getCategory() == ItemCategory.HotDrink) {	
+    			i++;
+    		}
+    	}
+    	return i;
+    }
+    
+     
+    
+    
+    public String getHotDrinks() {
     	String temp = "";
     	for (Item i : menuList) {
     		if (i.getCategory() == ItemCategory.HotDrink) {
@@ -52,7 +94,7 @@ public class MenuList {
     	return temp;
     }
     
-    public String ColdDrinks() {
+    public String getColdDrinks() {
     	String temp = "";
     	for (Item i : menuList) {
     		if (i.getCategory() == ItemCategory.ColdDrink) {
@@ -62,7 +104,7 @@ public class MenuList {
     	return temp;
     }
     
-    public String Meals() {
+    public String getMeals() {
     	String temp = "";
     	for (Item i : menuList) {
     		if (i.getCategory() == ItemCategory.Meal) {
@@ -72,7 +114,7 @@ public class MenuList {
     	return temp;
     }
     
-    public String Dessert() {
+    public String getDessert() {
     	String temp = "";
     	for (Item i : menuList) {
     		if (i.getCategory() == ItemCategory.Dessert) {
