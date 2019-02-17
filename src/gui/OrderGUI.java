@@ -24,8 +24,9 @@ public class OrderGUI extends JFrame implements ActionListener{
         this.initGUI();
     }
 
-    public OrderGUI(Basket basket) {
+    public OrderGUI(Basket basket, MenuList menuList) {
         this.basket = basket;
+        this.menuList = menuList;
         this.initGUI();
     }
 
@@ -237,24 +238,24 @@ public class OrderGUI extends JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Hot Drinks")) {
-            JFrame menuSelection = new HotDrinksGUI("Hot Drinks", this.basket, this.menuList);
+            JFrame menuSelection = new HotDrinksGUI(this.basket, this.menuList);
             this.dispose();
         }
-//        if (e.getActionCommand().equals("Cold Drinks")) {
+        if (e.getActionCommand().equals("Cold Drinks")) {
 //            JFrame menuSelection = new ColdDrinksGUI("Cold Drinks", this.basket, this.menuList);
 //            this.dispose();
-//        }
-//
-//        if (e.getActionCommand().equals("Desserts")) {
+        }
+
+        if (e.getActionCommand().equals("Desserts")) {
 //            JFrame menuSelection = new DessertsGUI ("Desserts"), this.basket, this.menuList);
 //            this.dispose();
-//        }
-//
-//        if (e.getActionCommand().equals("Meals")) {
+        }
+
+        if (e.getActionCommand().equals("Meals")) {
 //            JFrame menuSelection = new MealsGUI ("Meals", this.basket, this.menuList);
 //            this.dispose();
-//
-//        }
+
+        }
     }
 }
 
