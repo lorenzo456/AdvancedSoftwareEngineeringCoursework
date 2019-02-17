@@ -19,7 +19,7 @@ Water bottle,			1.5,	cold water bottle,			Cold drink,	CD03
 Croissant,				1.25,	pastry,						Snack,		SN01
 Muffins,				1.20,	muffin,						Snack,		SN02
 Cinnamon roll,			2.25,	sweet cinnamon roll,		Snack,		SN03
-Bagel,					3.20,	Bagel,						Snack,		SN04
+Bagel,					3.20,	Bagel						Snack,		SN04
 
 /FOOD
 Cheese Sandwich, 		2.50,	Sandwich with cheese,		Food,		FI01

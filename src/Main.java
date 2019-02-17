@@ -2,8 +2,7 @@ import domain.Basket;
 import domain.MenuList;
 import domain.OrderList;
 import domain.ShopManager;
-
-//import gui.OrderGUI;
+import gui.OrderGUI;
 
 public class Main {
     public static void main(String[] args){
@@ -16,6 +15,7 @@ public class Main {
     	basket.AddToBasket(menuList.GetItemByID("HD01"), 1);
     	basket.AddToBasket(menuList.GetItemByID("HD01"), 1);
     	System.out.println(basket.DisplayBasket());
-    	
+
+		OrderGUI orderGui = new OrderGUI();
     }
 }

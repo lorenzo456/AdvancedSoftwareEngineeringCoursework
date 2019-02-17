@@ -1,14 +1,11 @@
 package gui;
 
 
-import domain.Item;
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.Font;
-import java.util.ArrayList;
 
 
 public class OrderGUI extends JFrame implements ActionListener{
