@@ -1,5 +1,7 @@
-package gui;
+package  gui;
 
+import domain.Basket;
+import domain.MenuList;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -11,10 +13,19 @@ import java.awt.Font;
 public class OrderGUI extends JFrame implements ActionListener{
 
     private JPanel centerPanel;
+    private Basket basket;
+    private MenuList menuList;
     private Font labelFont = new Font("Serif", Font.BOLD, 30);
     private Border border = BorderFactory.createLineBorder(Color.BLACK);
 
-    public OrderGUI() {
+    public OrderGUI(MenuList menuList) {
+        this.basket = new Basket();
+        this.menuList = menuList;
+        this.initGUI();
+    }
+
+    public OrderGUI(Basket basket) {
+        this.basket = basket;
         this.initGUI();
     }
 
@@ -60,6 +71,11 @@ public class OrderGUI extends JFrame implements ActionListener{
         label.setFont(labelFont);
         basketPanel.add(label, BorderLayout.NORTH);
 
+        JButton checkout = new JButton("Checkout");
+
+        checkout.setPreferredSize(new Dimension(40, 120));
+        basketPanel.add(checkout, BorderLayout.SOUTH);
+
         return basketPanel;
     }
 
@@ -92,7 +108,7 @@ public class OrderGUI extends JFrame implements ActionListener{
         c2.insets = new Insets(70,70,70,70);
         menuPanel.add(showColdDrinks, c2);
 
-        JButton showMeal= new JButton("Meal");
+        JButton showMeal= new JButton("Meals");
         showMeal.addActionListener(this);
         GridBagConstraints c3 = new GridBagConstraints();
         c3.fill = GridBagConstraints.BOTH;
@@ -104,7 +120,7 @@ public class OrderGUI extends JFrame implements ActionListener{
         c3.insets = new Insets(70,70,70,70);
         menuPanel.add(showMeal, c3);
 
-        JButton showDessert = new JButton("Dessert");
+        JButton showDessert = new JButton("Desserts");
         showDessert.addActionListener(this);
         GridBagConstraints c4 = new GridBagConstraints();
         c4.fill = GridBagConstraints.BOTH;
@@ -202,6 +218,7 @@ public class OrderGUI extends JFrame implements ActionListener{
         c2.gridy = 0;
         centerPanel.add(basketPanel, c2);
 
+
         this.validate();
         this.add(centerPanel, BorderLayout.CENTER);
     }
@@ -220,22 +237,24 @@ public class OrderGUI extends JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Hot Drinks")) {
-            JFrame menuSelection = new DrinkGUI("Hot Drinks");
+            JFrame menuSelection = new HotDrinksGUI("Hot Drinks", this.basket, this.menuList);
             this.dispose();
         }
-        if (e.getActionCommand().equals("Cold Drinks")) {
-            JFrame menuSelection = new DrinkGUI("Cold Drinks");
-        }
-
-        if (e.getActionCommand().equals("Dessert")) {
-
-//            JFrame basketGui = new BasketGui();
-
-        }
-
-        if (e.getActionCommand().equals("Meal")) {
-
-        }
+//        if (e.getActionCommand().equals("Cold Drinks")) {
+//            JFrame menuSelection = new ColdDrinksGUI("Cold Drinks", this.basket, this.menuList);
+//            this.dispose();
+//        }
+//
+//        if (e.getActionCommand().equals("Desserts")) {
+//            JFrame menuSelection = new DessertsGUI ("Desserts"), this.basket, this.menuList);
+//            this.dispose();
+//        }
+//
+//        if (e.getActionCommand().equals("Meals")) {
+//            JFrame menuSelection = new MealsGUI ("Meals", this.basket, this.menuList);
+//            this.dispose();
+//
+//        }
     }
 }
 

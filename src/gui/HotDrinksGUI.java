@@ -1,15 +1,22 @@
 package gui;
 
+import domain.Basket;
+import domain.MenuList;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class DrinkGUI extends JFrame implements ActionListener {
-    String category;
+public class HotDrinksGUI extends JFrame implements ActionListener {
+    private String category;
+    private MenuList menuList;
+    private Basket basket;
 
-    public DrinkGUI(String category){
+    public HotDrinksGUI(String category, Basket basket, MenuList menuList){
         this.category = category;
+        this.basket = basket;
+        this.menuList = menuList;
         this.initGUI();
     }
 
@@ -41,7 +48,7 @@ public class DrinkGUI extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Go Back")) {
-            JFrame orderGui = new OrderGUI();
+            JFrame orderGui = new OrderGUI(this.basket);
             this.dispose();
         }
     }
