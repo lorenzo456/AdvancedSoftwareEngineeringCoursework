@@ -12,7 +12,7 @@ import java.awt.Font;
 
 public class OrderGUI extends JFrame implements ActionListener{
 
-    private JPanel centerPanel;
+    private JPanel centerPanel, menuPanel;
     private Basket basket;
     private MenuList menuList;
     private Font labelFont = new Font("Serif", Font.BOLD, 30);
@@ -62,7 +62,7 @@ public class OrderGUI extends JFrame implements ActionListener{
     }
 
 
-    private JPanel createBasketPanel(){
+    public JPanel createBasketPanel(){
         JPanel basketPanel = new JPanel();
         basketPanel.setLayout(new BorderLayout());
         basketPanel.setBackground(Color.WHITE);
@@ -81,7 +81,7 @@ public class OrderGUI extends JFrame implements ActionListener{
     }
 
     private JPanel createMenuPanel(){
-        JPanel menuPanel = new JPanel();
+        menuPanel = new JPanel();
         menuPanel.setLayout(new GridBagLayout());
         menuPanel.setBackground(Color.WHITE);
 
@@ -224,17 +224,17 @@ public class OrderGUI extends JFrame implements ActionListener{
         this.add(centerPanel, BorderLayout.CENTER);
     }
 
-    public void startOrders(){}
-
-    public void completeOrders(){}
-
-    public void displayBill(){}
-
-    public void applyDiscount(){}
-
-    public void addToBill(){}
-
-    public void removeFromBill(){}
+//    public void startOrders(){}
+//
+//    public void completeOrders(){}
+//
+//    public void displayBill(){}
+//
+//    public void applyDiscount(){}
+//
+//    public void addToBill(){}
+//
+//    public void removeFromBill(){}
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Hot Drinks")) {
