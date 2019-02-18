@@ -20,24 +20,16 @@ public class Discount
 		
 	}
 	
-	
+	public String getName() {
+		return name;
+	}
 
-	
-	public String[] luckyMeDiscount = {"meal", "colddrink", "snack"};
-	
-	
-	public Discount("LuckyMe", "1 meal + 1 cold drink + 1 snack", luckyDiscount);
-	
-	public String GetDescription() 
-	{
+	public String getDescription() {
 		return description;
 	}
 	
-	public String GetName() 
-	{
-		return name;
-	}
 	
+		
 	/*public void SuperDuperFriends() {
 		if 
 		double discount = 0.1;
@@ -45,8 +37,9 @@ public class Discount
 		*/
 	
  
+		// Some kind of possible discounts?
     
-    Item a = new Item ();
+    Item a;
 	Item b;
 	Item c;
 	Item d;
@@ -57,34 +50,34 @@ public class Discount
 	Item i;
 	
     public void SweetBreak() {
-    	if (a.getCategory() == ItemCategory.HotDrink && b.getCategory() == ItemCategory.Pastry) {
-    		a.setPrize(a.getPrize()*0.05);
-    		b.setPrize(b.getPrize()*0.05);
+    	if (a.getCategory() == ItemCategory.HotDrink && b.getCategory() == ItemCategory.Dessert) {
+    		a.setCost(a.getCost()*0.05);
+    		b.setCost(b.getCost()*0.05);
     	}
     }
     
     public void LuckyMe() {
     	if (a.getCategory() == ItemCategory.Meal && b.getCategory() == ItemCategory.ColdDrink && 
-    			c.getCategory() == ItemCategory.Snack ) {
-    		a.setPrize(a.getPrize()*0.1);
-    		b.setPrize(b.getPrize()*0.1);
+    			c.getCategory() == ItemCategory.Dessert ) {
+    		a.setCost(a.getCost()*0.1);
+    		b.setCost(b.getCost()*0.1);
     	}
     }
   
 	
 	public void BigFamily() {
 		if (a.getCategory() == ItemCategory.Meal && b.getCategory() == ItemCategory.ColdDrink && 
-    			c.getCategory() == ItemCategory.Snack && d.getCategory() == ItemCategory.Meal && e.getCategory() == ItemCategory.ColdDrink && 
-    			f.getCategory() == ItemCategory.Snack && g.getCategory() == ItemCategory.Meal && h.getCategory() == ItemCategory.ColdDrink && 
-    			i.getCategory() == ItemCategory.Snack) {
-    		a.setPrize(a.getPrize()*0.15);
-    		b.setPrize(b.getPrize()*0.15);
-    		c.setPrize(c.getPrize()*0.15);
-    		d.setPrize(d.getPrize()*0.15);
-    		f.setPrize(f.getPrize()*0.15);
-    		g.setPrize(g.getPrize()*0.15);
-    		h.setPrize(h.getPrize()*0.15);
-    		i.setPrize(i.getPrize()*0.15);
+    			c.getCategory() == ItemCategory.Dessert && d.getCategory() == ItemCategory.Meal && e.getCategory() == ItemCategory.ColdDrink && 
+    			f.getCategory() == ItemCategory.Dessert && g.getCategory() == ItemCategory.Meal && h.getCategory() == ItemCategory.ColdDrink && 
+    			i.getCategory() == ItemCategory.Dessert) {
+    		a.setCost(a.getCost()*0.15);
+    		b.setCost(b.getCost()*0.15);
+    		c.setCost(c.getCost()*0.15);
+    		d.setCost(d.getCost()*0.15);
+    		f.setCost(f.getCost()*0.15);
+    		g.setCost(g.getCost()*0.15);
+    		h.setCost(h.getCost()*0.15);
+    		i.setCost(i.getCost()*0.15);
     	}		
 	}
 		

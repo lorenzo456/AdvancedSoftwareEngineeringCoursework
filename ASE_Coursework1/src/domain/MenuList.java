@@ -17,16 +17,34 @@ public class MenuList {
 	private TreeSet<Item> menuList= new TreeSet<Item>();
     private HashMap<String, String[]> discountList = new HashMap<String, String[]>();
 
+    
     //TODO 
     public MenuList() {
         ReadFromFile("test.txt");
     }
 
+    
+    // A list with the Name, description and Categories of the items to be discounted.
+    
     public void fillDiscountList() 
     {
     	String[] SDFValues = {"ColdDrink", "ColdDrink","ColdDrink"};
-    	Discount discount = new Discount("Super duper friends", "choose six cold drinks for this discount",SDFValues );
-    	//discountList.put(discount0.GetName(), )
+    	Discount SuperDuperFriends = new Discount("Super duper friends", "choose six cold drinks for this discount",SDFValues );
+    	
+    	String[] BFValues = {"Meal", "Meal", "Meal", "Meal", "ColdDrink", "ColdDrink", "ColdDrink", "Dessert", "Dessert", "Dessert"};
+    	Discount BigFamily = new Discount ("Big Family", "Choose 3 meals, 3 cold drinks and 3 desserts for this discount", BFValues);
+    	
+    	String[] LMValues = {"Meal", "ColdDrink", "Dessert"};
+    	Discount LuckyMe = new Discount ("Lucky Me", "Choose a meal, a cold drink and a dessert for this discount", LMValues);
+    	
+    	String[] SBValues = {"HotDrink", "Dessert"};
+    	Discount SweetBreak = new Discount ("SweetBreak", "Choose a Hot Drink and a Dessert to enojy this discount", SBValues);
+    	
+    	discountList.put(SuperDuperFriends.getName(), SDFValues);
+    	discountList.put(BigFamily.getName(), BFValues);
+    	discountList.put(LuckyMe.getName(), LMValues);
+    	discountList.put(SweetBreak.getName(), SBValues);
+    	
     }
     
 
@@ -82,8 +100,6 @@ public class MenuList {
     }
     
      
-    
-    
     public String getHotDrinks() {
     	String temp = "";
     	for (Item i : menuList) {
@@ -123,11 +139,7 @@ public class MenuList {
     	}
     	return temp;
     }
-    
-    
-    
   
-    
     
 
     //TODO add TRY CATCH

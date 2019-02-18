@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.Collections;
 import java.util.LinkedList;
 
     
@@ -15,20 +16,7 @@ public class Basket {
 	// Create a method that meets some specifications for the offers: if it is a hot drink and a dessert, etc. How?
 	// Think first about simple discounts: two things from different subclasses. Like in the competitors.
 	
-	
-	
-	public void getDiscount() {
-		for (Item a : basket)
-			if (a.getIsDiscounted() == 1) {
-				
-			}
-	}
-	
-	public maybeDiscount() {
-		for (int i = 0; i<4;) {
-			if (item a.getCategory() == )
-		}
-	}
+
 	
 	public Basket() 
     {
@@ -66,54 +54,147 @@ public class Basket {
     	return temp;
     }
     
-  
     
     
-    Item a;
-	Item b;
-	Item c;
-	Item d;
-	Item e;
-	Item f;
-	Item g;
-	Item h;
-	Item i;
+    
+    // For this discount I just put that the last added is gonna be disocunted. I did not implement the minimum cost... 
+    // We will need to change this
+    
+    public void SuperDuperFriends() {
+    	for (Item a : basket) {
+    		if (!a.isDiscounted && a.getCategory() == ItemCategory.ColdDrink) {
+    			for (Item b : basket) {
+    				if (!b.isDiscounted && b.getCategory() == ItemCategory.ColdDrink) {
+    					for (Item c : basket) {
+    	    				if (!c.isDiscounted && c.getCategory() == ItemCategory.ColdDrink) {
+    	    					for (Item d : basket) {
+    	    	    				if (!d.isDiscounted && d.getCategory() == ItemCategory.ColdDrink) {
+    	    	    					for (Item e : basket) {
+    	    	    	    				if (!e.isDiscounted && e.getCategory() == ItemCategory.ColdDrink) {
+    	    	    	    					for (Item f : basket) {
+    	    	    	    	    				if (!f.isDiscounted && f.getCategory() == ItemCategory.ColdDrink) {
+    	    	    	    	    						f.setCost(f.getCost()*0);
+    	    	    	    	    						a.isDiscounted = true;
+    	    	    	    	    						b.isDiscounted = true;
+    	    	    	    	    						c.isDiscounted = true;
+    	    	    	    	    						d.isDiscounted = true;
+    	    	    	    	    						e.isDiscounted = true;
+    	    	    	    	    						f.isDiscounted = true;
+    	    	    	    	    				}
+    	    	    	    					}
+    	    	    	    				}
+    	    	    					}
+    	    	    				}
+    	    					}
+    	    				}
+    					}
+    				}
+    			}
+    		}
+    	}
+    }
+    					
+    	
 	
     public void SweetBreak() {
-    	if (a.getCategory() == ItemCategory.HotDrink && b.getCategory() == ItemCategory.Pastry) {
-    		a.setPrize(a.getPrize()*0.05);
-    		b.setPrize(b.getPrize()*0.05);
+    	for (Item a : basket) {
+    		if (!a.isDiscounted && a.getCategory() == ItemCategory.HotDrink) {
+    			for (Item b : basket) {
+    				if (!b.isDiscounted && b.getCategory() == ItemCategory.Dessert) {
+    					a.setCost(a.getCost()*0.95);
+    					b.setCost(b.getCost()*0.95);
+    					a.isDiscounted = true;
+    					b.isDiscounted = true;
+    		}
+    		}
+    		}
     	}
     }
     
     public void LuckyMe() {
-    	if (a.getCategory() == ItemCategory.Meal && b.getCategory() == ItemCategory.ColdDrink && 
-    			c.getCategory() == ItemCategory.Dessert ) {
-    		a.setPrize(a.getPrize()*0.1);
-    		b.setPrize(b.getPrize()*0.1);
+    	for (Item a : basket) {
+    		if (!a.isDiscounted && a.getCategory() == ItemCategory.Meal) {
+    			for (Item b : basket) {
+    				if (!b.isDiscounted && b.getCategory() == ItemCategory.ColdDrink) {
+    					for (Item c : basket) {
+    						if (!c.isDiscounted && c.getCategory() == ItemCategory.Dessert) {
+    			    					a.setCost(a.getCost()*0.9);
+    			    					b.setCost(b.getCost()*0.9);
+    			    					c.setCost(c.getCost()*0.9);
+    			    					a.isDiscounted = true;
+    			    					b.isDiscounted = true;
+    			    					c.isDiscounted = true;
+    						}
+    					}
+    				}
+    			}
+    		}
     	}
     }
-  
-	
-	public void BigFamily() {
-		if (a.getCategory() == ItemCategory.Meal && b.getCategory() == ItemCategory.ColdDrink && 
-    			c.getCategory() == ItemCategory.Dessert && d.getCategory() == ItemCategory.Meal && e.getCategory() == ItemCategory.ColdDrink && 
-    			f.getCategory() == ItemCategory.Dessert && g.getCategory() == ItemCategory.Meal && h.getCategory() == ItemCategory.ColdDrink && 
-    			i.getCategory() == ItemCategory.Dessert) {
-    		a.setPrize(a.getPrize()*0.15);
-    		b.setPrize(b.getPrize()*0.15);
-    		c.setPrize(c.getPrize()*0.15);
-    		d.setPrize(d.getPrize()*0.15);
-    		f.setPrize(f.getPrize()*0.15);
-    		g.setPrize(g.getPrize()*0.15);
-    		h.setPrize(h.getPrize()*0.15);
-    		i.setPrize(i.getPrize()*0.15);
-    	}		
-	}
-			
-	
-	
+    
+    
+    public void BigFamily() {
+    	for (Item a : basket) {
+    		if (!a.isDiscounted && a.getCategory() == ItemCategory.ColdDrink) {
+    			for (Item b : basket) {
+    				if (!b.isDiscounted && b.getCategory() == ItemCategory.ColdDrink) {
+    					for (Item c : basket) {
+    	    				if (!c.isDiscounted && c.getCategory() == ItemCategory.ColdDrink) {
+    	    					for (Item d : basket) {
+    	    	    				if (!d.isDiscounted && d.getCategory() == ItemCategory.Meal) {
+    	    	    					for (Item e : basket) {
+    	    	    	    				if (!e.isDiscounted && e.getCategory() == ItemCategory.Meal) {
+    	    	    	    					for (Item f : basket) {
+    	    	    	    	    				if (!f.isDiscounted && f.getCategory() == ItemCategory.Meal) {
+    	    	    	    	    					for (Item g : basket) {
+    	    	    	    	    	    				if (!f.isDiscounted && f.getCategory() == ItemCategory.Dessert) {
+    	    	    	    	    	    					for (Item h : basket) {
+    	    	    	    	    	    	    				if (!f.isDiscounted && f.getCategory() == ItemCategory.Dessert) {
+    	    	    	    	    	    	    					for (Item i : basket) {
+    	    	    	    	    	    	    	    				if (!f.isDiscounted && f.getCategory() == ItemCategory.Dessert) {
+    	    	    	    	    	    	    	    					a.setCost(a.getCost()*0.85);
+    	    	    	    	    	    			    					b.setCost(b.getCost()*0.85);
+    	    	    	    	    	    			    					c.setCost(c.getCost()*0.85);
+    	    	    	    	    	    			    					d.setCost(d.getCost()*0.85);
+    	    	    	    	    	    			    					e.setCost(e.getCost()*0.85);
+    	    	    	    	    	    	    	    					f.setCost(f.getCost()*0.85);
+    	    	    	    	    	    	    	    					g.setCost(g.getCost()*0.85);
+    	    	    	    	    	    	    	    					h.setCost(h.getCost()*0.85);
+    	    	    	    	    	    	    	    					i.setCost(i.getCost()*0.85);
+    	    	        	    	    	    	    						a.isDiscounted = true;
+    	    	        	    	    	    	    						b.isDiscounted = true;
+    	    	        	    	    	    	    						c.isDiscounted = true;
+    	    	        	    	    	    	    						d.isDiscounted = true;
+    	    	        	    	    	    	    						e.isDiscounted = true;
+    	    	        	    	    	    	    						f.isDiscounted = true;
+    	    	        	    	    	    	    						g.isDiscounted = true;
+    	    	        	    	    	    	    						h.isDiscounted = true;
+    	    	        	    	    	    	    						i.isDiscounted = true;
+    	    	    	    	    	    	    	    				}
+    	    	    	    	    	    	    					}
+    	    	    	    	    	    	    				}
+    	    	    	    	    	    					}
+    	    	    	    	    	    				}
+    	    	    	    	    					}
+    	    	    	    	    				}
+    	    	    	    					}
+    	    	    	    				}
+    	    	    					}
+    	    	    				}
+    	    					}
+    	    				}
+    					}
+    				}
+    			}
+    		}
+    	}
+    }
 }
+
+	
+		
+	
+	
 	
 	/*public Basket (String name, int number) {
 		this.name = name;

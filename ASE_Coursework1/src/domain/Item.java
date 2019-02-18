@@ -53,8 +53,8 @@ public class Item implements Comparable <Item> {
         return cost;
     }
     
-    public void setPrize(double newprize) {
-    	cost = newprize;
+    public void setCost(double newcost) {
+    	cost = newcost;
     }
 
     public ItemCategory getCategory() {
