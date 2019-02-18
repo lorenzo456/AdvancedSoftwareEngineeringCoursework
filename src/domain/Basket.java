@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.LinkedList;
 
     
@@ -17,9 +18,35 @@ public class Basket {
 	// Think first about simple discounts: two things from different subclasses. Like in the competitors.
 	
 
+
+	 // HashMap with Key: name of discount, and value: array of ItemCategories to be discounted
+   private HashMap<String, String[]> discountList = new HashMap<String, String[]>();
+   
+   public void fillDiscountList() {
+   	String[] SDFValues = {"ColdDrink", "ColdDrink", "ColdDrink"};
+   	Discount SuperDuperFriends = new Discount("Super duper friends", "choose six cold drinks for this discount",SDFValues );
+   	
+   	String[] BFValues = {"Meal", "Meal", "Meal", "Meal", "ColdDrink", "ColdDrink", "ColdDrink", "Dessert", "Dessert", "Dessert"};
+   	Discount BigFamily = new Discount ("Big Family", "Choose 3 meals, 3 cold drinks and 3 desserts for this discount", BFValues);
+   	
+   	String[] LMValues = {"Meal", "ColdDrink", "Dessert"};
+   	Discount LuckyMe = new Discount ("Lucky Me", "Choose a meal, a cold drink and a dessert for this discount", LMValues);
+   	
+   	String[] SBValues = {"HotDrink", "Dessert"};
+   	Discount SweetBreak = new Discount ("SweetBreak", "Choose a Hot Drink and a Dessert to enojy this discount", SBValues);
+   	
+   	discountList.put(SuperDuperFriends.getName(), SDFValues);
+   	discountList.put(BigFamily.getName(), BFValues);
+   	discountList.put(LuckyMe.getName(), LMValues);
+   	discountList.put(SweetBreak.getName(), SBValues);
+   	
+   }
+
 	
 	public Basket() 
     {
+		
+		fillDiscountList();
     	
     }
     
@@ -44,6 +71,26 @@ public class Basket {
     	}
     }
     
+    public double getTotalCost() {
+    	double i = 0;
+    	for (Item a : basket) {
+    		i = i + a.getCost();
+    	}
+    	return i;
+    }
+    
+    public double getTotalDiscountedCost() {
+    	double i = 0;
+    	for (Item a : basket) {
+    		getSuperDuperFriends();
+    		getSweetBreak();
+    		getLuckyMe();
+    		//getBigFamily();
+    		i = i + a.getCost();
+    	}
+    	return i;	
+    }
+    
     public String DisplayBasket() 
     {
     	String temp = "Items inside Basket: ";
@@ -60,8 +107,9 @@ public class Basket {
     // For this discount I just put that the last added is gonna be disocunted. I did not implement the minimum cost... 
     // We will need to change this
     
-    public void SuperDuperFriends() {
+    public void getSuperDuperFriends() {
     	for (Item a : basket) {
+    		
     		if (!a.isDiscounted && a.getCategory() == ItemCategory.ColdDrink) {
     			for (Item b : basket) {
     				if (!b.isDiscounted && b.getCategory() == ItemCategory.ColdDrink) {
@@ -96,7 +144,7 @@ public class Basket {
     					
     	
 	
-    public void SweetBreak() {
+    public void getSweetBreak() {
     	for (Item a : basket) {
     		if (!a.isDiscounted && a.getCategory() == ItemCategory.HotDrink) {
     			for (Item b : basket) {
@@ -111,7 +159,7 @@ public class Basket {
     	}
     }
     
-    public void LuckyMe() {
+    public void getLuckyMe() {
     	for (Item a : basket) {
     		if (!a.isDiscounted && a.getCategory() == ItemCategory.Meal) {
     			for (Item b : basket) {
@@ -131,10 +179,48 @@ public class Basket {
     		}
     	}
     }
+}
     
+   /**
     
-    public void BigFamily() {
-    	for (Item a : basket) {
+    public void getBigFamily() {
+    	for (HashMap.Entry<String, String[]> discountName : discountList.entrySet()){
+    		String key = discountName.getKey();
+    	    String[] value = discountName.getValue();
+    	    String[] temp = new String[value.length];
+    	    boolean applyDiscount = false;
+    	    for (String i : value) {
+    	    	int counter = 0;
+    	    	      	for (Item a : basket) {
+      	     	    	if (a.getCategory().name()==i && !a.isDiscounted) {
+      	    			temp [counter] = a.getCategory().name();
+      	    			counter++;
+      	    		}
+      	    
+      	    	}    	    	
+    	    }
+    	  for (int j = 0; j< temp.length; j++) {
+    		  if (temp[j] == null) {
+    			  applyDiscount = false;
+    			  return;
+    		  }
+    		  applyDiscount = true;    	
+    	  }
+    	if (applyDiscount == true) {
+    		
+    	
+    	}
+    		  
+    	}
+    }
+}
+      	    		
+      	    		
+      	    		
+      	  /**  		
+      	    
+    		if (!a.isDiscounted)
+    		
     		if (!a.isDiscounted && a.getCategory() == ItemCategory.ColdDrink) {
     			for (Item b : basket) {
     				if (!b.isDiscounted && b.getCategory() == ItemCategory.ColdDrink) {
@@ -192,7 +278,7 @@ public class Basket {
 }
 
 	
-		
+	**/	
 	
 	
 	
