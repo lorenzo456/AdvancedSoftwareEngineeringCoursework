@@ -7,7 +7,14 @@ package domain;
 public class Main {
     public static void main(String[] args){
 	    	MenuList menuList = new MenuList();
-	    	System.out.println(menuList.getNumberOfHotDrinks());
+	    	Basket basket = new Basket();
+	    	basket.AddToBasket(menuList.getItemByID("HD01"), 2);
+	    	basket.AddToBasket(menuList.getItemByID("DE01"), 3);
+	    	
+	    	System.out.println(basket.getTotalDiscountedCost());
+	    	
+	  
+	    	
 	    	
 	    	/**Basket basket = new Basket();
 	    	basket.AddToBasket(menuList.GetItemByID("HD01"), 1);

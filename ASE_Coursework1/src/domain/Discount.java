@@ -1,12 +1,15 @@
 package domain;
 import java.util.ArrayList;
 
+
 public class Discount 
 {
     
     private String name;
     private String description;
     private ArrayList<String> items = new ArrayList<String>();
+    
+
     
 	public Discount(String name, String description, String[] items) 
 	{
@@ -29,6 +32,17 @@ public class Discount
 	}
 	
 	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 		
 	/*public void SuperDuperFriends() {
 		if 
@@ -49,7 +63,7 @@ public class Discount
 	Item h;
 	Item i;
 	
-    public void SweetBreak() {
+    public void getSweetBreak() {
     	if (a.getCategory() == ItemCategory.HotDrink && b.getCategory() == ItemCategory.Dessert) {
     		a.setCost(a.getCost()*0.05);
     		b.setCost(b.getCost()*0.05);

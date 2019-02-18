@@ -15,20 +15,13 @@ import java.util.TreeSet;
 public class MenuList {
 
 	private TreeSet<Item> menuList= new TreeSet<Item>();
+    
+	 // HashMap with Key: name of discount, and value: array of ItemCategories to be discounted
     private HashMap<String, String[]> discountList = new HashMap<String, String[]>();
-
-    
-    //TODO 
-    public MenuList() {
-        ReadFromFile("test.txt");
-    }
-
-    
-    // A list with the Name, description and Categories of the items to be discounted.
     
     public void fillDiscountList() 
     {
-    	String[] SDFValues = {"ColdDrink", "ColdDrink","ColdDrink"};
+    	String[] SDFValues = {"ColdDrink", "ColdDrink", "ColdDrink"};
     	Discount SuperDuperFriends = new Discount("Super duper friends", "choose six cold drinks for this discount",SDFValues );
     	
     	String[] BFValues = {"Meal", "Meal", "Meal", "Meal", "ColdDrink", "ColdDrink", "ColdDrink", "Dessert", "Dessert", "Dessert"};
@@ -45,6 +38,12 @@ public class MenuList {
     	discountList.put(LuckyMe.getName(), LMValues);
     	discountList.put(SweetBreak.getName(), SBValues);
     	
+    }
+
+    
+    //TODO 
+    public MenuList() {
+        ReadFromFile("test.txt");
     }
     
 
@@ -263,7 +262,7 @@ public class MenuList {
     
 
     //TODO add TRY CATCH
-    public Item GetItemByID(String id) 
+    public Item getItemByID(String id) 
     {
     	//need to add try - check if list not empty else throw error
     	if(!menuList.isEmpty()) 
