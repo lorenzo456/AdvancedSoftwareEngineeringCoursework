@@ -110,11 +110,71 @@ public class MenuList {
     	return temp;
     }
     
+    public String getNameOfHotDrinks() {
+    	String temp = "";
+    	for (Item i : menuList) {
+    		if (i.getCategory() == ItemCategory.HotDrink) {
+    			temp += i.getName() + "\n";
+    		}
+    	}
+    	return temp;
+    }
+    
+    public String getDescriptionOfHotDrinks() {
+    	String temp = "";
+    	for (Item i : menuList) {
+    		if (i.getCategory() == ItemCategory.HotDrink) {
+    			temp += i.getDescription() + "\n";
+    		}
+    	}
+    	return temp;
+    }
+    
+    public String getCostOfHotDrinks() {
+    	String temp = "";
+    	for (Item i : menuList) {
+    		if (i.getCategory() == ItemCategory.HotDrink) {
+    			temp += i.getCost() + "\n";
+    		}
+    	}
+    	return temp;
+    }
+    
     public String getColdDrinks() {
     	String temp = "";
     	for (Item i : menuList) {
     		if (i.getCategory() == ItemCategory.ColdDrink) {
     			temp += i.getName() + " " + i.getDescription() + " " + i.getCost() + "\n";
+    		}
+    	}
+    	return temp;
+    }
+    
+    public String getNameOfColdDrinks() {
+    	String temp = "";
+    	for (Item i : menuList) {
+    		if (i.getCategory() == ItemCategory.ColdDrink) {
+    			temp += i.getName() + "\n";
+    		}
+    	}
+    	return temp;
+    }
+    
+    public String getDescriptionOfColdDrinks() {
+    	String temp = "";
+    	for (Item i : menuList) {
+    		if (i.getCategory() == ItemCategory.ColdDrink) {
+    			temp += i.getDescription() + "\n";
+    		}
+    	}
+    	return temp;
+    }
+    
+    public String getCostOfColdDrinks() {
+    	String temp = "";
+    	for (Item i : menuList) {
+    		if (i.getCategory() == ItemCategory.ColdDrink) {
+    			temp += i.getCost() + "\n";
     		}
     	}
     	return temp;
@@ -130,11 +190,71 @@ public class MenuList {
     	return temp;
     }
     
+    public String getNameOfMeals() {
+    	String temp = "";
+    	for (Item i : menuList) {
+    		if (i.getCategory() == ItemCategory.Meal) {
+    			temp += i.getName() + "\n";
+    		}
+    	}
+    	return temp;
+    }
+    
+    public String getDescriptionOfMeals() {
+    	String temp = "";
+    	for (Item i : menuList) {
+    		if (i.getCategory() == ItemCategory.Meal) {
+    			temp += i.getDescription() + "\n";
+    		}
+    	}
+    	return temp;
+    }
+    
+    public String getCostOfMeals() {
+    	String temp = "";
+    	for (Item i : menuList) {
+    		if (i.getCategory() == ItemCategory.Meal) {
+    			temp += i.getCost() + "\n";
+    		}
+    	}
+    	return temp;
+    }
+    
     public String getDessert() {
     	String temp = "";
     	for (Item i : menuList) {
     		if (i.getCategory() == ItemCategory.Dessert) {
     			temp += i.getName() + " " + i.getDescription() + " " + i.getCost() + "\n";
+    		}
+    	}
+    	return temp;
+    }
+    
+    public String getNameOfDesserts() {
+    	String temp = "";
+    	for (Item i : menuList) {
+    		if (i.getCategory() == ItemCategory.Dessert) {
+    			temp += i.getName() + "\n";
+    		}
+    	}
+    	return temp;
+    }
+    
+    public String getDescriptionOfDessert() {
+    	String temp = "";
+    	for (Item i : menuList) {
+    		if (i.getCategory() == ItemCategory.Dessert) {
+    			temp += i.getDescription() + "\n";
+    		}
+    	}
+    	return temp;
+    }
+    
+    public String getCostOfDessert() {
+    	String temp = "";
+    	for (Item i : menuList) {
+    		if (i.getCategory() == ItemCategory.Dessert) {
+    			temp += i.getCost() + "\n";
     		}
     	}
     	return temp;
