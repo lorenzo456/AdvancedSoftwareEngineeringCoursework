@@ -43,7 +43,7 @@ public class MenuList {
     
     //TODO 
     public MenuList() {
-        ReadFromFile("test.txt");
+        ReadFromFile("MenuFile.txt");
     }
     
 

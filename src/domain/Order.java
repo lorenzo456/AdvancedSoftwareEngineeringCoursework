@@ -5,12 +5,13 @@ import java.util.Date;
 public class Order {
 	   
 	private Date timestamp;
-	private String itemId;
+	private String itemName;
+	
 	private String customerId;
 
-	public Order(String customerId,String itemId, Date timestamp) {
+	public Order(String customerId,String itemName, Date timestamp) {
 	this.timestamp = timestamp;
-	this.itemId = itemId;
+	this.itemName = itemName;
 	this.customerId = customerId;
 	}
 
@@ -19,7 +20,7 @@ public class Order {
 	    }
 
 	    public String getItemId() {
-	        return itemId;
+	        return itemName;
 	    }
 
 	    public String getCustomerId() {

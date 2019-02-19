@@ -34,7 +34,7 @@ public class OrderList {
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(separator);
 
-                SimpleDateFormat parser = new SimpleDateFormat("EEE MMM d HH:mm:ss zzz yyyy");
+                SimpleDateFormat parser = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
                 Date date = parser.parse(parts[2].trim());
 
                 list.getOrders().add(
