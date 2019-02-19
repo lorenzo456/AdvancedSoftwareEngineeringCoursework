@@ -5,7 +5,7 @@ import gui.OrderGUI;
 public class Main {
     public static void main(String[] args){
     	MenuList menuList = new MenuList();
-    	//System.out.println(menuList.displayTree());
+    	System.out.println(menuList.displayTree());
     	
     	Basket basket = new Basket();
     	basket.AddToBasket(menuList.GetItemByID("HD01"), 1);

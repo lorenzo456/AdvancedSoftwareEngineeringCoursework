@@ -1,3 +1,4 @@
+
 package  gui;
 
 import domain.Basket;
@@ -30,9 +31,9 @@ public class OrderGUI extends JFrame implements ActionListener{
         this.initGUI();
     }
 
-    /**
-     * Initialize GUI
-     */
+    
+     // Initialize GUI
+     
     public void initGUI() {
 
         setupNorthPanel();

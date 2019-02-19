@@ -78,12 +78,7 @@ public class HotDrinksGUI extends JFrame implements ActionListener  {
  	    b3.addActionListener(this);
  	    b4.addActionListener(this);
  	    b5.addActionListener(this);
- 	    /*
- 	    b1 = new JButton(d1.GetName());
-   	    b2 = new JButton(d2.GetName());
-   	    b3 = new JButton(d3.GetName());
-   	    b4 = new JButton(d4.GetName());
- 	     */
+
 	
  	    //panel up
  	    up = new JPanel();
