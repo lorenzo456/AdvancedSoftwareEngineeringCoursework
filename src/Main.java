@@ -8,10 +8,10 @@ public class Main {
     	System.out.println(menuList.displayTree());
     	
     	Basket basket = new Basket();
-    	basket.AddToBasket(menuList.GetItemByID("HD01"), 1);
-    	basket.AddToBasket(menuList.GetItemByID("HD02"), 1);
-    	basket.AddToBasket(menuList.GetItemByID("HD01"), 1);
-    	basket.AddToBasket(menuList.GetItemByID("HD01"), 1);
+    	basket.AddToBasket(menuList.getItemByID("HD01"), 1);
+    	basket.AddToBasket(menuList.getItemByID("HD02"), 1);
+    	basket.AddToBasket(menuList.getItemByID("HD01"), 1);
+    	basket.AddToBasket(menuList.getItemByID("HD01"), 1);
     	System.out.println(basket.DisplayBasket());
 
 		OrderGUI orderGui = new OrderGUI(menuList);
