@@ -14,11 +14,11 @@ Orange juice,			2.5,	Cold 100% orange juice,		ColdDrink,	CD01,	Drink,
 Apple juice,			2.5,	Cold 100% apple juice,		ColdDrink,	CD02,	Drink,
 Water bottle,			1.5,	cold water bottle,			ColdDrink,	CD03,	Drink,
 /
-/SNACKS
-Croissant,				1.25,	pastry,						Pastry,		SN01,	Food,
-Muffins,				1.20,	muffin,						Snack,		SN02,	Food,
-Cinnamon roll,			2.25,	sweet cinnamon roll,		Pastry,		SN03,	Food,
-Bagel,					3.20,	Bagel,						Snack,		SN04,	Food,
+/DESSERTS
+Croissant,				1.25,	pastry,						Dessert,	SN01,	Food,
+Muffins,				1.20,	muffin,						Dessert,	SN02,	Food,
+Cinnamon roll,			2.25,	sweet cinnamon roll,		Dessert,	SN03,	Food,
+Bagel,					3.20,	Bagel,						Dessert,	SN04,	Food,
 /
 /FOOD
 Cheese Sandwich, 		2.50,	Sandwich with cheese,		Meal,		FI01,	Food,
