@@ -113,7 +113,7 @@ public class MenuList {
     	String temp = "";
     	for (Item i : menuList) {
     		if (i.getCategory() == ItemCategory.HotDrink) {
-    			temp += i.getName() + "\n";
+    			temp += i.getName();
     		}
     	}
     	return temp;
@@ -123,7 +123,7 @@ public class MenuList {
     	String temp = "";
     	for (Item i : menuList) {
     		if (i.getCategory() == ItemCategory.HotDrink) {
-    			temp += i.getDescription() + "\n";
+    			temp += i.getDescription();
     		}
     	}
     	return temp;
@@ -133,7 +133,7 @@ public class MenuList {
     	String temp = "";
     	for (Item i : menuList) {
     		if (i.getCategory() == ItemCategory.HotDrink) {
-    			temp += i.getCost() + "\n";
+    			temp += i.getCost();
     		}
     	}
     	return temp;
@@ -153,7 +153,7 @@ public class MenuList {
     	String temp = "";
     	for (Item i : menuList) {
     		if (i.getCategory() == ItemCategory.ColdDrink) {
-    			temp += i.getName() + "\n";
+    			temp += i.getName();
     		}
     	}
     	return temp;
@@ -163,7 +163,7 @@ public class MenuList {
     	String temp = "";
     	for (Item i : menuList) {
     		if (i.getCategory() == ItemCategory.ColdDrink) {
-    			temp += i.getDescription() + "\n";
+    			temp += i.getDescription();
     		}
     	}
     	return temp;
@@ -173,7 +173,7 @@ public class MenuList {
     	String temp = "";
     	for (Item i : menuList) {
     		if (i.getCategory() == ItemCategory.ColdDrink) {
-    			temp += i.getCost() + "\n";
+    			temp += i.getCost();
     		}
     	}
     	return temp;
@@ -193,7 +193,7 @@ public class MenuList {
     	String temp = "";
     	for (Item i : menuList) {
     		if (i.getCategory() == ItemCategory.Meal) {
-    			temp += i.getName() + "\n";
+    			temp += i.getName();
     		}
     	}
     	return temp;
@@ -203,7 +203,7 @@ public class MenuList {
     	String temp = "";
     	for (Item i : menuList) {
     		if (i.getCategory() == ItemCategory.Meal) {
-    			temp += i.getDescription() + "\n";
+    			temp += i.getDescription();
     		}
     	}
     	return temp;
@@ -213,7 +213,7 @@ public class MenuList {
     	String temp = "";
     	for (Item i : menuList) {
     		if (i.getCategory() == ItemCategory.Meal) {
-    			temp += i.getCost() + "\n";
+    			temp += i.getCost();
     		}
     	}
     	return temp;
@@ -233,7 +233,7 @@ public class MenuList {
     	String temp = "";
     	for (Item i : menuList) {
     		if (i.getCategory() == ItemCategory.Dessert) {
-    			temp += i.getName() + "\n";
+    			temp += i.getName();
     		}
     	}
     	return temp;
@@ -243,7 +243,7 @@ public class MenuList {
     	String temp = "";
     	for (Item i : menuList) {
     		if (i.getCategory() == ItemCategory.Dessert) {
-    			temp += i.getDescription() + "\n";
+    			temp += i.getDescription();
     		}
     	}
     	return temp;
@@ -253,7 +253,7 @@ public class MenuList {
     	String temp = "";
     	for (Item i : menuList) {
     		if (i.getCategory() == ItemCategory.Dessert) {
-    			temp += i.getCost() + "\n";
+    			temp += i.getCost();
     		}
     	}
     	return temp;
