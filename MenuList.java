@@ -15,35 +15,18 @@ import java.util.TreeSet;
 public class MenuList {
 
 	private TreeSet<Item> menuList= new TreeSet<Item>();
-    
-	 // HashMap with Key: name of discount, and value: array of ItemCategories to be discounted
     private HashMap<String, String[]> discountList = new HashMap<String, String[]>();
-    
-    public void fillDiscountList() 
-    {
-    	String[] SDFValues = {"ColdDrink", "ColdDrink", "ColdDrink"};
-    	Discount SuperDuperFriends = new Discount("Super duper friends", "choose six cold drinks for this discount",SDFValues );
-    	
-    	String[] BFValues = {"Meal", "Meal", "Meal", "Meal", "ColdDrink", "ColdDrink", "ColdDrink", "Dessert", "Dessert", "Dessert"};
-    	Discount BigFamily = new Discount ("Big Family", "Choose 3 meals, 3 cold drinks and 3 desserts for this discount", BFValues);
-    	
-    	String[] LMValues = {"Meal", "ColdDrink", "Dessert"};
-    	Discount LuckyMe = new Discount ("Lucky Me", "Choose a meal, a cold drink and a dessert for this discount", LMValues);
-    	
-    	String[] SBValues = {"HotDrink", "Dessert"};
-    	Discount SweetBreak = new Discount ("SweetBreak", "Choose a Hot Drink and a Dessert to enojy this discount", SBValues);
-    	
-    	discountList.put(SuperDuperFriends.getName(), SDFValues);
-    	discountList.put(BigFamily.getName(), BFValues);
-    	discountList.put(LuckyMe.getName(), LMValues);
-    	discountList.put(SweetBreak.getName(), SBValues);
-    	
-    }
 
-    
     //TODO 
     public MenuList() {
         ReadFromFile("test.txt");
+    }
+
+    public void fillDiscountList() 
+    {
+    	String[] SDFValues = {"ColdDrink", "ColdDrink","ColdDrink"};
+    	Discount discount = new Discount("Super duper friends", "choose six cold drinks for this discount",SDFValues );
+    	//discountList.put(discount0.GetName(), )
     }
     
 
@@ -99,41 +82,13 @@ public class MenuList {
     }
     
      
+    
+    
     public String getHotDrinks() {
     	String temp = "";
     	for (Item i : menuList) {
     		if (i.getCategory() == ItemCategory.HotDrink) {
     			temp += i.getName() + " " + i.getDescription() + " " + i.getCost() + "\n";
-    		}
-    	}
-    	return temp;
-    }
-    
-    public String getNameOfHotDrinks() {
-    	String temp = "";
-    	for (Item i : menuList) {
-    		if (i.getCategory() == ItemCategory.HotDrink) {
-    			temp += i.getName() + "\n";
-    		}
-    	}
-    	return temp;
-    }
-    
-    public String getDescriptionOfHotDrinks() {
-    	String temp = "";
-    	for (Item i : menuList) {
-    		if (i.getCategory() == ItemCategory.HotDrink) {
-    			temp += i.getDescription() + "\n";
-    		}
-    	}
-    	return temp;
-    }
-    
-    public String getCostOfHotDrinks() {
-    	String temp = "";
-    	for (Item i : menuList) {
-    		if (i.getCategory() == ItemCategory.HotDrink) {
-    			temp += i.getCost() + "\n";
     		}
     	}
     	return temp;
@@ -149,71 +104,11 @@ public class MenuList {
     	return temp;
     }
     
-    public String getNameOfColdDrinks() {
-    	String temp = "";
-    	for (Item i : menuList) {
-    		if (i.getCategory() == ItemCategory.ColdDrink) {
-    			temp += i.getName() + "\n";
-    		}
-    	}
-    	return temp;
-    }
-    
-    public String getDescriptionOfColdDrinks() {
-    	String temp = "";
-    	for (Item i : menuList) {
-    		if (i.getCategory() == ItemCategory.ColdDrink) {
-    			temp += i.getDescription() + "\n";
-    		}
-    	}
-    	return temp;
-    }
-    
-    public String getCostOfColdDrinks() {
-    	String temp = "";
-    	for (Item i : menuList) {
-    		if (i.getCategory() == ItemCategory.ColdDrink) {
-    			temp += i.getCost() + "\n";
-    		}
-    	}
-    	return temp;
-    }
-    
     public String getMeals() {
     	String temp = "";
     	for (Item i : menuList) {
     		if (i.getCategory() == ItemCategory.Meal) {
     			temp += i.getName() + " " + i.getDescription() + " " + i.getCost() + "\n";
-    		}
-    	}
-    	return temp;
-    }
-    
-    public String getNameOfMeals() {
-    	String temp = "";
-    	for (Item i : menuList) {
-    		if (i.getCategory() == ItemCategory.Meal) {
-    			temp += i.getName() + "\n";
-    		}
-    	}
-    	return temp;
-    }
-    
-    public String getDescriptionOfMeals() {
-    	String temp = "";
-    	for (Item i : menuList) {
-    		if (i.getCategory() == ItemCategory.Meal) {
-    			temp += i.getDescription() + "\n";
-    		}
-    	}
-    	return temp;
-    }
-    
-    public String getCostOfMeals() {
-    	String temp = "";
-    	for (Item i : menuList) {
-    		if (i.getCategory() == ItemCategory.Meal) {
-    			temp += i.getCost() + "\n";
     		}
     	}
     	return temp;
@@ -229,40 +124,14 @@ public class MenuList {
     	return temp;
     }
     
-    public String getNameOfDesserts() {
-    	String temp = "";
-    	for (Item i : menuList) {
-    		if (i.getCategory() == ItemCategory.Dessert) {
-    			temp += i.getName() + "\n";
-    		}
-    	}
-    	return temp;
-    }
     
-    public String getDescriptionOfDessert() {
-    	String temp = "";
-    	for (Item i : menuList) {
-    		if (i.getCategory() == ItemCategory.Dessert) {
-    			temp += i.getDescription() + "\n";
-    		}
-    	}
-    	return temp;
-    }
     
-    public String getCostOfDessert() {
-    	String temp = "";
-    	for (Item i : menuList) {
-    		if (i.getCategory() == ItemCategory.Dessert) {
-    			temp += i.getCost() + "\n";
-    		}
-    	}
-    	return temp;
-    }
   
+    
     
 
     //TODO add TRY CATCH
-    public Item getItemByID(String id) 
+    public Item GetItemByID(String id) 
     {
     	//need to add try - check if list not empty else throw error
     	if(!menuList.isEmpty()) 

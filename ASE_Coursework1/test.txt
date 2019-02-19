@@ -1,0 +1,28 @@
+/Name					Cost	Description					Category	ID		Type
+/
+/HOTDRINKS
+Cafe Latte,				2.5,	Coffee with milk,			HotDrink,	HD01,	Drink,
+Cafe Mocha,				3,		Coffee with choco,			HotDrink,	HD02,	Drink,
+Cappuccino,				2,		Espresso,					HotDrink,	HD03,	Drink,
+Double espresso,		3.5,	Double espresso,			HotDrink,	HD04,	Drink,
+Tea,					2.8,	Original tea,				HotDrink,	HD05,	Drink,
+/
+/Cold Drinks
+Iced tea,				3,		Cold tea,					ColdDrink,	CD01,	Drink,
+Iced coffee,			3.5,	Cold coffee,				ColdDrink,	CD02,	Drink,
+Orange juice,			2.5,	Cold 100% orange juice,		ColdDrink,	CD01,	Drink,
+Apple juice,			2.5,	Cold 100% apple juice,		ColdDrink,	CD02,	Drink,
+Water bottle,			1.5,	cold water bottle,			ColdDrink,	CD03,	Drink,
+/
+/DESSERTS
+Croissant,				1.25,	pastry,						Dessert,	SN01,	Food,
+Muffins,				1.20,	muffin,						Dessert,	SN02,	Food,
+Cinnamon roll,			2.25,	sweet cinnamon roll,		Dessert,	SN03,	Food,
+Bagel,					3.20,	Bagel,						Dessert,	SN04,	Food,
+/
+/FOOD
+Cheese Sandwich, 		2.50,	Sandwich with cheese,		Meal,		FI01,	Food,
+Ham Sandwich,			2.50,	Sandwich with ham,			Meal,		FI02,	Food,
+Cheese & ham sandwich,	3.25,	Sandwich w ham & cheese,	Meal,		FI03,	Food,
+Egg  and mayo sandwich,	3,		Sandwich w egg,				Meal,		FI04,	Food,
+Egg & cheese sandwich,	3.5,	Sandwich w egg & cheese,	Meal,		FI05,	Food,
