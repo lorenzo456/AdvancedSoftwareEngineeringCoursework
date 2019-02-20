@@ -276,10 +276,10 @@ public class HotDrinksGUI extends JFrame implements ActionListener  {
 		this.setVisible(true);
 	}
 
-
+/*
 public static void main (String[] arg) {
 	new HotDrinksGUI(menuList);
 }
 }
-
+*/
 
