@@ -4,6 +4,10 @@ import domain.*;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.TreeSet;
 
 import javax.swing.*;
@@ -17,13 +21,15 @@ public class OrderGUI extends JFrame implements ActionListener{
 
     private JPanel centerPanel, menuPanel;
     private Basket basket;
-    private TreeSet<Item> menuList;
+    private MenuList menuList;
     private Font labelFont = new Font("Serif", Font.BOLD, 30);
     private Border border = BorderFactory.createLineBorder(Color.BLACK);
-
-    public OrderGUI(TreeSet<Item> menuList) {
-        this.basket = new Basket();
+    private OrderList orderList = new OrderList();
+    
+    public OrderGUI(MenuList menuList, Basket basket) {
+       // this.basket = new Basket();
         this.menuList = menuList;
+        this.basket = basket;
         this.initGUI();
     }
 
@@ -62,7 +68,8 @@ public class OrderGUI extends JFrame implements ActionListener{
         this.add(northPanel, BorderLayout.NORTH);
     }
 
-
+    JTextArea basketText;
+    
     public JPanel createBasketPanel(){
         JPanel basketPanel = new JPanel();
         basketPanel.setLayout(new BorderLayout());
@@ -72,8 +79,12 @@ public class OrderGUI extends JFrame implements ActionListener{
         JLabel label = new JLabel("Basket");
         label.setFont(labelFont);
         basketPanel.add(label, BorderLayout.NORTH);
+  		basketText = new JTextArea(25,15);
+  		basketText.setText(basket.DisplayBasket());
+        basketPanel.add(basketText);
 
         JButton checkout = new JButton("Checkout");
+        checkout.addActionListener(this);
 
         checkout.setPreferredSize(new Dimension(40, 120));
         basketPanel.add(checkout, BorderLayout.SOUTH);
@@ -225,23 +236,22 @@ public class OrderGUI extends JFrame implements ActionListener{
         this.add(centerPanel, BorderLayout.CENTER);
     }
 
-//    public void startOrders(){}
-//
-//    public void completeOrders(){}
-//
-//    public void displayBill(){}
-
-//    public void applyDiscount(){}
-//
-//    public void addToBill(){}
-//
-//    public void removeFromBill(){}
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Hot Drinks")) {
-            HotDrinksGUI gui = new HotDrinksGUI(menuList);
+            HotDrinksGUI gui = new HotDrinksGUI(menuList, basket);
             this.dispose();
         }
+        
+        if(e.getActionCommand().equals("Checkout")) 
+        {
+        	//Open PAIDGUI
+        	
+        	//PRINT TO FILES
+        	printOrdersToFile();
+        	this.dispose();
+        }
+        
         if (e.getActionCommand().equals("Cold Drinks")) {
 //            JFrame menuSelection = new ColdDrinksGUI("Cold Drinks", this.basket, this.menuList);
 //            this.dispose();
@@ -258,6 +268,25 @@ public class OrderGUI extends JFrame implements ActionListener{
 
         }
     }
+    
+    void printOrdersToFile() 
+    {
+    	addToOrderList();
+    	orderList.printToFile("OrdersFile2.txt");
+    }
+    
+    void addToOrderList() 
+    {
+    	for(Item i : basket.getBasket()) 
+    	{	    	 
+    		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
+    		LocalDateTime now = LocalDateTime.now();  
+    		Date date = Date.from(now.atZone(ZoneId.systemDefault()).toInstant());
+    		Order order = new Order("ID20B",i.getName(), i.getDescription(), date);
+    		orderList.addToOrderList(order);
+    	}
+    }
+    
 }
 
 

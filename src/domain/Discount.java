@@ -7,7 +7,7 @@ public class Discount
     
     private String name;
     private String description;
-    private ArrayList<String> items = new ArrayList<String>();
+    private String[] items;
     
 
     
@@ -15,12 +15,18 @@ public class Discount
 	{
 		this.name = name;
 		this.description = description;
+		this.items = new String[items.length];
 		
-		for(int i = 0; i < items.length; i++) 
+		for(int i = 0; i < this.items.length; i++) 
 		{
-			this.items.add(items[i]); 
+			this.items[i] = items[i];
 		}
 		
+	}
+	
+	public String[] getItemList() 
+	{
+		return items;
 	}
 	
 	public String getName() {

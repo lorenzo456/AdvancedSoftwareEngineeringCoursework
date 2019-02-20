@@ -17,6 +17,7 @@ public class Item implements Comparable <Item> {
         this.cost = cost;
         this.category = category;
         this.type = type;
+        isDiscounted = false;
     }
     
     
