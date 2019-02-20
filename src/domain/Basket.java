@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -11,18 +12,94 @@ public class Basket {
 	
 
 	private LinkedList<Item> basket = new LinkedList<Item>();
-	
+	private MenuList menuList;
 	// In this class I should include the elements that I add (items), that I select with GUI. How?
 	// We should have a List of all elements (list of all items will be inside BasketList).
 	// We should compare then if the items in BasketList are included in DiscountList. 
 	// Create a method that meets some specifications for the offers: if it is a hot drink and a dessert, etc. How?
 	// Think first about simple discounts: two things from different subclasses. Like in the competitors.
 	
+	
+	Basket(MenuList menuList)
+	{
+		this.menuList = menuList;
+		InitializeDiscountList();
+	}
 
 
 	 // HashMap with Key: name of discount, and value: array of ItemCategories to be discounted
    private HashMap<String, String[]> discountList = new HashMap<String, String[]>();
+   ArrayList<Discount> discountList0 = new ArrayList<Discount>();
    
+   void InitializeDiscountList() 
+   {
+	   	String[] SDFValues = {"ColdDrink", "ColdDrink", "ColdDrink","ColdDrink", "ColdDrink", "ColdDrink"};
+	   	Discount SuperDuperFriends = new Discount("Super duper friends", "choose six cold drinks for this discount",SDFValues );
+	   	
+	   	String[] BFValues = {"Meal", "Meal", "Meal", "Meal", "ColdDrink", "ColdDrink", "ColdDrink", "Dessert", "Dessert", "Dessert"};
+	   	Discount BigFamily = new Discount ("Big Family", "Choose 3 meals, 3 cold drinks and 3 desserts for this discount", BFValues);
+	   	
+	   	String[] LMValues = {"Meal", "ColdDrink", "Dessert"};
+	   	Discount LuckyMe = new Discount ("Lucky Me", "Choose a meal, a cold drink and a dessert for this discount", LMValues);
+	   	
+	   	String[] SBValues = {"HotDrink", "Dessert"};
+	   	Discount SweetBreak = new Discount ("SweetBreak", "Choose a Hot Drink and a Dessert to enojy this discount", SBValues);
+	   	
+	   	discountList0.add(SuperDuperFriends);
+	   	discountList0.add(BigFamily);
+	   	discountList0.add(LuckyMe);
+	   	discountList0.add(SweetBreak);
+
+   }
+   /*
+   public void CheckForDiscounts() 
+   {
+	  // System.out.println("CHECK FOR DISCOUNTS");
+	   //LOOP THROUGH DISCOUNTS
+	   for(Discount dicountIndex : discountList0) 
+	   {
+		   //SPECIFIC DISCOUNT 
+		   System.out.println("LOOKING FOR DISCOUNT: " + dicountIndex.getName());
+		   
+		   Item[] tempList = new Item[dicountIndex.getItemList().length];
+		   int currentIndex = 0;
+		   for(int i = 0; i < dicountIndex.getItemList().length; i++) 
+		   {
+			   for(Item basketItem : basket) 
+			   {
+				   if(dicountIndex.getItemList()[i] == basketItem.getCategory().name() && basketItem.getIsDiscounted() == false) 
+				   {
+					   System.out.println("Found ITEM");
+					   tempList[currentIndex] = basketItem;
+					   currentIndex++;
+					   basketItem.isDiscounted = true;
+					   System.out.println(currentIndex +" CURRENT INDEX");
+					   break;
+				   }
+			   }
+	   
+		   }
+
+		   for(int j = 0; j < tempList.length; j++) 
+		   {
+			   if(tempList[j] == null) 
+			   {
+				   System.out.println(j + " QUIT");
+				   break;
+			   }else if(j == tempList.length -1) 
+			   {
+				   for(int k = 0; k < tempList.length; k++) 
+				   {
+					   tempList[k].isDiscounted = true;
+				   }
+				   System.out.println("APPLY DISCOUNT: " + dicountIndex.getName());
+			   }
+		   }
+		   System.out.println("NO DISCOUNT GIVEN");
+	   }
+	   //System.out.println("CANT FIND ANY DISCOUNT");
+   }
+   */
    public void fillDiscountList() {
    	String[] SDFValues = {"ColdDrink", "ColdDrink", "ColdDrink"};
    	Discount SuperDuperFriends = new Discount("Super duper friends", "choose six cold drinks for this discount",SDFValues );
@@ -42,32 +119,16 @@ public class Basket {
    	discountList.put(SweetBreak.getName(), SBValues);
    	
    }
-
-	
-	public Basket() 
-    {
-		
-		fillDiscountList();
-    	
-    }
-	
-	
-	TreeSet<Item> menulist;
-	
-	 public TreeSet<Item> getListOfItems(){
-	    	return menulist;
-    }
     
     public void AddToBasket(String id, int quantity)
     { 
     	for(int j = 0; j < quantity; j++ ) 
     	{
-    		for (Item i : getListOfItems()) {
-    			if (i.getId() == id) {
-    		Item tempItem = new Item(i.getId(), i.getName(), i.getDescription(), i.getCost(), i.getCategory(), i.getType());
-        	basket.add(tempItem);
-    	}
-    }}}
+    		Item temp = menuList.getItemByID(id);
+    		basket.add(temp);
+		}
+	}
+    
     
     
     public void RemoveFromBasketById(String id) 
