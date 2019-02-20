@@ -1,34 +1,34 @@
+package gui;
 
-package  gui;
-
-import domain.Basket;
-import domain.MenuList;
+import domain.*;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.TreeSet;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.Font;
+
+import gui.HotDrinksGUI;
 
 
 public class OrderGUI extends JFrame implements ActionListener{
 
     private JPanel centerPanel, menuPanel;
     private Basket basket;
-    private MenuList menuList;
+    private TreeSet<Item> menuList;
     private Font labelFont = new Font("Serif", Font.BOLD, 30);
     private Border border = BorderFactory.createLineBorder(Color.BLACK);
 
-    public OrderGUI(MenuList menuList) {
+    public OrderGUI(TreeSet<Item> menuList) {
         this.basket = new Basket();
         this.menuList = menuList;
         this.initGUI();
     }
 
-    public OrderGUI(Basket basket, MenuList menuList) {
-        this.basket = basket;
-        this.menuList = menuList;
-        this.initGUI();
+    public OrderGUI() {
+    	initGUI();
     }
 
     
@@ -230,7 +230,7 @@ public class OrderGUI extends JFrame implements ActionListener{
 //    public void completeOrders(){}
 //
 //    public void displayBill(){}
-//
+
 //    public void applyDiscount(){}
 //
 //    public void addToBill(){}
@@ -239,7 +239,7 @@ public class OrderGUI extends JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Hot Drinks")) {
-            JFrame menuSelection = new HotDrinksGUI(this.basket, this.menuList);
+            HotDrinksGUI gui = new HotDrinksGUI(menuList);
             this.dispose();
         }
         if (e.getActionCommand().equals("Cold Drinks")) {

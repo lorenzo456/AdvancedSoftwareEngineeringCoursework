@@ -3,6 +3,7 @@ package domain;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.TreeSet;
 
     
 
@@ -49,15 +50,25 @@ public class Basket {
 		fillDiscountList();
     	
     }
+	
+	
+	TreeSet<Item> menulist;
+	
+	 public TreeSet<Item> getListOfItems(){
+	    	return menulist;
+    }
     
-    public void AddToBasket(Item item, int quantity) 
-    {
-    	for(int i = 0; i < quantity; i++ ) 
+    public void AddToBasket(String id, int quantity)
+    { 
+    	for(int j = 0; j < quantity; j++ ) 
     	{
-    		Item tempItem = new Item(item.getId(), item.getName(), item.getDescription(), item.getCost(), item.getCategory(), item.getType());
+    		for (Item i : getListOfItems()) {
+    			if (i.getId() == id) {
+    		Item tempItem = new Item(i.getId(), i.getName(), i.getDescription(), i.getCost(), i.getCategory(), i.getType());
         	basket.add(tempItem);
     	}
-    }
+    }}}
+    
     
     public void RemoveFromBasketById(String id) 
     {

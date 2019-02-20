@@ -58,6 +58,10 @@ public class MenuList {
     	return temp;
     }
     
+    public TreeSet<Item> getListOfItems(){
+    	return menuList;
+    }
+    
     public int getNumberOfDesserts() {
     	int i = 0;
     	for (Item a : menuList) {
