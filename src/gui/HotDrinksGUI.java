@@ -7,12 +7,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.TreeSet;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import gui.OrderGUI;
 import domain.Basket;
@@ -23,20 +25,23 @@ import domain.MenuList;
 
 
 public class HotDrinksGUI extends JFrame implements ActionListener  {
-	private Basket basket;
-	private static TreeSet<Item> menuList;
+	private  Basket basket;
+	private  TreeSet<Item> menuList;
+	private MenuList menu;
   	private JFrame f;
   	private JPanel up, down, left, right, center;
-	private JButton b1, b2, b3, b4, b5, b6;
-   	private JLabel lab_up, lab_right, lab_down;
-   	private JCheckBox box1, box2,box3,box4;
-   	private JTextArea text_up, text_left, text_right;
-   	private JComboBox numitems;
+	private JButton b1, b2, b3, b4, b5;
+   	private JLabel lab_up;
+   	private JTextArea text_left, text_right;
+   	private JComboBox num;
 	private String[] ids;
 
-	public HotDrinksGUI(TreeSet<Item> menuList) {
+	public HotDrinksGUI(MenuList menuList, Basket basket) {
+		this.basket = basket;
+		this.menuList = menuList.menuList;
+		this.menu = menuList;
 		gui();
-		this.menuList = menuList;
+
 	}
 
 	@Override
@@ -87,38 +92,23 @@ public class HotDrinksGUI extends JFrame implements ActionListener  {
   		lab_up = new JLabel("Be hungry no more!");
   		up.add(lab_up);
   		
-  		//panel right
+  	  //panel right
+
   		right = new JPanel();
   		right.setBackground(Color.ORANGE);
   		text_right = new JTextArea(25,15);
-  		basket = new Basket();
-  		text_right.setText(basket.DisplayBasket());  		
-  		right.add(text_right);
   		
   		//panel center
   		center = new JPanel();
-  		center.setBackground(Color.WHITE);
-  		text_up = new JTextArea(25,35);
-  		text_up.setEditable(false);
-   		
-  		// Checkbox needed
-
-  
   		
-  		 
-   	 /*
-  		  * 
-  		  * dropdown to add before i.GetName()
- 	 		*/
   		
-  		MenuList m= new MenuList();
    		int index = 0;
   		ids = new String[11];
   		String[] a = new String[11];
   	
   		String temp = "Menu List\n\n";
 		
-  		for (Item i : m.getListOfItems()) {
+  		for (Item i : menu.getListOfItems()) {
   			
    			 if (i.getCategory() == ItemCategory.HotDrink) {
    				temp += i.getCost()  + "    --    " +i.getName() + "    --    " + i.getDescription() + "\n" ;
@@ -129,109 +119,343 @@ public class HotDrinksGUI extends JFrame implements ActionListener  {
    			 }
    			
   		}
- 
-  	  		//checkbox
-	    JCheckBox b_1 = new JCheckBox(a[0]);
-	    JCheckBox b_2 = new JCheckBox(a[1]);
-	    JCheckBox b_3 = new JCheckBox(a[2]);
-	    JCheckBox b_4 = new JCheckBox(a[3]);
-	    JCheckBox b_5 = new JCheckBox(a[4]);
-	    	    
-  		/* 
-  		 
-  		 //checkbox action
-	    String tempId = ids[0];
- 		if (b_1.isSelected()) {
- 			tempId = ids[0] ;
- 		}
- 		else if (b_2.isSelected()) {
- 			tempId = ids[1];
- 		}
- 		else if (b_3.isSelected()) {
- 			tempId = ids[2];
- 		}
- 		else if (b_4.isSelected()) {
- 			tempId = ids[3];
- 		}
- 		else if (b_5.isSelected()) {
- 			tempId = ids[4];
- 		}
-	    */
-	   
+  		
   		String[] order = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 		JComboBox<Object> num = new JComboBox<Object>(order);
-		
-		num.addActionListener( new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+  		
+  		// 1 RadioButton
+  		
+	    JRadioButton b_1 = new JRadioButton(a[0]);
+	    b_1.addActionListener(e -> {
+	    	final String tempId = ids[0];
+			num.addActionListener( new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				
+	               String s = (String) num.getSelectedItem();    //.getSelectedItem();//get the selected item
+            	   System.out.print("BUTTON PRESSED");
+            	   if(num.getSelectedIndex()>= 0) 
+            	   {
+                	   OnSelected(tempId, num.getSelectedIndex());
+            	   }
 
-               String s = (String) num.getSelectedItem();    //.getSelectedItem();//get the selected item
-               
-               for (int i = 0; i < order.length; i++) {
-               switch (s) {//check for a match
-                   case "0":
-                   	   //basket.RemoveFromBasketById(tempId);
-                       break;
-                       
-                   case "1":
-                      // basket.RemoveFromBasketById(tempId);
-                   		//basket.AddToBasket(tempId,1);
-                       break;
-                   
-                   case "2":
-                   	//	basket.RemoveFromBasketById(tempId);
-                      // basket.AddToBasket(tempId,2);
-                       break;
-                       
-                   case "3":
-                   	//	basket.RemoveFromBasketById(tempId);
-                   		//basket.AddToBasket(tempId,3);
-                       break;
-                   
-                   case "4":
-                   	//	basket.RemoveFromBasketById(tempId);
-                      // basket.AddToBasket(tempId,4);
-                       break;
-                       
-                   case "5":
-                   	//	basket.RemoveFromBasketById(tempId);
-                   		//basket.AddToBasket(tempId,5);
-                       break;
-                   
-                   case "6":
-                   		//basket.RemoveFromBasketById(tempId);
-                      // basket.AddToBasket(tempId,6);
-                       break;
-                       
-                   case "7":
-                   	//	basket.RemoveFromBasketById(tempId);
-                   	//	basket.AddToBasket(tempId,7);
-                       break;
-                   
-                   case "8":
-                   	//	basket.RemoveFromBasketById(tempId);
-                    //   basket.AddToBasket(tempId,8);
-                       break;
-                       
-                   case "9":
-                   //		basket.RemoveFromBasketById(tempId);
-                   //		basket.AddToBasket(tempId,9);
-                       break;
-                       
-                   case "10":
-                	//   basket.RemoveFromBasketById(tempId);
-                    //   basket.AddToBasket(tempId,10);
-                       break;
-               }
-                   
-               } 
-			}
-		});   
+				}
+			});
+	    	
+	    	
+	    	
+	    	System.out.println(ids[0]);
+        });
 	    
+	    //2 Radio button
+	    
+	    JRadioButton b_2 = new JRadioButton(a[1]);
+	    b_2.addActionListener(e -> {
+	    	final String tempId = ids[1];
+			
+			num.addActionListener( new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				
+	               String s = (String) num.getSelectedItem();    //.getSelectedItem();//get the selected item
+	               for (int i = 0; i < order.length; i++) {
+	               switch (s) {//check for a match
+	                   case "0":
+	                   	   basket.RemoveFromBasketById(tempId);
+	                       break;
+	                       
+	                   case "1":
+	                       basket.RemoveFromBasketById(tempId);
+	                   		basket.AddToBasket(tempId,1);
+	                       break;
+	                   
+	                   case "2":
+	                   		basket.RemoveFromBasketById(tempId);
+	                       basket.AddToBasket(tempId,2);
+	                       break;
+	                       
+	                   case "3":
+	                   		basket.RemoveFromBasketById(tempId);
+	                   		basket.AddToBasket(tempId,3);
+	                       break;
+	                   
+	                   case "4":
+	                   		basket.RemoveFromBasketById(tempId);
+	                       basket.AddToBasket(tempId,4);
+	                       break;
+	                       
+	                   case "5":
+	                   		basket.RemoveFromBasketById(tempId);
+	                   		basket.AddToBasket(tempId,5);
+	                       break;
+	                   
+	                   case "6":
+	                   		basket.RemoveFromBasketById(tempId);
+	                       basket.AddToBasket(tempId,6);
+	                       break;
+	                       
+	                   case "7":
+	                   		basket.RemoveFromBasketById(tempId);
+	                   		basket.AddToBasket(tempId,7);
+	                       break;
+	                   
+	                   case "8":
+	                   		basket.RemoveFromBasketById(tempId);
+	                       basket.AddToBasket(tempId,8);
+	                       break;
+	                       
+	                   case "9":
+	                   		basket.RemoveFromBasketById(tempId);
+	                   		basket.AddToBasket(tempId,9);
+	                       break;
+	                       
+	                   case "10":
+	                	   basket.RemoveFromBasketById(tempId);
+	                       basket.AddToBasket(tempId,10);
+	                       break;
+	               }
+	                   
+	               } 
+				}
+			});
+			
+			
+	    	System.out.println(ids[1]);
+        });
+	    
+	    //3 Radio Button
+	    
+	    JRadioButton b_3 = new JRadioButton(a[2]);
+	    b_3.addActionListener(e -> {
+	    	final String tempId = ids[2];
+			
+			num.addActionListener( new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				
+			    String s = (String) num.getSelectedItem();    //.getSelectedItem();//get the selected item
+	               for (int i = 0; i < order.length; i++) {
+	               switch (s) {//check for a match
+	                   case "0":
+	                   	   basket.RemoveFromBasketById(tempId);
+	                       break;
+	                       
+	                   case "1":
+	                       basket.RemoveFromBasketById(tempId);
+	                   		basket.AddToBasket(tempId,1);
+	                       break;
+	                   
+	                   case "2":
+	                   		basket.RemoveFromBasketById(tempId);
+	                       basket.AddToBasket(tempId,2);
+	                       break;
+	                       
+	                   case "3":
+	                   		basket.RemoveFromBasketById(tempId);
+	                   		basket.AddToBasket(tempId,3);
+	                       break;
+	                   
+	                   case "4":
+	                   		basket.RemoveFromBasketById(tempId);
+	                       basket.AddToBasket(tempId,4);
+	                       break;
+	                       
+	                   case "5":
+	                   		basket.RemoveFromBasketById(tempId);
+	                   		basket.AddToBasket(tempId,5);
+	                       break;
+	                   
+	                   case "6":
+	                   		basket.RemoveFromBasketById(tempId);
+	                       basket.AddToBasket(tempId,6);
+	                       break;
+	                       
+	                   case "7":
+	                   		basket.RemoveFromBasketById(tempId);
+	                   		basket.AddToBasket(tempId,7);
+	                       break;
+	                   
+	                   case "8":
+	                   		basket.RemoveFromBasketById(tempId);
+	                       basket.AddToBasket(tempId,8);
+	                       break;
+	                       
+	                   case "9":
+	                   		basket.RemoveFromBasketById(tempId);
+	                   		basket.AddToBasket(tempId,9);
+	                       break;
+	                       
+	                   case "10":
+	                	   basket.RemoveFromBasketById(tempId);
+	                       basket.AddToBasket(tempId,10);
+	                       break;
+	               }
+	                   
+	               } 
+				}
+			});
+	   
+        });
+	    
+	    // 4 Radio Button
+	    
+	    JRadioButton b_4 = new JRadioButton(a[3]);
+	    b_4.addActionListener(e -> {
+	    	final String tempId = ids[3];
+
+			num.addActionListener( new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				
+			    String s = (String) num.getSelectedItem();    //.getSelectedItem();//get the selected item
+	               for (int i = 0; i < order.length; i++) {
+	               switch (s) {//check for a match
+	                   case "0":
+	                   	   basket.RemoveFromBasketById(tempId);
+	                       break;
+	                       
+	                   case "1":
+	                       basket.RemoveFromBasketById(tempId);
+	                   		basket.AddToBasket(tempId,1);
+	                       break;
+	                   
+	                   case "2":
+	                   		basket.RemoveFromBasketById(tempId);
+	                       basket.AddToBasket(tempId,2);
+	                       break;
+	                       
+	                   case "3":
+	                   		basket.RemoveFromBasketById(tempId);
+	                   		basket.AddToBasket(tempId,3);
+	                       break;
+	                   
+	                   case "4":
+	                   		basket.RemoveFromBasketById(tempId);
+	                       basket.AddToBasket(tempId,4);
+	                       break;
+	                       
+	                   case "5":
+	                   		basket.RemoveFromBasketById(tempId);
+	                   		basket.AddToBasket(tempId,5);
+	                       break;
+	                   
+	                   case "6":
+	                   		basket.RemoveFromBasketById(tempId);
+	                       basket.AddToBasket(tempId,6);
+	                       break;
+	                       
+	                   case "7":
+	                   		basket.RemoveFromBasketById(tempId);
+	                   		basket.AddToBasket(tempId,7);
+	                       break;
+	                   
+	                   case "8":
+	                   		basket.RemoveFromBasketById(tempId);
+	                       basket.AddToBasket(tempId,8);
+	                       break;
+	                       
+	                   case "9":
+	                   		basket.RemoveFromBasketById(tempId);
+	                   		basket.AddToBasket(tempId,9);
+	                       break;
+	                       
+	                   case "10":
+	                	   basket.RemoveFromBasketById(tempId);
+	                       basket.AddToBasket(tempId,10);
+	                       break;
+	               }
+	                   
+	               } 
+				}
+			});
+	   
+        });    
+	    
+	    // 5 Radio Button
+	    
+	    JRadioButton b_5 = new JRadioButton(a[4]);
+	    b_5.addActionListener(e -> {
+	    	final String tempId = ids[4];
+			
+			num.addActionListener( new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				
+			    String s = (String) num.getSelectedItem();    //.getSelectedItem();//get the selected item
+	               for (int i = 0; i < order.length; i++) {
+	               switch (s) {//check for a match
+	                   case "0":
+	                   	   basket.RemoveFromBasketById(tempId);
+	                       break;
+	                       
+	                   case "1":
+	                       basket.RemoveFromBasketById(tempId);
+	                   		basket.AddToBasket(tempId,1);
+	                       break;
+	                   
+	                   case "2":
+	                   		basket.RemoveFromBasketById(tempId);
+	                       basket.AddToBasket(tempId,2);
+	                       break;
+	                       
+	                   case "3":
+	                   		basket.RemoveFromBasketById(tempId);
+	                   		basket.AddToBasket(tempId,3);
+	                       break;
+	                   
+	                   case "4":
+	                   		basket.RemoveFromBasketById(tempId);
+	                       basket.AddToBasket(tempId,4);
+	                       break;
+	                       
+	                   case "5":
+	                   		basket.RemoveFromBasketById(tempId);
+	                   		basket.AddToBasket(tempId,5);
+	                       break;
+	                   
+	                   case "6":
+	                   		basket.RemoveFromBasketById(tempId);
+	                       basket.AddToBasket(tempId,6);
+	                       break;
+	                       
+	                   case "7":
+	                   		basket.RemoveFromBasketById(tempId);
+	                   		basket.AddToBasket(tempId,7);
+	                       break;
+	                   
+	                   case "8":
+	                   		basket.RemoveFromBasketById(tempId);
+	                       basket.AddToBasket(tempId,8);
+	                       break;
+	                       
+	                   case "9":
+	                   		basket.RemoveFromBasketById(tempId);
+	                   		basket.AddToBasket(tempId,9);
+	                       break;
+	                       
+	                   case "10":
+	                	   basket.RemoveFromBasketById(tempId);
+	                       basket.AddToBasket(tempId,10);
+	                       break;
+	               }
+	               //central part for right
+	         		 
+	               } 
+				} 
+			});
+			
+        });
+	   
+  		
+  		//end part right
+  		right.add(text_right);
+  		
+	    
+	    num.addActionListener(this);
+	    ButtonGroup group = new ButtonGroup();
+  		group.add(b_1);
+  		group.add(b_2);
+  		group.add(b_3);
+  		group.add(b_4);
+  		group.add(b_5);
+		
 	    
   		//System.out.println(menuList);
-  		
-  		text_up.setText(temp);
-  		//center.add(text_up);
   		GridLayout grid = new GridLayout(6,1);
   		center.setLayout(grid);
   		center.add(b_1);
@@ -240,9 +464,7 @@ public class HotDrinksGUI extends JFrame implements ActionListener  {
   		center.add(b_4);
   		center.add(b_5);
   		center.add(num);
-  		//center.add(b_6);
-  
-  	
+  		  	
   		
   		//panel left
   		left = new JPanel();
@@ -275,11 +497,32 @@ public class HotDrinksGUI extends JFrame implements ActionListener  {
  		f.pack();
 		this.setVisible(true);
 	}
+	
+	private void OnSelected(String id, int amount) 
+	{
+		if(amount == 0) 
+		{
+			System.out.println("REMOVE ALL ITEMS");
+			basket.RemoveAllItemsOfId(id);
+
+        }
+		else 
+        {
+	        for(int j = 0; j < amount; j++) 
+	        {
+	    		basket.AddToBasket(id,1);
+	        }
+        }
+	text_right.setText(basket.DisplayBasket());
+	}
+}
+
 
 /*
 public static void main (String[] arg) {
-	new HotDrinksGUI(menuList);
+	new HotDrinksGUI(menuList, basket);
+	new basket
 }
-}
-*/
 
+
+*/

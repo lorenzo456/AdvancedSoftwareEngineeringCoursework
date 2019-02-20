@@ -14,7 +14,7 @@ import java.util.TreeSet;
 
 public class MenuList {
 
-	private TreeSet<Item> menuList= new TreeSet<Item>();
+	public TreeSet<Item> menuList= new TreeSet<Item>();
     
 	 // HashMap with Key: name of discount, and value: array of ItemCategories to be discounted
     private HashMap<String, String[]> discountList = new HashMap<String, String[]>();

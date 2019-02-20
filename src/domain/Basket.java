@@ -31,6 +31,10 @@ public class Basket {
    private HashMap<String, String[]> discountList = new HashMap<String, String[]>();
    ArrayList<Discount> discountList0 = new ArrayList<Discount>();
    
+   public LinkedList<Item> getBasket() {
+	   return basket;
+   }
+   
    void InitializeDiscountList() 
    {
 	   	String[] SDFValues = {"ColdDrink", "ColdDrink", "ColdDrink","ColdDrink", "ColdDrink", "ColdDrink"};
@@ -133,16 +137,29 @@ public class Basket {
     
     public void RemoveFromBasketById(String id) 
     {
-    	for(Item i : basket) 
+    	for(int i = 0; i < basket.size(); i ++) 
     	{
-    		if(i.getId() == id) 
+    		if(basket.get(i).getId() == id) 
     		{
     			basket.remove();
     			return;
     		}
     	}
+    	
+    	
     }
     
+    public void RemoveAllItemsOfId(String id)
+    {
+    	for(int i = 0; i < basket.size(); i ++) 
+    	{
+    		if(basket.get(i).getId() == id) 
+    		{
+    			basket.remove();
+    		}
+    	}
+    	
+    }
     public double getTotalCost() {
     	double i = 0;
     	for (Item a : basket) {
@@ -165,7 +182,7 @@ public class Basket {
     
     public String DisplayBasket() 
     {
-    	String temp = "Items inside Basket: ";
+    	String temp = "";
     	for(Item i : basket) 
     	{
     		temp += "Name- " + i.getName() + " Description- " + i.getDescription() + "\n";
