@@ -23,7 +23,7 @@ public class OrderGUITest {
     }
 
     @Test
-    public void initGUI() {
+    public void testInitGUI() {
         String error1 = "Failed to show GUI";
         OrderGUI orderGUI1 = new OrderGUI(this.menuList, basket);
         orderGUI1.initGUI();
@@ -55,7 +55,7 @@ public class OrderGUITest {
 
 
     @Test
-    public void actionPerformed() throws Exception {
+    public void testActionPerformed() throws Exception {
         String error1 = "JFrame was not disposed";
         OrderGUI orderGUI2 = new OrderGUI(this.menuList, basket);
         ActionEvent action = new ActionEvent(this, 1, "Hot Drinks");
