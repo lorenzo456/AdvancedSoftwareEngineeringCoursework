@@ -55,7 +55,7 @@ public class ItemsGUI extends JFrame implements ActionListener  {
 	public void actionPerformed(ActionEvent event) {
 		
 		if(event.getSource() == b1) {
-		text_left.setText("Student discount!\n\n 20% off everything as a student, \n show your student card \n when picking up your order");
+		text_left.setText("Student discount!\n\n20% off everything as a student, \n show your student card \n when picking up your order");
 		} else if(event.getSource() == b2) {
 			text_left.setText("Family Discount!\n\n15% 10% off everything, \n show your family card \n when picking up your order");
 		} else if(event.getSource() == b3) {
