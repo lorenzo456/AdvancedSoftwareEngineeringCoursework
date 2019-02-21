@@ -17,12 +17,9 @@ public class Main {
 	    	Basket basket = new Basket(menuList);
 	    	//basket.AddToBasket("HD01", 2);
 	    	//basket.AddToBasket("DE01", 3);
-	    	//HotDrinksGUI hd = new HotDrinksGUI(menuList, basket);
+	    	//HotDrinksGUI hd = new HotDrinksGUI(menuList, basket, "NAme", "NAMe");
 	    	OrderGUI og = new OrderGUI(menuList, basket);
-	    	System.out.println(basket.getTotalDiscountedCost());	
-	    	 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
-	    	   LocalDateTime now = LocalDateTime.now();  
-	    	   System.out.println(dtf.format(now));  
+
 	    }
 	}
 

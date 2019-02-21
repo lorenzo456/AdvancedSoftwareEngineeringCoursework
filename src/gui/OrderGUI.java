@@ -4,6 +4,7 @@ import domain.*;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -27,14 +28,9 @@ public class OrderGUI extends JFrame implements ActionListener{
     private OrderList orderList = new OrderList();
     
     public OrderGUI(MenuList menuList, Basket basket) {
-       // this.basket = new Basket();
         this.menuList = menuList;
         this.basket = basket;
-        this.initGUI();
-    }
-
-    public OrderGUI() {
-    	initGUI();
+        initGUI();
     }
 
     
@@ -147,7 +143,7 @@ public class OrderGUI extends JFrame implements ActionListener{
 
         JPanel offerPanel = new JPanel();
         offerPanel.setLayout(new GridBagLayout());
-        showDessert.addActionListener(this);
+//        showDessert.addActionListener(this);
         GridBagConstraints o0 = new GridBagConstraints();
         o0.fill = GridBagConstraints.BOTH;
         o0.gridwidth = 2;
@@ -239,33 +235,29 @@ public class OrderGUI extends JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Hot Drinks")) {
-            HotDrinksGUI gui = new HotDrinksGUI(menuList, basket);
+            HotDrinksGUI gui = new HotDrinksGUI(menuList, basket, "HotDrinks", ItemCategory.HotDrink.name());
             this.dispose();
         }
         
         if(e.getActionCommand().equals("Checkout")) 
         {
-        	//Open PAIDGUI
-        	
-        	//PRINT TO FILES
         	printOrdersToFile();
         	this.dispose();
         }
         
         if (e.getActionCommand().equals("Cold Drinks")) {
-//            JFrame menuSelection = new ColdDrinksGUI("Cold Drinks", this.basket, this.menuList);
-//            this.dispose();
+            HotDrinksGUI gui = new HotDrinksGUI(menuList, basket, "Cold Drinks", ItemCategory.ColdDrink.name());
+            this.dispose();
         }
 
         if (e.getActionCommand().equals("Desserts")) {
-//            JFrame menuSelection = new DessertsGUI ("Desserts"), this.basket, this.menuList);
-//            this.dispose();
+            HotDrinksGUI gui = new HotDrinksGUI(menuList, basket, "Desserts", ItemCategory.Dessert.name());
+            this.dispose();
         }
 
         if (e.getActionCommand().equals("Meals")) {
-//            JFrame menuSelection = new MealsGUI ("Meals", this.basket, this.menuList);
-//            this.dispose();
-
+            HotDrinksGUI gui = new HotDrinksGUI(menuList, basket, "Meals", ItemCategory.Meal.name());
+            this.dispose();
         }
     }
     
@@ -281,47 +273,13 @@ public class OrderGUI extends JFrame implements ActionListener{
     	{	    	 
     		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
     		LocalDateTime now = LocalDateTime.now();  
-    		Date date = Date.from(now.atZone(ZoneId.systemDefault()).toInstant());
+    		//Date date = Date.from(now.atZone(ZoneId.systemDefault()).toInstant());
+    		
+            String date = dtf.format(now);
+            
     		Order order = new Order("ID20B",i.getName(), i.getDescription(), date);
     		orderList.addToOrderList(order);
     	}
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
