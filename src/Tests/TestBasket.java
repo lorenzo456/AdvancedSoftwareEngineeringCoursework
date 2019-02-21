@@ -1,38 +1,15 @@
 package Tests;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import domain.Basket;
-import domain.Item;
 import domain.MenuList;
 
 public class TestBasket {
 
-	private Basket basketTest;
-	
-	@Before
-	public void setUp() {
-		MenuList menuList = new MenuList();
-		basketTest = new Basket(menuList);
-		basketTest.AddToBasket("HD01", 2);
-    	basketTest.AddToBasket("DE01", 3);
-    	
-	}
-	
-	//not strictly necessary since setUp starts a new BasketList
-	@After
-	public void tearDown() {
-		MenuList menuList = new MenuList();
-		basketTest = new Basket(menuList);
-	}
-	
-	//Count - if zero, assert true.
 	@Test
 	public void testAdding() {
 		MenuList menuList = new MenuList();
@@ -55,9 +32,8 @@ public class TestBasket {
 		MenuList menuList = new MenuList();
 		Basket basketTest2 = new Basket(menuList);
 		boolean isDeleted = false;
-		basketTest2.AddToBasket("DE01", 2);
-    	basketTest2.RemoveAllItemsOfId("DE01");
-    	    	System.out.println(basketTest2.basket.size());
+		basketTest2.AddToBasket("HD01", 2);
+    	basketTest2.RemoveAllItemsOfId("HD01");
     	if (basketTest2.basket.size() == 0) {
     		isDeleted = true;
     		
@@ -68,28 +44,4 @@ public class TestBasket {
 	}
 }
     	
-    	/**
-  
-		//what was found is what was searched for
-		MyDate foundDate = dateList.find("31/01/2009");
-		assertTrue (foundDate.equals(new MyDate(31,1,2009)));
-		
-		//maybe also search limits - for first and last item
-		
-	@Test
-	public void testDeleting() {
-
-		//this one should not be found
-				assertEquals (null, null, dateList.find("31/04/2014"));
-
-				//what was found is what was searched for
-				MyDate foundDate = dateList.find("31/01/2009");
-				assertTrue (foundDate.equals(new MyDate(31,1,2009)));
-
-				//maybe also search limits - for first and last item
-
-	}
-	
-		
-	} **/
 
