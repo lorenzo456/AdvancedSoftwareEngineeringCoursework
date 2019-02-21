@@ -62,10 +62,9 @@ public class Basket {
     		check = 0;
         	for(int i = 0; i < basket.size(); i ++) 
         	{
-        		System.out.println("LOOP ID " + basket.get(i).getId());
-        		if(basket.get(i).getId() == id) 
+        		if(basket.get(i).getId().equals(id)) 
         		{
-        			System.out.println("REMOVING " + id);
+        			//System.out.println("REMOVING " + id);
         			check++;
         			basket.remove(i);
         		}
