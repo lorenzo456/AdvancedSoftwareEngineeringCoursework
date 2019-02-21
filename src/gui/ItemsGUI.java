@@ -24,9 +24,8 @@ import domain.MenuList;
 
 
 
-public class HotDrinksGUI extends JFrame implements ActionListener  {
+public class ItemsGUI extends JFrame implements ActionListener  {
 	private  Basket basket;
-	private  TreeSet<Item> menuList;
 	private MenuList menu;
   	private JFrame f;
   	private JPanel up, down, left, right, center;
@@ -43,9 +42,8 @@ public class HotDrinksGUI extends JFrame implements ActionListener  {
     ButtonGroup group = new ButtonGroup();
 
 
-	public HotDrinksGUI(MenuList menuList, Basket basket, String name, String category) {
+	public ItemsGUI(MenuList menuList, Basket basket, String name, String category) {
 		this.basket = basket;
-		this.menuList = menuList.menuList;
 		this.menu = menuList;
 		this.name = name;
 		this.category = category;
@@ -57,9 +55,9 @@ public class HotDrinksGUI extends JFrame implements ActionListener  {
 	public void actionPerformed(ActionEvent event) {
 		
 		if(event.getSource() == b1) {
-		text_left.setText("Student discount!\n\n 20% off everything as a student, show your student card when picking up your order");
+		text_left.setText("Student discount!\n\n 20% off everything as a student, \n show your student card \n when picking up your order");
 		} else if(event.getSource() == b2) {
-			text_left.setText("Family Discount!\n\n15% 10% off everything, show your family card when picking up your order");
+			text_left.setText("Family Discount!\n\n15% 10% off everything, \n show your family card \n when picking up your order");
 		} else if(event.getSource() == b3) {
 			text_left.setText("");
 		}else if(event.getSource() == b5) 
@@ -122,7 +120,8 @@ public class HotDrinksGUI extends JFrame implements ActionListener  {
   		}
   		
   		String[] order = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
-		JComboBox<Object> num = new JComboBox<Object>(order);
+  		JComboBox<Object> num = new JComboBox<Object>(order);
+		
 		
 		num.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

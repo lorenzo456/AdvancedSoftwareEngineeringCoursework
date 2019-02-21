@@ -1,5 +1,0 @@
-/UserID			Item					Item description							TimeStamp
-ID20A,			Latte,					Coffee,										19/02/2019 13:41:05,
-ID20A,			Cafe Mocha,				Coffee with choco,							19/02/2019 13:41:05,
-ID20A,			Iced tea,				Cold tea,									19/02/2019 13:41:05,
-ID20A,			Iced tea,				Cold tea,									19/02/2019 13:41:05,

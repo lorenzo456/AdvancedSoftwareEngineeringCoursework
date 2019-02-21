@@ -4,18 +4,14 @@ import domain.*;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.TreeSet;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.Font;
 
-import gui.HotDrinksGUI;
+import gui.ItemsGUI;
 
 
 public class OrderGUI extends JFrame implements ActionListener{
@@ -235,7 +231,7 @@ public class OrderGUI extends JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Hot Drinks")) {
-            HotDrinksGUI gui = new HotDrinksGUI(menuList, basket, "HotDrinks", ItemCategory.HotDrink.name());
+            ItemsGUI gui = new ItemsGUI(menuList, basket, "HotDrinks", ItemCategory.HotDrink.name());
             this.dispose();
         }
         
@@ -246,17 +242,17 @@ public class OrderGUI extends JFrame implements ActionListener{
         }
         
         if (e.getActionCommand().equals("Cold Drinks")) {
-            HotDrinksGUI gui = new HotDrinksGUI(menuList, basket, "Cold Drinks", ItemCategory.ColdDrink.name());
+            ItemsGUI gui = new ItemsGUI(menuList, basket, "Cold Drinks", ItemCategory.ColdDrink.name());
             this.dispose();
         }
 
         if (e.getActionCommand().equals("Desserts")) {
-            HotDrinksGUI gui = new HotDrinksGUI(menuList, basket, "Desserts", ItemCategory.Dessert.name());
+            ItemsGUI gui = new ItemsGUI(menuList, basket, "Desserts", ItemCategory.Dessert.name());
             this.dispose();
         }
 
         if (e.getActionCommand().equals("Meals")) {
-            HotDrinksGUI gui = new HotDrinksGUI(menuList, basket, "Meals", ItemCategory.Meal.name());
+            ItemsGUI gui = new ItemsGUI(menuList, basket, "Meals", ItemCategory.Meal.name());
             this.dispose();
         }
         
@@ -282,7 +278,7 @@ public class OrderGUI extends JFrame implements ActionListener{
     void printOrdersToFile() 
     {
     	addToOrderList();
-    	orderList.printToFile("OrdersFile2.txt");
+    	orderList.printToFile("Files/OrdersFile.txt");
     }
     
     void addToOrderList() 

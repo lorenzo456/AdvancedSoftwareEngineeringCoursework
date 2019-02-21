@@ -6,8 +6,6 @@ import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.TreeSet;
 
 
@@ -16,16 +14,14 @@ public class MenuList {
 
 	public TreeSet<Item> menuList= new TreeSet<Item>();
     
-	 // HashMap with Key: name of discount, and value: array of ItemCategories to be discounted
-    private HashMap<String, String[]> discountList = new HashMap<String, String[]>();
-
-    //TODO 
+	
+  
     public MenuList() {
-        ReadFromFile("MenuFile.txt");
+        ReadFromFile("Files/MenuFile.txt");
     }
     
 
-    //used to debug what's in the Tree
+  
     public String displayTree() 
     {
     	String temp = "";
@@ -36,49 +32,12 @@ public class MenuList {
     	return temp;
     }
     
+    
+    
     public TreeSet<Item> getListOfItems(){
     	return menuList;
     }
     
-    public int getNumberOfDesserts() {
-    	int i = 0;
-    	for (Item a : menuList) {
-    		if (a.getCategory() == ItemCategory.Dessert) {	
-    			i++;
-    		}
-    	}
-    	return i;
-    }
-    
-    public int getNumberOfMeals() {
-    	int i = 0;
-    	for (Item a : menuList) {
-    		if (a.getCategory() == ItemCategory.Meal) {	
-    			i++;
-    		}
-    	}
-    	return i;
-    }
-    
-    public int getNumberOfColdDrinks() {
-    	int i = 0;
-    	for (Item a : menuList) {
-    		if (a.getCategory() == ItemCategory.ColdDrink) {	
-    			i++;
-    		}
-    	}
-    	return i;
-    }
-    
-    public int getNumberOfHotDrinks() {
-    	int i = 0;
-    	for (Item a : menuList) {
-    		if (a.getCategory() == ItemCategory.HotDrink) {	
-    			i++;
-    		}
-    	}
-    	return i;
-    }
     
      
     public String getHotDrinks() {
@@ -295,10 +254,5 @@ public class MenuList {
         }
     }
     
-    //TODO 
-    @Override
-    public String toString() {
-        return "";
-    }
-	
+
 }

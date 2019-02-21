@@ -1,6 +1,8 @@
-package gui;
-
+package Tests;
+import domain.Basket;
 import domain.MenuList;
+import gui.OrderGUI;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,16 +17,18 @@ import static org.junit.Assert.*;
 
 public class OrderGUITest {
     MenuList menuList;
+    Basket basket;
 
     @Before
     public void setUp(){
         menuList = new MenuList();
+        basket = new Basket(menuList);
     }
 
     @Test
     public void initGUI() {
         String error1 = "Failed to show GUI";
-        OrderGUI orderGUI1 = new OrderGUI(this.menuList);
+        OrderGUI orderGUI1 = new OrderGUI(this.menuList, basket);
         orderGUI1.initGUI();
         boolean actual1 = orderGUI1.isVisible();
         assertEquals(error1, true, actual1);
@@ -33,7 +37,7 @@ public class OrderGUITest {
         int expectedHeight = 800;
         String error2 = " It is not this width";
         String error3 = "It is not this height";
-        OrderGUI orderGUI2 = new OrderGUI(this.menuList);
+        OrderGUI orderGUI2 = new OrderGUI(this.menuList, basket);
         int actualWidth = orderGUI2.getWidth();
         int actualHeight = orderGUI2.getHeight();
         assertEquals(error2, expectedWidth, actualWidth);
@@ -43,11 +47,11 @@ public class OrderGUITest {
 
     @Test
     public void testCreateBasketPanel() {
-        OrderGUI orderGUI1 = new OrderGUI(this.menuList);
+        OrderGUI orderGUI1 = new OrderGUI(this.menuList, basket);
         JPanel basketPanel = orderGUI1.createBasketPanel();
         assertThat(basketPanel.getComponents()[0], instanceOf(JLabel.class));
 
-        OrderGUI orderGUI2 = new OrderGUI(this.menuList);
+        OrderGUI orderGUI2 = new OrderGUI(this.menuList, basket);
         JPanel basketPanel1 = orderGUI2.createBasketPanel();
         assertThat(basketPanel1.getComponents()[1], instanceOf(JButton.class));
     }
@@ -56,7 +60,7 @@ public class OrderGUITest {
     @Test
     public void actionPerformed() throws Exception {
         String error1 = "JFrame was not disposed";
-        OrderGUI orderGUI2 = new OrderGUI(this.menuList);
+        OrderGUI orderGUI2 = new OrderGUI(this.menuList, basket);
         ActionEvent action = new ActionEvent(this, 1, "Hot Drinks");
         orderGUI2.actionPerformed(action);
 

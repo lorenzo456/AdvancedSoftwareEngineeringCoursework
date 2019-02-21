@@ -1,35 +1,25 @@
 package domain;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
+
 import java.util.LinkedList;
-import java.util.TreeSet;
+
 
     
 
 public class Basket {
 	private Discount discount = Discount.none;
-	private LinkedList<Item> basket = new LinkedList<Item>();
-	private MenuList menuList;
-	// In this class I should include the elements that I add (items), that I select with GUI. How?
-	// We should have a List of all elements (list of all items will be inside BasketList).
-	// We should compare then if the items in BasketList are included in DiscountList. 
-	// Create a method that meets some specifications for the offers: if it is a hot drink and a dessert, etc. How?
-	// Think first about simple discounts: two things from different subclasses. Like in the competitors.
+	public LinkedList<Item> basket = new LinkedList<Item>();
+	public MenuList menuList;
 	
-	private boolean studentDiscount; 
-	private boolean familyDiscount; 
-	//two for one drinks
-	//
-	Basket(MenuList menuList)
+	
+	public Basket(MenuList menuList)
 	{
 		this.menuList = menuList;
 	}
 
 
-	 // HashMap with Key: name of discount, and value: array of ItemCategories to be discounted
-   private HashMap<String, String[]> discountList = new HashMap<String, String[]>();
+
    ArrayList<Discount> discountList0 = new ArrayList<Discount>();
    
    public LinkedList<Item> getBasket() {
