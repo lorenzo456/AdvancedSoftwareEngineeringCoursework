@@ -96,7 +96,7 @@ public class Basket {
     		i *= 0.9;
     	}
     	
-    	return i;	
+    	return Math.round(i * 100D) / 100D;	
     }
     
     public String DisplayBasket() 
