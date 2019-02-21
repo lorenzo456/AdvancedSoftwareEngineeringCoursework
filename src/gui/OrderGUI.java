@@ -224,8 +224,7 @@ public class OrderGUI extends JFrame implements ActionListener{
         
         if(e.getActionCommand().equals("Checkout")) 
         {
-        	CheckOutGUI gui = new CheckOutGUI(menuList, basket, "Checkout");
-        	printOrdersToFile();
+        	CheckOutGUI gui = new CheckOutGUI(menuList, basket, "Checkout", this);
         	this.dispose();
         }
         

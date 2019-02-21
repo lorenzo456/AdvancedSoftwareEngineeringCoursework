@@ -23,11 +23,13 @@ public class CheckOutGUI  extends JFrame implements ActionListener {
 	private Basket basket;
 	private JTextArea text, t;
 	private JLabel label;
+	private OrderGUI orderGUI;
 
-	public CheckOutGUI(MenuList menuList, Basket basket, String name) {
+	public CheckOutGUI(MenuList menuList, Basket basket, String name, OrderGUI orderGUI) {
 		this.basket = basket;
 		this.menu = menuList;
 		this.name = name;
+		this.orderGUI = orderGUI;
 		gui();
 
 	}
@@ -80,6 +82,7 @@ public class CheckOutGUI  extends JFrame implements ActionListener {
 		}
 			else if(event.getSource() == b2) 
 		{
+			orderGUI.printOrdersToFile();
 			ByeGUI b = new ByeGUI();
 			f.dispose();	   		
 	   		
