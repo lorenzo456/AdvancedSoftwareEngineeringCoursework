@@ -50,7 +50,7 @@ public class OrderGUITest {
 
         OrderGUI orderGUI2 = new OrderGUI(this.menuList, basket);
         JPanel basketPanel1 = orderGUI2.createBasketPanel();
-        assertThat(basketPanel1.getComponents()[1], instanceOf(JButton.class));
+        assertThat(basketPanel1.getComponents()[1], instanceOf(JTextArea.class));
     }
 
 
