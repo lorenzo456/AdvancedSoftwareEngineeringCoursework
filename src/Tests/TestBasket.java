@@ -32,11 +32,15 @@ public class TestBasket {
 		MenuList menuList = new MenuList();
 		Basket basketTest2 = new Basket(menuList);
 		boolean isDeleted = false;
-		basketTest2.AddToBasket("HD01", 2);
-    	basketTest2.RemoveAllItemsOfId("HD01");
+		basketTest2.AddToBasket("HD02", 5);
+		System.out.println(basketTest2.getBasket().size());
+    	basketTest2.RemoveAllItemsOfId("HD02");
     	if (basketTest2.basket.size() == 0) {
     		isDeleted = true;
     		
+    	}else 
+    	{
+    		isDeleted = false;
     	}
     	
     	assertTrue(isDeleted);
