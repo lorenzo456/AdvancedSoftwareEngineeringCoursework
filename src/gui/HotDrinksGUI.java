@@ -35,13 +35,20 @@ public class HotDrinksGUI extends JFrame implements ActionListener  {
    	private JTextArea text_left, text_right;
    	private JComboBox num;
 	private String[] ids;
-
+	private String name;
+	private String category;
 	String tempId;
+	String temp = "Menu List\n\n";
+	
+    ButtonGroup group = new ButtonGroup();
 
-	public HotDrinksGUI(MenuList menuList, Basket basket) {
+
+	public HotDrinksGUI(MenuList menuList, Basket basket, String name, String category) {
 		this.basket = basket;
 		this.menuList = menuList.menuList;
 		this.menu = menuList;
+		this.name = name;
+		this.category = category;
 		gui();
 
 	}
@@ -69,7 +76,7 @@ public class HotDrinksGUI extends JFrame implements ActionListener  {
 	}
 	
 	private void gui() {
-   		f = new JFrame("Hot Drinks");
+   		f = new JFrame(name);
    		f.setVisible(true);
    		f.setSize(800, 500);
    		f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -105,74 +112,29 @@ public class HotDrinksGUI extends JFrame implements ActionListener  {
   		
   		
    		int index = 0;
-  		ids = new String[11];
-  		String[] a = new String[11];
-  	
-  		String temp = "Menu List\n\n";
-		
-  		for (Item i : menu.getListOfItems()) {
-  			
-   			 if (i.getCategory() == ItemCategory.HotDrink) {
+  		ids = new String[menu.menuList.size()];
+  		String[] a = new String[menu.menuList.size()];
+	
+  		for (Item i : menu.getListOfItems()) 
+  		{  			
+   			 if (i.getCategory().name() == category) {
    				temp += i.getCost()  + "    --    " +i.getName() + "    --    " + i.getDescription() + "\n" ;
    			 	ids[index] = i.getId();
    			 	a[index] = i.getCost()  + "    --    " +i.getName() + "    --    " + i.getDescription() + "\n";
+      			 GenerateItems(a, index);
    			 	index++;
-   			 } else {
-   			 }
+   			 }    			 	
    			
   		}
   		
   		String[] order = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 		JComboBox<Object> num = new JComboBox<Object>(order);
-  		// 1 RadioButton
-  		
-	    JRadioButton b_1 = new JRadioButton(a[0]);
-	    b_1.addActionListener(e -> {
-	    	tempId = ids[0];	    	
-	    	System.out.println(ids[0]);
-        });
-	    
 		
-		
-	    //2 Radio button
-	    
-	    JRadioButton b_2 = new JRadioButton(a[1]);
-	    b_2.addActionListener(e -> {
-	    	tempId = ids[1];			
-	    	System.out.println(ids[1]);
-        });
-
-	    
-	    //2 Radio button
-	    
-	    JRadioButton b_3 = new JRadioButton(a[2]);
-	    b_3.addActionListener(e -> {
-	    	tempId = ids[2];			
-	    	System.out.println(ids[1]);
-        });
-	    
-	    //4 Radio button
-	    
-	    JRadioButton b_4 = new JRadioButton(a[3]);
-	    b_4.addActionListener(e -> {
-	    	tempId = ids[3];			
-	    	System.out.println(ids[1]);
-        });
-	    
-	    
-	    //5 Radio button
-	    
-	    JRadioButton b_5 = new JRadioButton(a[4]);
-	    b_5.addActionListener(e -> {
-	    	tempId = ids[4];			
-	    	System.out.println(ids[1]);
-        });
-	    
 		num.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
            String s = (String) num.getSelectedItem();    
-    	   if(num.getSelectedIndex()>= 0) 
+    	   if(num.getSelectedIndex()>= 0 && tempId != null) 
     	   {
         	   OnSelected(tempId, num.getSelectedIndex());
     	   }
@@ -185,22 +147,9 @@ public class HotDrinksGUI extends JFrame implements ActionListener  {
   		
 	    
 	    num.addActionListener(this);
-	    ButtonGroup group = new ButtonGroup();
-  		group.add(b_1);
-  		group.add(b_2);
-  		group.add(b_3);
-  		group.add(b_4);
-  		group.add(b_5);
 
-	    
-  		//System.out.println(menuList);
   		GridLayout grid = new GridLayout(6,1);
   		center.setLayout(grid);
-  		center.add(b_1);
-  		center.add(b_2);
-  		center.add(b_3);
-  		center.add(b_4);
-  		center.add(b_5);
   		center.add(num);
   		  	
   		
@@ -234,9 +183,20 @@ public class HotDrinksGUI extends JFrame implements ActionListener  {
 
  		//scalable
  		f.pack();
-		this.setVisible(true);
 	}
 	
+	private void GenerateItems(String[] b, int itemNumber) 
+	{
+		JRadioButton tempButton = new JRadioButton(b[itemNumber]);
+	    	tempButton.addActionListener(e -> {
+	    	tempId = ids[itemNumber];	    	
+	    	System.out.println(ids[itemNumber]);
+        });
+	    	
+    	group.add(tempButton);
+    	center.add(tempButton);
+		
+	}
 
 	private void OnSelected(String id, int amount) 
 	{
@@ -247,15 +207,14 @@ public class HotDrinksGUI extends JFrame implements ActionListener  {
 			System.out.println("REMOVE ALL ITEMS: " + id);
 			basket.RemoveAllItemsOfId(id);	
         }
-		else 
+		else if(amount > 0)
         {
 	        for(int j = 0; j < amount; j++) 
 	        {
 	    		basket.AddToBasket(id,1);
 	        }
-        }
-		
-	text_right.setText(basket.DisplayBasket());
+        }		
+		text_right.setText(basket.DisplayBasket());
 	}
 }
 

@@ -16,15 +16,17 @@ public class OrderList {
     private ArrayList<Order> orders = new ArrayList<Order>();
 
     public OrderList() {
-    	fromFile("OrdersFile.txt");
+    	fromFile("OrdersFile2.txt");
     }
 
     public String getListOfOrders() 
     {
     	String temp = "";
+    	temp += String.format("%s %15s %20s %60s ", "/User ID", "Item", "Item description", "Timestamp \n");
     	for(Order i : orders) 
     	{
-    		temp += String.format(/*"%10 %10 %10 %10 \n"*/ i.getCustomerId()+ i.getItemName()+ i.getItemDescription()+ i.getTimestamp() +"\n");
+    		//temp += String.format(/*"%10 %10 %10 %10 \n"*/ i.getCustomerId()+ i.getItemName()+ i.getItemDescription()+ i.getTimestamp() +"\n");
+        	temp += String.format("%s %15s %20s %60s ", i.getCustomerId()+",", i.getItemName()+",", i.getItemDescription()+",", i.getTimestamp()+","+"\n");
     	}
     	return temp;
     }
@@ -57,17 +59,14 @@ public class OrderList {
                 String customerId = parts[0].trim();
                 String itemName = parts[1].trim();
         		String description = parts[2].trim();
-                SimpleDateFormat parser = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-                Date date = parser.parse(parts[3].trim());
+                String date = parts[3].trim();
                 
                 System.out.println(customerId + " " + itemName + " " +  description + " " + date);
                 
                 Order tempOrder = new Order(parts[0].trim(), parts[1].trim(), parts[2].trim(), date);
                 orders.add(tempOrder); 
             }
-        } catch (ParseException e){
-            System.out.println("Unable to parse a time stamp" + e.getMessage());
-        } catch (IOException e) {
+        }catch (IOException e) {
             System.out.println("Unable to load menu list file " + e.getMessage());
         } catch (RuntimeException e) {
             System.out.println("Unable to create menu item " + e.getMessage());
