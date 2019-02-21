@@ -151,7 +151,7 @@ public class OrderGUI extends JFrame implements ActionListener{
         o0.weighty = 1;
         o0.gridy = 2;
 
-        JButton showOffer1 = new JButton("Superduper Friends");
+        JButton showOffer1 = new JButton("StudentDiscount");
         showOffer1.addActionListener(this);
         GridBagConstraints o1 = new GridBagConstraints();
         o1.fill = GridBagConstraints.BOTH;
@@ -163,7 +163,7 @@ public class OrderGUI extends JFrame implements ActionListener{
 
         offerPanel.add(showOffer1, o1);
 
-        JButton showOffer2 = new JButton("Big Family");
+        JButton showOffer2 = new JButton("FamilyDiscount");
         showOffer2.addActionListener(this);
         GridBagConstraints o2 = new GridBagConstraints();
         o2.fill = GridBagConstraints.BOTH;
@@ -174,7 +174,7 @@ public class OrderGUI extends JFrame implements ActionListener{
         o2.gridy = 0;
         offerPanel.add(showOffer2, o2);
 
-        JButton showOffer3 = new JButton("Lucky me");
+        JButton showOffer3 = new JButton("None");
         showOffer3.addActionListener(this);
         GridBagConstraints o3 = new GridBagConstraints();
         o3.fill = GridBagConstraints.BOTH;
@@ -194,7 +194,7 @@ public class OrderGUI extends JFrame implements ActionListener{
         o4.weighty = 1;
         o4.gridx = 3;
         o4.gridy = 0;
-        offerPanel.add(showOffer4, o4);
+       // offerPanel.add(showOffer4, o4);
 
         menuPanel.add(offerPanel, o0);
 
@@ -258,6 +258,24 @@ public class OrderGUI extends JFrame implements ActionListener{
         if (e.getActionCommand().equals("Meals")) {
             HotDrinksGUI gui = new HotDrinksGUI(menuList, basket, "Meals", ItemCategory.Meal.name());
             this.dispose();
+        }
+        
+        if(e.getActionCommand().equals("StudentDiscount")) 
+        {
+        	basket.SetDiscount(Discount.student);
+      		basketText.setText(basket.DisplayBasket());
+        }
+        
+        if(e.getActionCommand().equals("FamilyDiscount")) 
+        {
+        	basket.SetDiscount(Discount.family);
+      		basketText.setText(basket.DisplayBasket());
+        }
+        
+        if(e.getActionCommand().equals("None")) 
+        {
+        	basket.SetDiscount(Discount.none);
+      		basketText.setText(basket.DisplayBasket());
         }
     }
     
