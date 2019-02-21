@@ -24,23 +24,5 @@ public class Testing {
 		assertEquals(message2, expected2, actual2);
 		
 		
-		
-		
-	/**	public void testGetDDMMYYYY() {
-			 String expected1 = "31/12/2007";
-			 String message1 = "Failed for d = 31, m = 12\n";
-			 MyDate date1 = new MyDate(31,12,2007);
-		     String actual1 = date1.getDDMMYYYY();
-			 assertEquals(message1, expected1, actual1);
-			 
-
-			 String expected2 = "01/01/2007";
-			 String message2 =  "Failed for d = 1, m = 1\n";
-			 MyDate date2 = new MyDate(1,1,2007);
-		     String actual2 = date2.getDDMMYYYY();
-			 assertEquals(message2, expected2, actual2);
-		}
-		**/
-		
 	}
 }
