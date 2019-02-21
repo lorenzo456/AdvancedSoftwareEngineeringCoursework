@@ -22,7 +22,7 @@ public class Testing {
 		Item item2 = new Item ("DE01", null, null, 0, null, null);
 		String actual2 = item2.getId();
 		assertEquals(message2, expected2, actual2);
-		
-		
 	}
+		
+
 }
