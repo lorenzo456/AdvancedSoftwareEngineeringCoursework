@@ -18,4 +18,5 @@
  ID20B,       Iced tea,            Cold tea,                                        21/02/2019 18:26:14,
  ID20B,       Iced tea,            Cold tea,                                        21/02/2019 18:26:14,
  ID20B,       Iced tea,            Cold tea,                                        21/02/2019 18:26:14,
+ ID20B,     Cappuccino, Coffee with milk and cocoa,                                        21/02/2019 20:13:27,
  

@@ -13,34 +13,7 @@ import domain.Item;
 import domain.MenuList;
 
 public class TestBasket {
-	
-	 /** public void AddToBasket(String id, int quantity)
-	    { 
-	    	for(int j = 0; j < quantity; j++ ) 
-	    	{
-	    		Item temp = menuList.getItemByID(id);
-	    		basket.add(temp);
-			}
-		}
-	    
-	    
-	    
-	    public void RemoveFromBasketById(String id) 
-	    {
-	    	for(int i = 0; i < basket.size(); i ++) 
-	    	{
-	    		if(basket.get(i).getId() == id) 
-	    		{
-	    			basket.remove();
-	    			return;
-	    		}
-	    	}
-	    	
-	    	
-	    }**/
 
-	/// we can test the delete. adding. discounts.
-	
 	private Basket basketTest;
 	
 	@Before
@@ -60,8 +33,6 @@ public class TestBasket {
 	}
 	
 	//Count - if zero, assert true.
-	
-	
 	@Test
 	public void testAdding() {
 		MenuList menuList = new MenuList();
@@ -95,10 +66,6 @@ public class TestBasket {
     	assertTrue(isDeleted);
     	assertFalse(isDeleted == false);
 	}
-
-	
-	
-	
 }
     	
     	/**
@@ -111,16 +78,16 @@ public class TestBasket {
 		
 	@Test
 	public void testDeleting() {
-		
+
 		//this one should not be found
 				assertEquals (null, null, dateList.find("31/04/2014"));
-				
+
 				//what was found is what was searched for
 				MyDate foundDate = dateList.find("31/01/2009");
 				assertTrue (foundDate.equals(new MyDate(31,1,2009)));
-				
+
 				//maybe also search limits - for first and last item
-				
+
 	}
 	
 		

@@ -20,8 +20,7 @@ public class Item implements Comparable <Item> {
         isDiscounted = false;
     }
     
-    
-    
+
     public boolean getIsDiscounted() 
     {
     	return isDiscounted;
@@ -38,7 +37,7 @@ public class Item implements Comparable <Item> {
     }
     
     
-      public String getId() {
+    public String getId() {
             return Id;
     }
 

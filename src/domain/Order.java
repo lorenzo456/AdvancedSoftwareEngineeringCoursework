@@ -1,35 +1,33 @@
 package domain;
 
 public class Order {
-	   
-	private String timestamp;
-	private String itemName;
-	private String description;
-	private String customerId;
 
-	public Order(String customerId,String itemName, String description, String timestamp) {
-	this.timestamp = timestamp;
-	this.itemName = itemName;
-	this.description = description;
-	this.customerId = customerId;
-	}
+    private String timestamp;
+    private String itemName;
+    private String description;
+    private String customerId;
 
-	    public String getTimestamp() {
-	        return timestamp;
-	    }
+    public Order(String customerId, String itemName, String description, String timestamp) {
+        this.timestamp = timestamp;
+        this.itemName = itemName;
+        this.description = description;
+        this.customerId = customerId;
+    }
 
-	    public String getItemName() {
-	        return itemName;
-	    }
-	    
-	    public String getItemDescription() 
-	    {
-	    	return description;
-	    }
+    public String getTimestamp() {
+        return timestamp;
+    }
 
-	    public String getCustomerId() {
-	        return customerId;
-	    }
-	
-	
+    public String getItemName() {
+        return itemName;
+    }
+
+    public String getItemDescription() {
+        return description;
+    }
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
 }

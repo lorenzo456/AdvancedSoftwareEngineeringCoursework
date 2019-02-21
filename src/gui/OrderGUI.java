@@ -136,7 +136,7 @@ public class OrderGUI extends JFrame implements ActionListener{
 
         JPanel offerPanel = new JPanel();
         offerPanel.setLayout(new GridBagLayout());
-//        showDessert.addActionListener(this);
+        showDessert.addActionListener(this);
         GridBagConstraints o0 = new GridBagConstraints();
         o0.fill = GridBagConstraints.BOTH;
         o0.gridwidth = 2;

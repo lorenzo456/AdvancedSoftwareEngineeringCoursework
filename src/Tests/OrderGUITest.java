@@ -3,15 +3,12 @@ import domain.Basket;
 import domain.MenuList;
 import gui.OrderGUI;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import javax.swing.*;
 
 import java.awt.event.ActionEvent;
-import java.lang.reflect.Field;
-
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.*;
 
