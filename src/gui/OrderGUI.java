@@ -28,9 +28,6 @@ public class OrderGUI extends JFrame implements ActionListener{
         this.basket = basket;
         initGUI();
     }
-
-    
-     // Initialize GUI
      
     public void initGUI() {
 
@@ -181,16 +178,6 @@ public class OrderGUI extends JFrame implements ActionListener{
         o3.gridy = 0;
         offerPanel.add(showOffer3, o3);
 
-        JButton showOffer4 = new JButton("A sweet break");
-        showOffer1.addActionListener(this);
-        GridBagConstraints o4 = new GridBagConstraints();
-        o4.fill = GridBagConstraints.BOTH;
-        o4.gridwidth = 1;
-        o4.weightx =  0.25;
-        o4.weighty = 1;
-        o4.gridx = 3;
-        o4.gridy = 0;
-       // offerPanel.add(showOffer4, o4);
 
         menuPanel.add(offerPanel, o0);
 

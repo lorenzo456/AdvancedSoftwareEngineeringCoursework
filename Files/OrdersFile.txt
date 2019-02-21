@@ -13,4 +13,9 @@
  ID20B, Egg & cheese sandwich, Sandwich w egg & cheese,                                        21/02/2019 18:20:21,
  ID20B, Egg & cheese sandwich, Sandwich w egg & cheese,                                        21/02/2019 18:20:21,
  ID20B, Egg & cheese sandwich, Sandwich w egg & cheese,                                        21/02/2019 18:20:21,
+ ID20B,       Iced tea,            Cold tea,                                        21/02/2019 18:26:14,
+ ID20B,       Iced tea,            Cold tea,                                        21/02/2019 18:26:14,
+ ID20B,       Iced tea,            Cold tea,                                        21/02/2019 18:26:14,
+ ID20B,       Iced tea,            Cold tea,                                        21/02/2019 18:26:14,
+ ID20B,       Iced tea,            Cold tea,                                        21/02/2019 18:26:14,
  
