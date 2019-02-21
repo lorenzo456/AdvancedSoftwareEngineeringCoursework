@@ -8,7 +8,6 @@ import domain.OrderList;
 	import domain.ShopManager;
 import gui.HotDrinksGUI;
 import gui.OrderGUI;
-import gui.PaidGUI;
 
 
 public class Main {

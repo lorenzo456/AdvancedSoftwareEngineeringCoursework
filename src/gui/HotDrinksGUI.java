@@ -57,22 +57,16 @@ public class HotDrinksGUI extends JFrame implements ActionListener  {
 	public void actionPerformed(ActionEvent event) {
 		
 		if(event.getSource() == b1) {
-			System.out.println("box #1 is clicked");
-		text_left.setText("Super Duper Friends!\n\n Buy 5 drinks \nand get the 6* for free \n\n\n\n*the one that costs least");//(d1.GetDescription());
+		text_left.setText("Student discount!\n\n 20% off everything as a student, show your student card when picking up your order");
 		} else if(event.getSource() == b2) {
-			System.out.println("box #2 is clicked");
-			text_left.setText("Big Family!\n\n15% discount for \n3 meals plus 3 cold drinks \nand 3 desserts");//(d2.GetDescription());
+			text_left.setText("Family Discount!\n\n15% 10% off everything, show your family card when picking up your order");
 		} else if(event.getSource() == b3) {
-			System.out.println("box #3 is clicked");
-			text_left.setText("Lucky me!\n\n10% discount for \none meal plus one drink \nand one dessert");//(d3.GetDescription());
-		} else if(event.getSource() == b4) {
-			System.out.println("box #4 is clicked");
-			text_left.setText("Sweet Break!\n\n5% discount for \none drink plus one dessert");//(d4.GetDescription());
-		} else if (event.getActionCommand().equals("Go Back")) {
-	        OrderGUI orderGui = new OrderGUI(menu, basket);
-	        f.dispose();
-		}	
-		
+			text_left.setText("");
+		}else if(event.getSource() == b5) 
+		{
+			OrderGUI orderGui = new OrderGUI(menu, basket);
+			f.dispose();
+		}
 	}
 	
 	private void gui() {
@@ -82,9 +76,9 @@ public class HotDrinksGUI extends JFrame implements ActionListener  {
    		f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
    		
    		//create buttons for displaying offers and the "Back" button.
-   		b1 = new JButton("Super duper friends"); 
-   	    b2 = new JButton("Big Family"); 
-   	    b3 = new JButton("Lucky me"); 
+   		b1 = new JButton("Student Discount"); 
+   	    b2 = new JButton("Family Discount"); 
+   	    b3 = new JButton("No Discount"); 
  	    b4 = new JButton("A sweet break"); 
  	    b5 = new JButton("Go Back");
  	    
@@ -158,7 +152,7 @@ public class HotDrinksGUI extends JFrame implements ActionListener  {
   		left.setBackground(Color.GRAY);
   		text_left = new JTextArea(25,15);
   		text_left.setEditable(false);
-  		text_left.setText("Offers!");
+  		text_left.setText("Discounts!");
   		left.add(text_left);
 
  	    
@@ -168,7 +162,7 @@ public class HotDrinksGUI extends JFrame implements ActionListener  {
  	    down.add(b1);
  	    down.add(b2);
  	    down.add(b3);
- 	    down.add(b4);
+ 	  //  down.add(b4);
  	    down.add(b5, BorderLayout.EAST);
  	    
  	    
