@@ -33,6 +33,7 @@ public class Basket {
     	{
     		Item temp = menuList.getItemByID(id);
     		basket.add(temp);
+    		return;
 		}
 	}
     

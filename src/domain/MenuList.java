@@ -202,21 +202,23 @@ public class MenuList {
   
     
 
-    //TODO add TRY CATCH
     public Item getItemByID(String id) 
     {
-    	//need to add try - check if list not empty else throw error
-    	if(!menuList.isEmpty()) 
-    	{
-	    	for(Item i : menuList) 
+    	try {
+	    	if(!menuList.isEmpty()) 
 	    	{
-	    		if(i.getId().equals(id)) 
-	    		{
-	    			return i;
-	    		}
+		    	for(Item i : menuList) 
+		    	{
+		    		if(i.getId().equals(id)) 
+		    		{
+		    			return i;
+		    		}
+		    	}
 	    	}
+    	}catch(RuntimeException e ) 
+    	{
+    		System.out.println("Cant find ID: " + e.getMessage());
     	}
-    	//need to catch - comparing id that don't exist in list
     	return null;
     }
 
@@ -224,9 +226,7 @@ public class MenuList {
     	String separator = ",";
 
         Path path = FileSystems.getDefault().getPath(fileName);
-        System.out.println("The path is: " + path);
         try (BufferedReader br = Files.newBufferedReader(path)) {
-            System.out.println("READING FILE");
         	String line = "";
 
             while ((line = br.readLine()) != null) {
