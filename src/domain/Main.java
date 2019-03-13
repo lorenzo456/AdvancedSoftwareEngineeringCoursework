@@ -2,9 +2,9 @@ package domain;
 
 public class Main {
     public static void main(String[] args){
-        OrderQueue queue = new OrderQueue();
+        CustomerOrderQueue queue = new CustomerOrderQueue();
 
-        Thread orderProcessingThread = new Thread(new OrderProcessor(queue));
+        Thread orderProcessingThread = new Thread(new CustomerOrderProcessor(queue));
         orderProcessingThread.start();
 
     	ShopManager shopManager = new ShopManager();
