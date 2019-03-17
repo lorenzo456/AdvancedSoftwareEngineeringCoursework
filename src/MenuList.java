@@ -1,5 +1,6 @@
-package domain;
-
+import domain.Discount;
+import domain.Item;
+import domain.Basket;
 
 import java.io.BufferedReader;
 import java.io.IOException;
