@@ -26,6 +26,7 @@ public class OrderList {
     	}
     	return temp;
     }
+    
     public void printToFile(String fileName) 
     {
     	try {
@@ -37,6 +38,7 @@ public class OrderList {
 			e.printStackTrace();
 		} 
     }
+    
     private void fromFile(String fileName) {
         String separator = ",";
 

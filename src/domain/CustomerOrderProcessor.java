@@ -14,6 +14,7 @@ public class CustomerOrderProcessor implements Runnable {
     private CustomerOrderQueue queue;
     private CustomerOrder currentCustomer;
 
+    // Implements the Logger class, as we will use methods of it. We also need the Random method for the random wait time in the end.
     private static Logger logger = Logger.getInstance();
     private static Random rand = new Random();
 

@@ -47,5 +47,6 @@ public class CustomerOrder {
     public Order removeOrder() {
         logger.info("Remove customer order customerId: " + customerId);
         return orders.remove(0);
+        // why does she put a zero - this removes the top element of the queue
     }
 }
