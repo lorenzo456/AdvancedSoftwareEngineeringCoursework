@@ -5,13 +5,12 @@ public class Order {
     private String timestamp;
     private String itemName;
     private String description;
-    private String customerId;
 
-    public Order(String customerId, String itemName, String description, String timestamp) {
+
+    public Order(String itemName, String description, String timestamp) {
         this.timestamp = timestamp;
         this.itemName = itemName;
         this.description = description;
-        this.customerId = customerId;
     }
 
     public String getTimestamp() {
@@ -26,8 +25,12 @@ public class Order {
         return description;
     }
 
-    public String getCustomerId() {
-        return customerId;
-    }
 
+    @Override
+    public String toString() {
+        return "Order{" +
+                "timestamp='" + timestamp + '\'' +
+                ", itemName='" + itemName + '\'' +
+                '}';
+    }
 }

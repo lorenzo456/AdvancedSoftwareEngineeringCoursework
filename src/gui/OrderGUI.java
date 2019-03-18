@@ -278,7 +278,7 @@ public class OrderGUI extends JFrame implements ActionListener{
     		
             String date = dtf.format(now);
             
-    		Order order = new Order("ID20B",i.getName(), i.getDescription(), date);
+    		Order order = new Order( i.getName(), i.getDescription(), date);
     		orderList.addToOrderList(order);
     	}
     }

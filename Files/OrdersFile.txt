@@ -8,14 +8,12 @@ ID20B,   Ham Sandwich,   Sandwich with ham,                                     
 ID20B,   Ham Sandwich,   Sandwich with ham,                                         21/02/2019 21:56:09,
 ID20B,   Ham Sandwich,   Sandwich with ham,                                         21/02/2019 21:56:09,
 ID20B,   Ham Sandwich,   Sandwich with ham,                                         21/02/2019 21:56:09,
-<<<<<<< HEAD
 ID20B,       Iced tea,            Cold tea,                                         21/02/2019 22:00:54,
 ID20B,       Iced tea,            Cold tea,                                         21/02/2019 22:00:54,
 ID20B,       Iced tea,            Cold tea,                                         21/02/2019 22:00:54,
 ID20B,        Muffins,              Muffin,                                         21/02/2019 22:28:24,
 ID20B,        Muffins,              Muffin,                                         21/02/2019 22:28:24,
 ID20B,        Muffins,              Muffin,                                         21/02/2019 22:28:24,
-=======
 ID22C,   Water bottle,   Cold water bottle,                                         21/02/2019 12:08:13,
 ID12A,            Tea,    Selection of tea,                                         21/02/2019 09:09:09,
 ID22G,      Croissant,				Pastry,                                         21/02/2019 12:09:01,
@@ -26,4 +24,5 @@ ID29A,   Water bottle,   Cold water bottle,                                     
 ID12A,            Tea,Selection of herbal tea,                                      21/02/2019 09:09:09,
 ID11B,      Croissant,				Pastry,                                         21/02/2019 12:09:01,
 ID11B,      Croissant,				Pastry,                                         21/02/2019 12:08:14,
->>>>>>> jowita-queue-orders
+ID11B,      Croissant,				Pastry,                                         21/02/2019 12:08:14,
+

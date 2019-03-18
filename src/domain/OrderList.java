@@ -22,7 +22,7 @@ public class OrderList {
     	String temp = String.format("%s %15s %20s %60s ", "/User ID", "Item", "Item description", "Timestamp");
     	for(Order i : orders) 
     	{
-        	temp += String.format("%s %15s %20s %60s","\n"+ i.getCustomerId()+",", i.getItemName()+",", i.getItemDescription()+",", i.getTimestamp()+",");
+        	temp += String.format("%s %15s %20s %60s","\n"+",", i.getItemName()+",", i.getItemDescription()+",", i.getTimestamp()+",");
     	}
     	return temp;
     }
@@ -58,7 +58,7 @@ public class OrderList {
                 
                // System.out.println(customerId + " " + itemName + " " +  description + " " + date);
                 
-                Order tempOrder = new Order(parts[0].trim(), parts[1].trim(), parts[2].trim(), date);
+                Order tempOrder = new Order(parts[1].trim(), parts[2].trim(), date);
                 orders.add(tempOrder); 
             }
         }catch (IOException e) {
