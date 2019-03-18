@@ -58,6 +58,8 @@ public class CustomerOrderProcessor implements Runnable {
                     } else {
                         logger.info("Added customer order to queue CustomerId : "+ currentCustomer.getCustomerId()) ;
                         queue.add(currentCustomer);
+                        
+                        // do we need to include the staff here?
 
                         this.currentCustomer = new CustomerOrder(customerId);
                         logger.info("Started new customer order for customerId : "+ currentCustomer.getCustomerId());

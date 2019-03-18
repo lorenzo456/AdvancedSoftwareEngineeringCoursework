@@ -20,4 +20,7 @@ public class CustomerOrderQueue {
     public CustomerOrder remove(){
         return this.queue.remove();
     }
+    
+    // shall we add a (0), how are we sure it is the first on the queue?
+    
 }

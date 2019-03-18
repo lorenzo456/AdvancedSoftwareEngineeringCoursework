@@ -56,7 +56,7 @@ public class Logger {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         String b = timestamp + ": WARN: " + message;
         System.out.println(b);
-        logstring += b;
+        //logstring += b; we do not need this mesage, only info.
 
     }
 

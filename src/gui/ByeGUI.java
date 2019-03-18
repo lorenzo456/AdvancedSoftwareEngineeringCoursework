@@ -16,6 +16,8 @@ public class ByeGUI {
 	private JFrame f;
   	private JPanel p;
    	private JTextArea t;
+   	
+   	private JFrame g;
 
 
 	public ByeGUI() {
@@ -36,7 +38,17 @@ public class ByeGUI {
    		p.add(t);
    		f.add(p);
    		f.pack();
- 
+   		
+   		// add button to come back shopping! (new order, same customerID?).
+   		
+   		/*
+   		 * 
+   		 * g = new JFrame("New Order");
+   		g.setVisible(true);
+   		g.setSize(40, 50);
+   		 */
+   		
+
 		
 	}
 
