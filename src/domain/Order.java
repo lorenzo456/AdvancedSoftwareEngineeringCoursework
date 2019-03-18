@@ -1,30 +1,36 @@
 package domain;
 
-import java.util.Date;
-
 public class Order {
-	   
-	private Date timestamp;
-	private String itemId;
-	private String customerId;
 
-	public Order(String customerId,String itemId, Date timestamp) {
-	this.timestamp = timestamp;
-	this.itemId = itemId;
-	this.customerId = customerId;
-	}
+    private String timestamp;
+    private String itemName;
+    private String description;
 
-	    public Date getTimestamp() {
-	        return timestamp;
-	    }
 
-	    public String getItemId() {
-	        return itemId;
-	    }
+    public Order(String itemName, String description, String timestamp) {
+        this.timestamp = timestamp;
+        this.itemName = itemName;
+        this.description = description;
+    }
 
-	    public String getCustomerId() {
-	        return customerId;
-	    }
-	
-	
+    public String getTimestamp() {
+        return timestamp;
+    }
+
+    public String getItemName() {
+        return itemName;
+    }
+
+    public String getItemDescription() {
+        return description;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "timestamp='" + timestamp + '\'' +
+                ", itemName='" + itemName + '\'' +
+                '}';
+    }
 }

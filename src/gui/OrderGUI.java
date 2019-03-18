@@ -1,29 +1,34 @@
 
 
-
-import domain.Item;
+import domain.*;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.Font;
-import java.util.ArrayList;
+
+import gui.ItemsGUI;
 
 
 public class OrderGUI extends JFrame implements ActionListener{
 
-    private JPanel centerPanel;
+    private JPanel centerPanel, menuPanel;
+    private Basket basket;
+    private MenuList menuList;
     private Font labelFont = new Font("Serif", Font.BOLD, 30);
     private Border border = BorderFactory.createLineBorder(Color.BLACK);
-
-    public OrderGUI() {
-        this.initGUI();
+    private OrderList orderList = new OrderList();
+    
+    public OrderGUI(MenuList menuList, Basket basket) {
+        this.menuList = menuList;
+        this.basket = basket;
+        initGUI();
     }
-
-    /**
-     * Initialize GUI
-     */
+     
     public void initGUI() {
 
         setupNorthPanel();
@@ -52,8 +57,9 @@ public class OrderGUI extends JFrame implements ActionListener{
         this.add(northPanel, BorderLayout.NORTH);
     }
 
-
-    private JPanel createBasketPanel(){
+    JTextArea basketText;
+    
+    public JPanel createBasketPanel(){
         JPanel basketPanel = new JPanel();
         basketPanel.setLayout(new BorderLayout());
         basketPanel.setBackground(Color.WHITE);
@@ -62,12 +68,21 @@ public class OrderGUI extends JFrame implements ActionListener{
         JLabel label = new JLabel("Basket");
         label.setFont(labelFont);
         basketPanel.add(label, BorderLayout.NORTH);
+  		basketText = new JTextArea(25,15);
+  		basketText.setText(basket.DisplayBasket());
+        basketPanel.add(basketText);
+
+        JButton checkout = new JButton("Checkout");
+        checkout.addActionListener(this);
+
+        checkout.setPreferredSize(new Dimension(40, 120));
+        basketPanel.add(checkout, BorderLayout.SOUTH);
 
         return basketPanel;
     }
 
     private JPanel createMenuPanel(){
-        JPanel menuPanel = new JPanel();
+        menuPanel = new JPanel();
         menuPanel.setLayout(new GridBagLayout());
         menuPanel.setBackground(Color.WHITE);
 
@@ -95,7 +110,7 @@ public class OrderGUI extends JFrame implements ActionListener{
         c2.insets = new Insets(70,70,70,70);
         menuPanel.add(showColdDrinks, c2);
 
-        JButton showMeal= new JButton("Meal");
+        JButton showMeal= new JButton("Meals");
         showMeal.addActionListener(this);
         GridBagConstraints c3 = new GridBagConstraints();
         c3.fill = GridBagConstraints.BOTH;
@@ -107,7 +122,7 @@ public class OrderGUI extends JFrame implements ActionListener{
         c3.insets = new Insets(70,70,70,70);
         menuPanel.add(showMeal, c3);
 
-        JButton showDessert = new JButton("Dessert");
+        JButton showDessert = new JButton("Desserts");
         showDessert.addActionListener(this);
         GridBagConstraints c4 = new GridBagConstraints();
         c4.fill = GridBagConstraints.BOTH;
@@ -129,7 +144,7 @@ public class OrderGUI extends JFrame implements ActionListener{
         o0.weighty = 1;
         o0.gridy = 2;
 
-        JButton showOffer1 = new JButton("Superduper Friends");
+        JButton showOffer1 = new JButton("StudentDiscount");
         showOffer1.addActionListener(this);
         GridBagConstraints o1 = new GridBagConstraints();
         o1.fill = GridBagConstraints.BOTH;
@@ -141,7 +156,7 @@ public class OrderGUI extends JFrame implements ActionListener{
 
         offerPanel.add(showOffer1, o1);
 
-        JButton showOffer2 = new JButton("Big Family");
+        JButton showOffer2 = new JButton("FamilyDiscount");
         showOffer2.addActionListener(this);
         GridBagConstraints o2 = new GridBagConstraints();
         o2.fill = GridBagConstraints.BOTH;
@@ -152,7 +167,7 @@ public class OrderGUI extends JFrame implements ActionListener{
         o2.gridy = 0;
         offerPanel.add(showOffer2, o2);
 
-        JButton showOffer3 = new JButton("Lucky me");
+        JButton showOffer3 = new JButton("None");
         showOffer3.addActionListener(this);
         GridBagConstraints o3 = new GridBagConstraints();
         o3.fill = GridBagConstraints.BOTH;
@@ -163,16 +178,6 @@ public class OrderGUI extends JFrame implements ActionListener{
         o3.gridy = 0;
         offerPanel.add(showOffer3, o3);
 
-        JButton showOffer4 = new JButton("A sweet break");
-        showOffer1.addActionListener(this);
-        GridBagConstraints o4 = new GridBagConstraints();
-        o4.fill = GridBagConstraints.BOTH;
-        o4.gridwidth = 1;
-        o4.weightx =  0.25;
-        o4.weighty = 1;
-        o4.gridx = 3;
-        o4.gridy = 0;
-        offerPanel.add(showOffer4, o4);
 
         menuPanel.add(offerPanel, o0);
 
@@ -205,76 +210,77 @@ public class OrderGUI extends JFrame implements ActionListener{
         c2.gridy = 0;
         centerPanel.add(basketPanel, c2);
 
+
         this.validate();
         this.add(centerPanel, BorderLayout.CENTER);
     }
 
-    public void startOrders(){}
-
-    public void completeOrders(){}
-
-    public void displayBill(){}
-
-    public void applyDiscount(){}
-
-    public void addToBill(){}
-
-    public void removeFromBill(){}
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Hot Drinks")) {
-            JFrame menuSelection = new DrinkGUI("Hot Drinks");
+            ItemsGUI gui = new ItemsGUI(menuList, basket, "HotDrinks", ItemCategory.HotDrink.name());
             this.dispose();
         }
+        
+        if(e.getActionCommand().equals("Checkout")) 
+        {
+        	CheckOutGUI gui = new CheckOutGUI(menuList, basket, "Checkout", this);
+        	this.dispose();
+        }
+        
         if (e.getActionCommand().equals("Cold Drinks")) {
-            JFrame menuSelection = new DrinkGUI("Cold Drinks");
+            ItemsGUI gui = new ItemsGUI(menuList, basket, "Cold Drinks", ItemCategory.ColdDrink.name());
+            this.dispose();
         }
 
-        if (e.getActionCommand().equals("Dessert")) {
-
-//            JFrame basketGui = new BasketGui();
-
+        if (e.getActionCommand().equals("Desserts")) {
+            ItemsGUI gui = new ItemsGUI(menuList, basket, "Desserts", ItemCategory.Dessert.name());
+            this.dispose();
         }
 
-        if (e.getActionCommand().equals("Meal")) {
-
+        if (e.getActionCommand().equals("Meals")) {
+            ItemsGUI gui = new ItemsGUI(menuList, basket, "Meals", ItemCategory.Meal.name());
+            this.dispose();
+        }
+        
+        if(e.getActionCommand().equals("StudentDiscount")) 
+        {
+        	basket.SetDiscount(Discount.student);
+      		basketText.setText(basket.DisplayBasket());
+        }
+        
+        if(e.getActionCommand().equals("FamilyDiscount")) 
+        {
+        	basket.SetDiscount(Discount.family);
+      		basketText.setText(basket.DisplayBasket());
+        }
+        
+        if(e.getActionCommand().equals("None")) 
+        {
+        	basket.SetDiscount(Discount.none);
+      		basketText.setText(basket.DisplayBasket());
         }
     }
+    
+    void printOrdersToFile() 
+    {
+    	addToOrderList();
+    	orderList.printToFile("Files/OrdersFile.txt");
+    }
+    
+    void addToOrderList() 
+    {
+    	for(Item i : basket.getBasket()) 
+    	{	    	 
+    		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
+    		LocalDateTime now = LocalDateTime.now();  
+    		//Date date = Date.from(now.atZone(ZoneId.systemDefault()).toInstant());
+    		
+            String date = dtf.format(now);
+            
+    		Order order = new Order( i.getName(), i.getDescription(), date);
+    		orderList.addToOrderList(order);
+    	}
+    }
+    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

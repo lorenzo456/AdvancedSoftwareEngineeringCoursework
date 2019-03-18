@@ -17,10 +17,10 @@ public class Item implements Comparable <Item> {
         this.cost = cost;
         this.category = category;
         this.type = type;
+        isDiscounted = false;
     }
     
-    
-    
+
     public boolean getIsDiscounted() 
     {
     	return isDiscounted;
@@ -36,8 +36,9 @@ public class Item implements Comparable <Item> {
     	return name.compareTo(i.getName());
     }
     
+    
     public String getId() {
-        return Id;
+            return Id;
     }
 
     public String getName() {
@@ -48,15 +49,11 @@ public class Item implements Comparable <Item> {
         return description;
     }
 
-    // changed cost for prize 
+  
     public double getCost() {
         return cost;
     }
-    
-    public void setCost(double newcost) {
-    	cost = newcost;
-    }
-
+   
     public ItemCategory getCategory() {
         return category;
     }

@@ -1,61 +1,76 @@
 package domain;
 
 import java.io.BufferedReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+
 
 public class OrderList {
-    private ArrayList<Order> orders;
+    private ArrayList<Order> orders = new ArrayList<Order>();
 
     public OrderList() {
-        this.orders = new ArrayList<Order>();
-
+    	fromFile("Files/OrdersFile.txt");
     }
 
-    public ArrayList<Order> getOrders() {
-        return orders;
+    public String getListOfOrders() 
+    {
+    	String temp = String.format("%s %15s %20s %60s ", "/User ID", "Item", "Item description", "Timestamp");
+    	for(Order i : orders) 
+    	{
+        	temp += String.format("%s %15s %20s %60s","\n"+",", i.getItemName()+",", i.getItemDescription()+",", i.getTimestamp()+",");
+    	}
+    	return temp;
     }
-
-
-    public static OrderList fromFile(String fileName) {
+    public void printToFile(String fileName) 
+    {
+    	try {
+    		System.out.println("PRINTED");
+			PrintWriter out = new PrintWriter(new FileWriter(fileName));
+			out.println(getListOfOrders());
+			out.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} 
+    }
+    private void fromFile(String fileName) {
         String separator = ",";
-        OrderList list = new OrderList();
 
         Path path = FileSystems.getDefault().getPath(fileName);
         try (BufferedReader br = Files.newBufferedReader(path)) {
             String line = "";
 
             while ((line = br.readLine()) != null) {
+            	if(line.charAt(0) == '/' || line.charAt(0) == ' ') 
+            	{
+            		continue;
+            	}
+            	
                 String[] parts = line.split(separator);
-
-                SimpleDateFormat parser = new SimpleDateFormat("EEE MMM d HH:mm:ss zzz yyyy");
-                Date date = parser.parse(parts[2].trim());
-
-                list.getOrders().add(
-                        new Order(parts[0].trim(), parts[1].trim(), date)
-                );
+                String customerId = parts[0].trim();
+                String itemName = parts[1].trim();
+        		String description = parts[2].trim();
+                String date = parts[3].trim();
+                
+               // System.out.println(customerId + " " + itemName + " " +  description + " " + date);
+                
+                Order tempOrder = new Order(parts[1].trim(), parts[2].trim(), date);
+                orders.add(tempOrder); 
             }
-        } catch (ParseException e){
-            System.out.println("Unable to parse a time stamp" + e.getMessage());
-        } catch (IOException e) {
-            System.out.println("Unable to load menu list file " + e.getMessage());
+        }catch (IOException e) {
+            System.out.println("Unable to load order list file " + e.getMessage());
         } catch (RuntimeException e) {
-            System.out.println("Unable to create menu item " + e.getMessage());
+            System.out.println("Unable to create order item " + e.getMessage());
         }
-        return list;
-
+    }
+    
+    public void addToOrderList(Order o) 
+    {
+    	orders.add(o);
     }
 
-    @Override
-    public String toString() {
-        return "domain.OrderList{" +
-                "orders=" + orders +
-                '}';
-    }
 }
