@@ -36,7 +36,7 @@ public class OrderGUI extends JFrame implements ActionListener{
 
         pack();
 
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setSize(1024, 800);
         setVisible(true);

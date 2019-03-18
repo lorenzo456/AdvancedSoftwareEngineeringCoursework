@@ -76,10 +76,11 @@ public class CustomerOrderProcessor implements Runnable {
         }
     }
 
+    
     @Override
     public void run() {
         logger.info("Start reading orders");
-        fromFile("Files/OrdersFile.txt");
+        //fromFile("Files/OrdersFile.txt");
         logger.info("Finished reading orders");
     }
 }
