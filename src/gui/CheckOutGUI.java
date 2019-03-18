@@ -28,7 +28,7 @@ public class CheckOutGUI  extends JFrame implements ActionListener {
 	public CheckOutGUI(MenuList menuList, Basket basket, String name, OrderGUI orderGUI) {
 		this.basket = basket;
 		this.menu = menuList;
-		this.name = name;
+		this.name = name; 
 		this.orderGUI = orderGUI;
 		gui();
 
@@ -82,8 +82,10 @@ public class CheckOutGUI  extends JFrame implements ActionListener {
 		}
 			else if(event.getSource() == b2) 
 		{
+			//Customer confirms order
+			
 			orderGUI.printOrdersToFile();
-			ByeGUI b = new ByeGUI();
+			ByeGUI b = new ByeGUI(menu, basket);
 			f.dispose();	   		
 	   		
 		}

@@ -3,13 +3,13 @@ package domain;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class CustomerOrderQueue {
-    private ConcurrentLinkedQueue<CustomerOrder> queue = new ConcurrentLinkedQueue<CustomerOrder>();
+    private ConcurrentLinkedQueue<Customer> queue = new ConcurrentLinkedQueue<Customer>();
 
     /**
      * Add customer order to queue
      * @param order
      */
-    public void add(CustomerOrder order){
+    public void add(Customer order){
         this.queue.add(order);
     }
 
@@ -17,7 +17,9 @@ public class CustomerOrderQueue {
      * Get and remove first customer order
      * @return
      */
-    public CustomerOrder remove(){
-        return this.queue.remove();
+    public void remove(Customer customer)
+    {
+        //Todo if Customer == element in queue remove()
     }
+    
 }

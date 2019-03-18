@@ -136,13 +136,13 @@ public class OrderGUI extends JFrame implements ActionListener{
 
         JPanel offerPanel = new JPanel();
         offerPanel.setLayout(new GridBagLayout());
-        showDessert.addActionListener(this);
+        //showDessert.addActionListener(this);
         GridBagConstraints o0 = new GridBagConstraints();
         o0.fill = GridBagConstraints.BOTH;
         o0.gridwidth = 2;
         o0.weightx = 2;
         o0.weighty = 1;
-        o0.gridy = 2;
+        o0.gridy = 2; 
 
         JButton showOffer1 = new JButton("StudentDiscount");
         showOffer1.addActionListener(this);
@@ -280,7 +280,7 @@ public class OrderGUI extends JFrame implements ActionListener{
             
     		Order order = new Order( i.getName(), i.getDescription(), date);
     		orderList.addToOrderList(order);
-    	}
+    	} 
     }
     
 }

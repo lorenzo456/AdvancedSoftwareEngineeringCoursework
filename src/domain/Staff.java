@@ -8,17 +8,17 @@ import java.util.concurrent.TimeUnit;
 public class Staff extends Thread {
 	private int staffNumber;
 	private boolean takingOrder;
-	private Costumer currentCostumer;
-	private Queue queueCostumers = new LinkedList<Costumer>();
+	private Customer currentCostumer;
+	private Queue queueCostumers = new LinkedList<Customer>();
 	
-	public Staff(int staffNumber, LinkedList<Costumer> listCostumers  ) {
+	public Staff(int staffNumber, LinkedList<Customer> listCostumers  ) {
 		this.staffNumber = staffNumber;
 		this.queueCostumers = listCostumers;
 		
 	}
 
 public void run() {
-	Iterator<Costumer> itr = queueCostumers.iterator();
+	Iterator<Customer> itr = queueCostumers.iterator();
 	while (itr.hasNext()) {
 		if(itr.next().getIsBeingServed() == false) {
 			itr.next().setIsBeingServed(true);
