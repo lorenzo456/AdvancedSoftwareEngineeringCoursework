@@ -20,22 +20,30 @@ public class ShopManager {
        
     }
     
-    public void run() 
+    public void Start() 
     {
     	model = new OrderSystemModel();
     	view = new OrderSystemView(model);
     	controller = new OrderSystemController(model, view);
     
-    	processor = new CustomerOrderProcessor();
     	
     	menuList = new MenuList(this);
     	basket = new Basket(menuList);
     	orderGUI = new OrderGUI(menuList, basket);	
+
+    	processor = new CustomerOrderProcessor(menuList);
+    	Staff staff1 = new Staff(1, processor);
+    	staff1.start();
+    	
+    	Staff staff2 = new Staff(2, processor);
+    	staff2.start();
+
     }
     
     public void AddToQueue(Customer customer)
     {
-    	processor.GetQueue().add(customer);
+    	//get processor to add to queue
+    	processor.SetCurrentCustomer(customer);
     }
     
 }

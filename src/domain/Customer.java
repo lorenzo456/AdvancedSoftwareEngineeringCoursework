@@ -12,6 +12,7 @@ public class Customer {
 	{
 		this.ID = ID;
 		this.OrderedItems = orderedItems;
+		isBeingServed = false;
 	}
 
 	public boolean getIsBeingServed() {
@@ -25,6 +26,11 @@ public class Customer {
 	public void addOrderedItems(ArrayList orderedItems) 
 	{
 		this.OrderedItems = orderedItems;
+	}
+	
+	public String getID() 
+	{
+		return ID;
 	}
 
 }

@@ -226,7 +226,7 @@ public class MenuList {
     }
 
     public void ReadFromFile(String fileName) {
-    	System.out.println("READING");
+    	//System.out.println("READING");
     	String separator = ",";
 
         Path path = FileSystems.getDefault().getPath(fileName);

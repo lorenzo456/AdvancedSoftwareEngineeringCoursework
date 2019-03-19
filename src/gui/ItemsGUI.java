@@ -183,7 +183,7 @@ public class ItemsGUI extends JFrame implements ActionListener  {
 		JRadioButton tempButton = new JRadioButton(b[itemNumber]);
 	    	tempButton.addActionListener(e -> {
 	    	tempId = ids[itemNumber];	    	
-	    	System.out.println(ids[itemNumber]);
+	    	//System.out.println(ids[itemNumber]);
         });
 	    	
     	group.add(tempButton);
@@ -193,11 +193,11 @@ public class ItemsGUI extends JFrame implements ActionListener  {
 
 	private void OnSelected(String id, int amount) 
 	{
-		System.out.println(id +" "+amount );
+		//System.out.println(id +" "+amount );
 	
 		if(amount == 0) 
 		{
-			System.out.println("REMOVE ALL ITEMS: " + id);
+			//System.out.println("REMOVE ALL ITEMS: " + id);
 			basket.RemoveAllItemsOfId(id);	
         }
 		else if(amount > 0)
