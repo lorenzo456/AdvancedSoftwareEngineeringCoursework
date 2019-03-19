@@ -1,14 +1,11 @@
 package domain;
 
 import java.util.ArrayList;
-
 import java.util.LinkedList;
-
-
-    
 
 public class Basket {
 	private Discount discount = Discount.none;
+
 	public LinkedList<Item> basket = new LinkedList<Item>();
 	public MenuList menuList;
 	
@@ -18,9 +15,6 @@ public class Basket {
 		this.menuList = menuList;
 	}
 
-
-
-   ArrayList<Discount> discountList0 = new ArrayList<Discount>();
    
    public LinkedList<Item> getBasket() {
 	   return basket;
@@ -92,10 +86,10 @@ public class Basket {
     	for (Item a : basket) {
     		i = i + a.getCost();
     	}
-    	if(discount == Discount.student) 
+    	if(discount == Discount.student)
     	{
     		i *= 0.8;
-    	}else if(discount == Discount.family) 
+    	}else if(discount == Discount.family)
     	{
     		i *= 0.9;
     	}

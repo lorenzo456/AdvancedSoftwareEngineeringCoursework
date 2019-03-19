@@ -1,8 +1,6 @@
 package OrderSystemGUI;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
@@ -12,18 +10,21 @@ import domain.Customer;
 public class OrderSystemView 
 {
 	private OrderSystemModel orderSystemModel;
+	private OrderSystemController orderSystemController;
+
 	private JFrame frame;
-	private JPanel customerUIPanel,staffUIPanel;
+	private JLabel speedLabel;
+	private JPanel customerUIPanel,staffUIPanel, speedControlPanel, customerControlPanel;
 	private JTextArea customerQueueUI,staff0UI, staff1UI;
-	private JButton tempAddButton, tempRemoveButton;
+	private JButton tempAddButton, tempRemoveButton, increaseSpeedButton, descreseSpeedButton;
 	
-	public OrderSystemView(OrderSystemModel orderSystemModel) 
+	public OrderSystemView(OrderSystemModel orderSystemModel, OrderSystemController orderSystemController)
 	{
 		this.orderSystemModel = orderSystemModel;
-
+		this.orderSystemController = orderSystemController;
 	}
-	
-	public void InitializeView() 
+
+	public void InitializeView()
 	{
 		DisplayGui();
 		UpdateAllText();
@@ -40,14 +41,28 @@ public class OrderSystemView
    		frame.setLayout(grid);
 
    		customerUIPanel = new JPanel();
-   		
+   		customerUIPanel.setLayout(new BorderLayout());
+
+   		customerControlPanel = new JPanel();
    		customerQueueUI = new JTextArea(25,10);
    		tempAddButton = new JButton("Add Customer");
    		tempRemoveButton = new JButton("Remove Customer");
-   		customerUIPanel.add(customerQueueUI); 
-   		customerUIPanel.add(tempAddButton);
-   		customerUIPanel.add(tempRemoveButton);
+		customerControlPanel.add(customerQueueUI);
+		customerControlPanel.add(tempAddButton);
+		customerControlPanel.add(tempRemoveButton);
 
+		speedControlPanel = new JPanel();
+		speedLabel = new JLabel("5");
+   		increaseSpeedButton = new JButton("+");
+   		increaseSpeedButton.addActionListener(orderSystemController);
+		descreseSpeedButton = new JButton("-");
+		descreseSpeedButton.addActionListener(orderSystemController);
+		speedControlPanel.add(speedLabel);
+		speedControlPanel.add(increaseSpeedButton);
+		speedControlPanel.add(descreseSpeedButton);
+
+		customerUIPanel.add(customerControlPanel, BorderLayout.WEST);
+		customerUIPanel.add(speedControlPanel, BorderLayout.EAST);
 
    		staffUIPanel = new JPanel();
    		staff0UI = new JTextArea(25,20);
@@ -76,6 +91,11 @@ public class OrderSystemView
 		customerQueueUI.setText(summaryText);		
 				
 	}
+
+	public void SetSpeedText(int speed){
+		speedLabel.setText(Integer.toString(speed));
+	}
+
 	
 	public void SetStaffUI0() 
 	{

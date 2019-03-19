@@ -22,26 +22,24 @@ public class ShopManager {
     
     public void Start() 
     {
-
-    
-    	
     	menuList = new MenuList(this);
     	basket = new Basket(menuList);
     	orderGUI = new OrderGUI(menuList, basket);	
 
     	processor = new CustomerOrderProcessor(menuList);
-    	
-
-    	
     	model = new OrderSystemModel(processor);
-    	view = new OrderSystemView(model);
+		controller = new OrderSystemController(model);
+    	view = new OrderSystemView(model, controller);
+
+    	controller.setView(view);
+
     	Staff staff1 = new Staff(1, processor, view);
     	Staff staff2 = new Staff(2, processor, view);
     	Staff[] staffMembers = {staff1, staff2};
+
     	model.SetStaffMembers(staffMembers);
     	view.InitializeView();
-    	controller = new OrderSystemController(model, view);
-    	
+
     	staff1.start();    	
     	staff2.start();
 
