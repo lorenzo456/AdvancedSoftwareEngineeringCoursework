@@ -10,15 +10,17 @@ import domain.Basket;
 import domain.Discount;
 import domain.Item;
 import domain.MenuList;
+import domain.ShopManager;
 
 public class TestDiscounts {
+    ShopManager shop;
 
 	@Test
 	public void testDiscounts() {
 		
 	
 		// Testing None
-		MenuList menuList = new MenuList();
+		MenuList menuList = new MenuList(shop);
 		Basket basketTest = new Basket(menuList);
 		basketTest.AddToBasket("HD01", 1);
 		boolean isDiscounted = true;

@@ -7,12 +7,14 @@ import org.junit.Test;
 
 import domain.Basket;
 import domain.MenuList;
+import domain.ShopManager;
 
 public class TestBasket {
+    ShopManager shop;
 
 	@Test
 	public void testAdding() {
-		MenuList menuList = new MenuList();
+		MenuList menuList = new MenuList(shop);
 		Basket basketTest1 = new Basket(menuList);
 		basketTest1.AddToBasket("HD01", 1);
     	boolean isAdded = false;
@@ -29,7 +31,7 @@ public class TestBasket {
 	
 	@Test
 	public void testDeleting() {
-		MenuList menuList = new MenuList();
+		MenuList menuList = new MenuList(shop);
 		Basket basketTest2 = new Basket(menuList);
 		boolean isDeleted = false;
 		basketTest2.AddToBasket("HD02", 5);

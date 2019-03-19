@@ -58,7 +58,7 @@ public class ItemsGUI extends JFrame implements ActionListener  {
 		text_left.setText("Student discount!\n\n20% off everything as a student, \n show your student card \n when picking up your order");
 		} else if(event.getSource() == b2) {
 			text_left.setText("Family Discount!\n\n15% 10% off everything, \n show your family card \n when picking up your order");
-		} else if(event.getSource() == b3) {
+		} else if(event.getSource() == b3) { 
 			text_left.setText("");
 		}else if(event.getSource() == b5) 
 		{
@@ -183,7 +183,7 @@ public class ItemsGUI extends JFrame implements ActionListener  {
 		JRadioButton tempButton = new JRadioButton(b[itemNumber]);
 	    	tempButton.addActionListener(e -> {
 	    	tempId = ids[itemNumber];	    	
-	    	System.out.println(ids[itemNumber]);
+	    	//System.out.println(ids[itemNumber]);
         });
 	    	
     	group.add(tempButton);
@@ -193,11 +193,11 @@ public class ItemsGUI extends JFrame implements ActionListener  {
 
 	private void OnSelected(String id, int amount) 
 	{
-		System.out.println(id +" "+amount );
+		//System.out.println(id +" "+amount );
 	
 		if(amount == 0) 
 		{
-			System.out.println("REMOVE ALL ITEMS: " + id);
+			//System.out.println("REMOVE ALL ITEMS: " + id);
 			basket.RemoveAllItemsOfId(id);	
         }
 		else if(amount > 0)

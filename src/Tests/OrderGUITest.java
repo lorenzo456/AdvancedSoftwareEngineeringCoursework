@@ -1,6 +1,7 @@
 package Tests;
 import domain.Basket;
 import domain.MenuList;
+import domain.ShopManager;
 import gui.OrderGUI;
 
 import org.junit.Before;
@@ -15,10 +16,11 @@ import static org.junit.Assert.*;
 public class OrderGUITest {
     MenuList menuList;
     Basket basket;
+    ShopManager shop;
 
     @Before
     public void setUp(){
-        menuList = new MenuList();
+        menuList = new MenuList(shop);
         basket = new Basket(menuList);
     }
 

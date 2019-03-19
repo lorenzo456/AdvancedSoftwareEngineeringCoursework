@@ -3,7 +3,9 @@ package domain;
 import java.util.LinkedList;
 
 public class CustomerOrderQueue {
+
     private LinkedList<CustomerOrder> queue = new LinkedList<CustomerOrder>();
+
 
     /**
      * Add customer order to queue
@@ -11,7 +13,10 @@ public class CustomerOrderQueue {
      * This queue is unbounded in size.
      * @param order
      */
+
+
     public synchronized void add(CustomerOrder order){
+
         this.queue.add(order);
     }
 
@@ -22,8 +27,10 @@ public class CustomerOrderQueue {
      *
      * @return
      */
+
     public synchronized CustomerOrder poll() {
         return this.queue.poll();
+
     }
     
     // Are we implementing this? And if we do, where? 

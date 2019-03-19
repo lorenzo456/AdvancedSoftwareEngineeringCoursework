@@ -13,7 +13,7 @@ public class Basket {
 	public MenuList menuList;
 	
 	
-	public Basket(MenuList menuList)
+	public Basket(MenuList menuList) 
 	{
 		this.menuList = menuList;
 	}
@@ -74,6 +74,11 @@ public class Basket {
 
     }
     
+    public void RemoveAllItemsFromBasket() 
+    {
+    	basket.clear();
+    }
+    
     public double getTotalCost() {
     	double i = 0;
     	for (Item a : basket) {
@@ -113,7 +118,12 @@ public class Basket {
     	return temp;
     }
 
-    
+    public ArrayList getBasketAsList() 
+    {
+    	ArrayList<Item> temp = new ArrayList<Item>(basket);
+
+    	return temp;
+    }
     
     
 }

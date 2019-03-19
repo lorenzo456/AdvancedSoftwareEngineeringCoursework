@@ -11,16 +11,19 @@ import java.util.TreeSet;
 
 
 public class MenuList {
-
+	ShopManager shop;
 	public TreeSet<Item> menuList= new TreeSet<Item>();
-    
 	
   
-    public MenuList() {
+    public MenuList(ShopManager shop) {
+    	this.shop = shop;
         ReadFromFile("Files/MenuFile.txt");
-    }
+    } 
     
-
+    public ShopManager GetShop() 
+    {
+    	return shop;
+    }
   
     public String displayTree() 
     {
@@ -223,7 +226,7 @@ public class MenuList {
     }
 
     public void ReadFromFile(String fileName) {
-    	System.out.println("READING");
+    	//System.out.println("READING");
     	String separator = ",";
 
         Path path = FileSystems.getDefault().getPath(fileName);

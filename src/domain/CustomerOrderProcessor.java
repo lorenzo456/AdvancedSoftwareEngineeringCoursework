@@ -1,56 +1,49 @@
 package domain;
 
-import utils.Logger;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Queue;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
+import utils.Logger;
 
 public class CustomerOrderProcessor implements Runnable {
     private CustomerOrderQueue queue;
     private CustomerOrder currentCustomer;
 
     // Implements the Logger class, as we will use methods of it. We also need the Random method for the random wait time in the end.
+	
+	private Queue<Customer> queue = new LinkedList<>();
+    private Customer currentCustomer;
+	
+    private MenuList menu;
     private static Logger logger = Logger.getInstance();
-    private static Random rand = new Random();
 
-    public CustomerOrderProcessor(CustomerOrderQueue queue) {
-        this.queue = queue;
-    }
+    public CustomerOrderProcessor(MenuList menulist) 
+    {
+    	this.menu = menulist;
+    	
+    	ArrayList<Item> temp = new ArrayList<Item>();
+    	temp.add(menu.getItemByID("HD01"));
+    	temp.add(menu.getItemByID("DE03"));
+    	temp.add(menu.getItemByID("FI02"));
+    	Customer customer1 = new Customer("1",temp);
+    	Customer customer2 = new Customer("2",temp);
+    	Customer customer3 = new Customer("3",temp);
+    	Customer customer4 = new Customer("4",temp);
+    	Customer customer5 = new Customer("5",temp);
+    	Customer customer6 = new Customer("6",temp);
+    	Customer customer7 = new Customer("7",temp);
+    	Customer customer8 = new Customer("8",temp);
+    	SetCurrentCustomer(customer1);
+    	SetCurrentCustomer(customer2);
+    	SetCurrentCustomer(customer3);
+    	SetCurrentCustomer(customer4);
+    	SetCurrentCustomer(customer5);
+    	SetCurrentCustomer(customer6);
+    	SetCurrentCustomer(customer7);
+    	SetCurrentCustomer(customer8);
 
-    private String getCurrentCustomerId(){
-        if(this.currentCustomer != null){
-            return this.currentCustomer.getCustomerId();
-        }
-        return null;
-    }
-
-    private void fromFile(String fileName) {
-        String separator = ",";
-
-        Path path = FileSystems.getDefault().getPath(fileName);
-        try (BufferedReader br = Files.newBufferedReader(path)) {
-            String line = "";
-
-            while ((line = br.readLine()) != null) {
-                    if (line.charAt(0) == '/' || line.charAt(0) == ' ') {
-                        continue;
-                    }
-
-                    String[] parts = line.split(separator);
-                    String customerId = parts[0].trim();
-                    String itemName = parts[1].trim();
-                    String description = parts[2].trim();
-                    String date = parts[3].trim();
-
-                    if (currentCustomer == null) {
-                        this.currentCustomer = new CustomerOrder(customerId);
-                        logger.info("Started new customer order for customerId : "+ currentCustomer.getCustomerId());
-                    }
 
                     if(customerId.equals(this.getCurrentCustomerId())){
                         Order tempOrder = new Order(itemName, description, date);
@@ -78,11 +71,72 @@ public class CustomerOrderProcessor implements Runnable {
             logger.warn("Unable to create order item " + e.getMessage());
         }
     }
+    
+    public Queue GetQueue() 
+    {
+    	return queue;
+    }
+    
+    private void AddToQueue(Customer customer) 
+    {
+    	queue.add(customer);
+    }
+    
+    public int AmountOfOrders() 
+    {
+    	return queue.size();
+    }
+    
+    public void RemoveFromQueue(Customer customer) 
+    {
+    	if(customer == queue.peek()) 
+    	{
+    		queue.poll();
+    		return;
+    	}
+    	
+    	for(Customer c : queue) 
+    	{
+    		if(customer == c) 
+    		{
+    			queue.remove(c);
+    			return;
+    		}
+    	}
+    }
+    
+    public void SetCurrentCustomer(Customer customer) 
+    {
+    	currentCustomer = customer;
+    	if(currentCustomer != null) 
+    	{
+        	run();
+    	}
+    	System.out.println("The queue holds: " + queue.size());
+    	currentCustomer = null;
+    }
+    
+    public Customer GetUnservedCustomer() 
+    {    	
+    	for(Customer c : queue) 
+    	{
+    		if(c.getIsBeingServed() == false) 
+    		{
+    			return c;
+    		}
+    	}
+		
+    	return null;
+    }
 
     @Override
     public void run() {
-        logger.info("Start reading orders");
-        fromFile("Files/OrdersFile.txt");
-        logger.info("Finished reading orders");
+    	//Change message name
+        logger.info("Customer " + currentCustomer.getID() + " is ordering");
+
+        AddToQueue(currentCustomer);
+        
+        //Change message name
+        logger.info("Customer " + currentCustomer.getID() + " order is added to the Queue");
     }
 }
