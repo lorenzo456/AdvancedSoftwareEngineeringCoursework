@@ -26,6 +26,5 @@ public class CustomerOrderQueue {
         return this.queue.poll();
     }
     
-    // shall we add a (0), how are we sure it is the first on the queue?
-    
+    // Are we implementing this? And if we do, where? 
 }

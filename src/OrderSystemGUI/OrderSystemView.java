@@ -1,4 +1,4 @@
-package OrderSystemGUI;
+2package OrderSystemGUI;
 
 import java.awt.Color;
 import java.awt.Dimension;

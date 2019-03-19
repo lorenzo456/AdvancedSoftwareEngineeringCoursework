@@ -6,19 +6,18 @@ import java.io.PrintWriter;
 import java.sql.Timestamp;
 
 public class Logger {
-    //private static volatile Logger instance;
-    //private static Object mutex = new Object();
+    private static volatile Logger instance;
+    private static Object mutex = new Object();
 
 	// Singleton pattern, the "instance" of type Logger must be provate and static.
-	private static Logger instance; 
+	
 	
     private Logger() {
     	
     }
 
-    // why does she creates a mutex object and then syncronizes it?
-    /**
-     * 
+    // Protecting the Logger method by using syncronization as we are implementing this method in threads.
+   
     public static Logger getInstance() {
         Logger result = instance;
         if (result == null) {
@@ -30,16 +29,20 @@ public class Logger {
         }
         return result;
     }
-    */
+   
     
     // Singleton pattern 
-    
+    /**
+     * 
+     * 
+     
     public static Logger getInstance() {
     	if (instance == null) {
     		instance = new Logger();
     	}
     	return instance;
     }
+    */
     
     String logstring = "";
     
