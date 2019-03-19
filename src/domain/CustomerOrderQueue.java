@@ -1,23 +1,28 @@
 package domain;
 
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.LinkedList;
 
 public class CustomerOrderQueue {
-    private ConcurrentLinkedQueue<CustomerOrder> queue = new ConcurrentLinkedQueue<CustomerOrder>();
+    private LinkedList<CustomerOrder> queue = new LinkedList<CustomerOrder>();
 
     /**
      * Add customer order to queue
+     * This might deadlock if there is consumer thread holding lock
+     * This queue is unbounded in size.
      * @param order
      */
-    public void add(CustomerOrder order){
+    public synchronized void add(CustomerOrder order){
         this.queue.add(order);
     }
 
     /**
      * Get and remove first customer order
+     * To avoid deadlocks queue should not be consumed directly
+     * Observer patter or producer/consumer patter should be used
+     *
      * @return
      */
-    public CustomerOrder remove(){
-        return this.queue.remove();
+    public synchronized CustomerOrder poll() {
+        return this.queue.poll();
     }
 }
