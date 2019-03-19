@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class Customer {
 	private boolean isBeingServed;
-	private ArrayList OrderedItems;
+	private ArrayList<Item> OrderedItems;
 	
 	private String ID;
 	
-	public Customer(String ID, ArrayList orderedItems) 
+	public Customer(String ID, ArrayList<Item> orderedItems) 
 	{
 		this.ID = ID;
 		this.OrderedItems = orderedItems;
@@ -31,6 +31,17 @@ public class Customer {
 	public String getID() 
 	{
 		return ID;
+	}
+	
+	public String GetItemsOrdered() 
+	{
+		String temp = "";
+		for(Item item : OrderedItems) 
+		{
+			temp += item.getName() + " \n";
+		}
+		
+		return temp;
 	}
 
 }

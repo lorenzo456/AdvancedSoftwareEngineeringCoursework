@@ -22,9 +22,7 @@ public class ShopManager {
     
     public void Start() 
     {
-    	model = new OrderSystemModel();
-    	view = new OrderSystemView(model);
-    	controller = new OrderSystemController(model, view);
+
     
     	
     	menuList = new MenuList(this);
@@ -32,10 +30,19 @@ public class ShopManager {
     	orderGUI = new OrderGUI(menuList, basket);	
 
     	processor = new CustomerOrderProcessor(menuList);
-    	Staff staff1 = new Staff(1, processor);
-    	staff1.start();
     	
-    	Staff staff2 = new Staff(2, processor);
+
+    	
+    	model = new OrderSystemModel(processor);
+    	view = new OrderSystemView(model);
+    	Staff staff1 = new Staff(1, processor, view);
+    	Staff staff2 = new Staff(2, processor, view);
+    	Staff[] staffMembers = {staff1, staff2};
+    	model.SetStaffMembers(staffMembers);
+    	view.InitializeView();
+    	controller = new OrderSystemController(model, view);
+    	
+    	staff1.start();    	
     	staff2.start();
 
     }

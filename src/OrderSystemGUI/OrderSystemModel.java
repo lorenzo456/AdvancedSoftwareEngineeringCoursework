@@ -3,41 +3,44 @@ package OrderSystemGUI;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import domain.Customer;
+import domain.CustomerOrderProcessor;
+import domain.Staff;
+
 public class OrderSystemModel 
 {
 	private int amountOfCustomersLeftToServe;
 	private Queue<Integer> customerQueue = new LinkedList<>();
+	private CustomerOrderProcessor processor;
+	private Staff[] staffMembers;
 	
-	public OrderSystemModel() 
+	public OrderSystemModel(CustomerOrderProcessor processor) 
 	{
-		amountOfCustomersLeftToServe = 0;
+		this.processor = processor;
+		//this.staffMembers = staffMembers;
 	}
 	
+	public void SetStaffMembers(Staff[] staffMembers) 
+	{
+		this.staffMembers = staffMembers;
+	}
+	
+	public Staff[] GetStaffMembers()
+	{
+		return staffMembers;
+	}
 	public int GetAmountOfCustomersLeftToServe() 
 	{
-		return amountOfCustomersLeftToServe;
+		return processor.AmountOfOrders();
+	}
+	
+	public Queue<Customer> GetCustomers() 
+	{
+		return processor.GetQueue();
 	}
 
 	public String SetCustomerQueueUIText(String NewUIText) 
 	{
 		return NewUIText;
-	}
-	
-	public void AddCustomerToQueue(Integer customer) 
-	{
-		customerQueue.add(customer);
-		amountOfCustomersLeftToServe++;
-	}
-	
-	public void RemoveCustomerFromQueue() 
-	{
-		if(customerQueue.peek() != null && amountOfCustomersLeftToServe > 0) 
-		{
-			customerQueue.remove();
-			amountOfCustomersLeftToServe--;
-		}else
-		{
-			System.out.println("NO CUSTOMERS LEFT NOTIFY ORDERSYSTEM");
-		}
 	}
 }

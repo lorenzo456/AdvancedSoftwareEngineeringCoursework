@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -26,10 +27,19 @@ public class CustomerOrderProcessor implements Runnable {
     	Customer customer2 = new Customer("2",temp);
     	Customer customer3 = new Customer("3",temp);
     	Customer customer4 = new Customer("4",temp);
+    	Customer customer5 = new Customer("5",temp);
+    	Customer customer6 = new Customer("6",temp);
+    	Customer customer7 = new Customer("7",temp);
+    	Customer customer8 = new Customer("8",temp);
     	SetCurrentCustomer(customer1);
     	SetCurrentCustomer(customer2);
     	SetCurrentCustomer(customer3);
     	SetCurrentCustomer(customer4);
+    	SetCurrentCustomer(customer5);
+    	SetCurrentCustomer(customer6);
+    	SetCurrentCustomer(customer7);
+    	SetCurrentCustomer(customer8);
+
 
     }
     
@@ -43,9 +53,13 @@ public class CustomerOrderProcessor implements Runnable {
     	queue.add(customer);
     }
     
+    public int AmountOfOrders() 
+    {
+    	return queue.size();
+    }
+    
     public void RemoveFromQueue(Customer customer) 
     {
-    	//compare customer with elements in queue and remove
     	if(customer == queue.peek()) 
     	{
     		queue.poll();
@@ -57,6 +71,7 @@ public class CustomerOrderProcessor implements Runnable {
     		if(customer == c) 
     		{
     			queue.remove(c);
+    			return;
     		}
     	}
     }
@@ -70,6 +85,19 @@ public class CustomerOrderProcessor implements Runnable {
     	}
     	System.out.println("The queue holds: " + queue.size());
     	currentCustomer = null;
+    }
+    
+    public Customer GetUnservedCustomer() 
+    {    	
+    	for(Customer c : queue) 
+    	{
+    		if(c.getIsBeingServed() == false) 
+    		{
+    			return c;
+    		}
+    	}
+		
+    	return null;
     }
 
     @Override
