@@ -22,11 +22,15 @@ public class ShopManager {
     
     public void Start() 
     {
+
+
+
     	menuList = new MenuList(this);
     	basket = new Basket(menuList);
     	orderGUI = new OrderGUI(menuList, basket);	
 
     	processor = new CustomerOrderProcessor(menuList);
+
     	model = new OrderSystemModel(processor);
 		controller = new OrderSystemController(model);
     	view = new OrderSystemView(model, controller);
@@ -42,6 +46,8 @@ public class ShopManager {
 
     	staff1.start();    	
     	staff2.start();
+    	processor.start();
+    	processor.Init(view);
 
     }
     

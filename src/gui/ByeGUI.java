@@ -23,6 +23,10 @@ public class ByeGUI {
    	private MenuList menu;
    	private Basket basket;
    	
+   	
+   	private JFrame g;
+
+
 	public ByeGUI(MenuList menu, Basket basket) {
 		this.menu = menu;
 		this.basket = basket;
@@ -64,6 +68,17 @@ public class ByeGUI {
    		p.add(close);
    		f.add(p);
    		f.pack();
+   		
+   		// add button to come back shopping! (new order, same customerID?).
+   		
+   		/*
+   		 * 
+   		 * g = new JFrame("New Order");
+   		g.setVisible(true);
+   		g.setSize(40, 50);
+   		 */
+   		
+
 		
 	}
 

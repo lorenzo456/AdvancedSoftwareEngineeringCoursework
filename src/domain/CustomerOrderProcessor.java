@@ -4,22 +4,33 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import OrderSystemGUI.OrderSystemView;
 import utils.Logger;
 
-public class CustomerOrderProcessor implements Runnable {
+public class CustomerOrderProcessor extends Thread {
+
+
+    // Implements the Logger class, as we will use methods of it. We also need the Random method for the random wait time in the end.
 	
-	private Queue<Customer> normalCustomers = new LinkedList<>();
+	private Queue<Customer> queue = new LinkedList<>();
 	private Queue<Customer> priorityCustomers = new LinkedList<>();
 
     private Customer currentCustomer;
 	
     private MenuList menu;
     private static Logger logger = Logger.getInstance();
-
+    private OrderSystemView view;
+    
     public CustomerOrderProcessor(MenuList menulist) 
     {
     	this.menu = menulist;
     	
+
+    }
+
+    public void Init(OrderSystemView view) 
+    {
+    	this.view = view;
     	ArrayList<Item> temp = new ArrayList<Item>();
     	temp.add(menu.getItemByID("HD01"));
     	temp.add(menu.getItemByID("DE03"));
@@ -44,15 +55,16 @@ public class CustomerOrderProcessor implements Runnable {
     	SetCurrentCustomer(customer6);
     	SetCurrentCustomer(customer7);
     	SetCurrentCustomer(customer8);
+
 		SetCurrentCustomer(customer9);
 		SetCurrentCustomer(customer10);
 		SetCurrentCustomer(customer11);
 		SetCurrentCustomer(customer12);
 
-
     }
+                 
     
-    public Queue GetQueue() 
+    public Queue<Customer> GetQueue() 
     {
     	return normalCustomers;
     }
@@ -102,42 +114,46 @@ public class CustomerOrderProcessor implements Runnable {
     	currentCustomer = null;
     }
     
-    public Customer GetUnservedCustomer()
+
+    public synchronized Customer GetUnservedCustomer()
     {
-		for(Customer c : priorityCustomers)
+		for(Customer c : queue)
 		{
-			if(c.getIsBeingServed() == false)
+			if(c.priority == true && c.getIsBeingServed() == false)
 			{
 				logger.info("Getting priority customer id: " + c.getID());
 				return c;
 			}
 		}
-
-    	for(Customer c : normalCustomers)
-    	{
-    		if(c.getIsBeingServed() == false) 
-    		{
-				logger.info("Getting normal customer id: " + c.getID());
-    			return c;
-    		}
-    	}
 		
     	return null;
     }
 
-    @Override
     public void run() {
-    	//Change message name
+    	if(currentCustomer == null) 
+    	{
+    		return;
+    	}
+    	
         logger.info("Customer " + currentCustomer.getID() + " is ordering");
 
-        if (currentCustomer.getIsPriorityCustomer()) {
-			AddToPriorityQueue(currentCustomer);
-		} else {
-			AddToNormalQueue(currentCustomer);
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+        AddToQueue(currentCustomer);
+        view.UpdateAllText();
 
         
         //Change message name
         logger.info("Customer " + currentCustomer.getID() + " order is added to the Queue");
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 }

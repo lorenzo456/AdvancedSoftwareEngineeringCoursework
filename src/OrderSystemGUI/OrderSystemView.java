@@ -16,7 +16,8 @@ public class OrderSystemView
 	private JLabel speedLabel;
 	private JPanel customerUIPanel,staffUIPanel, speedControlPanel, customerControlPanel;
 	private JTextArea customerQueueUI,staff0UI, staff1UI;
-	private JButton tempAddButton, tempRemoveButton, increaseSpeedButton, descreseSpeedButton;
+
+	private JButton increaseSpeedButton, descreseSpeedButton;
 	
 	public OrderSystemView(OrderSystemModel orderSystemModel, OrderSystemController orderSystemController)
 	{
@@ -45,8 +46,7 @@ public class OrderSystemView
 
    		customerControlPanel = new JPanel();
    		customerQueueUI = new JTextArea(25,10);
-   		tempAddButton = new JButton("Add Customer");
-   		tempRemoveButton = new JButton("Remove Customer");
+   		
 		customerControlPanel.add(customerQueueUI);
 		customerControlPanel.add(tempAddButton);
 		customerControlPanel.add(tempRemoveButton);
@@ -60,6 +60,9 @@ public class OrderSystemView
 		speedControlPanel.add(speedLabel);
 		speedControlPanel.add(increaseSpeedButton);
 		speedControlPanel.add(descreseSpeedButton);
+   		
+   		customerUIPanel.add(customerQueueUI); 
+   		
 
 		customerUIPanel.add(customerControlPanel, BorderLayout.WEST);
 		customerUIPanel.add(speedControlPanel, BorderLayout.EAST);

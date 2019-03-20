@@ -17,15 +17,35 @@ public class Staff extends Thread {
 	private OrderSystemView view;
 	private static Logger logger = Logger.getInstance();
 
+	private String currentTask;
+	
+
 	public Staff(int staffNumber, CustomerOrderProcessor processor, OrderSystemView view) {
 		this.staffNumber = staffNumber;
 		this.queueCustomers = processor.GetQueue();
 		this.processor = processor;
+
 		this.view = view;
 		Logger.getInstance().info("STAFF MEMBER " + staffNumber + " is ready to take an order");
 	}
 
 public void run() {
+
+
+		this.view = view; 
+		Logger.getInstance().info("STAFF MEMBER " + staffNumber + " is waiting for orders");
+	}
+
+public void run() {
+	while(queueCustomers.size() == 0) 
+	{
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	while(queueCustomers.size() > 0) {
 		Random r = new Random();
@@ -35,19 +55,26 @@ public void run() {
 
 
 		if(currentCustomer == null) {
+
+			
 			currentCustomer = processor.GetUnservedCustomer();
-			if(currentCustomer == null)
-			{
-				logger.info("STAFF MEMBER " + staffNumber + " is ready to take an order");
+			if(currentCustomer == null) 
+			{	
+				currentTask = staffNumber + " is ready to take an order";
+				Logger.getInstance().info("STAFF MEMBER " + staffNumber + " is ready to take an order");
+
 				view.UpdateAllText();
-				return;
+				continue;
 			}
 
 			if(currentCustomer.getIsBeingServed() == false && currentCustomer != null)
 			{
 				currentCustomer.setIsBeingServed(true);
 				takingOrder = true;
-				logger.info("Staff member " + staffNumber + " is processing order " + currentCustomer.getID());
+
+				currentTask = staffNumber + " is currently processing customer " + currentCustomer.getID() + "'s order of: \n" + currentCustomer.GetItemsOrdered();
+				Logger.getInstance().info("Staff member " + staffNumber + " is processing order " + currentCustomer.getID());
+
 				view.UpdateAllText();
 
 				try {
@@ -56,7 +83,10 @@ public void run() {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-                logger.info("Staff member " + staffNumber + " has ended order " + currentCustomer.getID());
+
+				currentTask = staffNumber + " has completed processing customer " + currentCustomer.getID() + "'s order of: \n" + currentCustomer.GetItemsOrdered();
+				Logger.getInstance().info("Staff member " + staffNumber + " has ended order " + currentCustomer.getID());
+
 				processor.RemoveFromQueue(currentCustomer);
 				currentCustomer = null;
 				takingOrder = false;
@@ -64,8 +94,7 @@ public void run() {
 
 			}else {
 				currentCustomer = null;
-                logger.info("STAFF MEMBER " + staffNumber + " is ready to take an order");
-				view.UpdateAllText();
+
 			}
 
 		}
@@ -74,8 +103,23 @@ public void run() {
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+
 		}
 		System.out.println("THE SIZE IS " + queueCustomers.size());
+	}
+
+
+		}	
+	}
+	
+	if(!Logger.getInstance().GetIsPrinted()) 
+	{
+	currentTask = staffNumber + " is closing the shop";
+	Logger.getInstance().info("STAFF MEMBER " + staffNumber + " closes the shop");
+	Logger.getInstance().printFile();
+	}else
+	{
+	currentTask = staffNumber + " is cleaning up";
 	}
 
 }
@@ -102,7 +146,13 @@ public String GetCurrentCustomerItems()
 	}
 }
 
-	public boolean getTakingOrder() {
+public String GetCurrentCustomerTask() 
+{
+	return currentTask;
+}
+
+public boolean getTakingOrder() {
+
 	return takingOrder;
 }
 
