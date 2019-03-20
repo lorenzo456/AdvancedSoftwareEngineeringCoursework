@@ -15,7 +15,7 @@ public class OrderSystemView
 	private JFrame frame;
 	private JPanel customerUIPanel,staffUIPanel;
 	private JTextArea customerQueueUI,staff0UI, staff1UI;
-	private JButton tempAddButton, tempRemoveButton;
+	//private JButton tempAddButton, tempRemoveButton;
 	
 	public OrderSystemView(OrderSystemModel orderSystemModel) 
 	{
@@ -42,12 +42,7 @@ public class OrderSystemView
    		customerUIPanel = new JPanel();
    		
    		customerQueueUI = new JTextArea(25,10);
-   		tempAddButton = new JButton("Add Customer");
-   		tempRemoveButton = new JButton("Remove Customer");
-   		customerUIPanel.add(customerQueueUI); 
-   		customerUIPanel.add(tempAddButton);
-   		customerUIPanel.add(tempRemoveButton);
-
+   	
 
    		staffUIPanel = new JPanel();
    		staff0UI = new JTextArea(25,20);
