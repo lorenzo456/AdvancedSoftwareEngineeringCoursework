@@ -15,7 +15,7 @@ public class Staff extends Thread {
 	private Queue<Customer> queueCustomers = new LinkedList<Customer>();
 	private CustomerOrderProcessor processor;
 	private OrderSystemView view;
-	private Logger logger = Logger.getInstance();
+	private static Logger logger = Logger.getInstance();
 
 	public Staff(int staffNumber, CustomerOrderProcessor processor, OrderSystemView view) {
 		this.staffNumber = staffNumber;

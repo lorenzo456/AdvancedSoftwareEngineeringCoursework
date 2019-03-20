@@ -1,7 +1,6 @@
 package domain;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -9,7 +8,9 @@ import utils.Logger;
 
 public class CustomerOrderProcessor implements Runnable {
 	
-	private Queue<Customer> queue = new LinkedList<>();
+	private Queue<Customer> normalCustomers = new LinkedList<>();
+	private Queue<Customer> priorityCustomers = new LinkedList<>();
+
     private Customer currentCustomer;
 	
     private MenuList menu;
@@ -31,6 +32,10 @@ public class CustomerOrderProcessor implements Runnable {
     	Customer customer6 = new Customer("6",temp);
     	Customer customer7 = new Customer("7",temp);
     	Customer customer8 = new Customer("8",temp);
+		Customer customer9 = new Customer("9",temp, true);
+		Customer customer10 = new Customer("10",temp, true);
+		Customer customer11 = new Customer("11",temp, true);
+		Customer customer12 = new Customer("12",temp, true);
     	SetCurrentCustomer(customer1);
     	SetCurrentCustomer(customer2);
     	SetCurrentCustomer(customer3);
@@ -39,38 +44,48 @@ public class CustomerOrderProcessor implements Runnable {
     	SetCurrentCustomer(customer6);
     	SetCurrentCustomer(customer7);
     	SetCurrentCustomer(customer8);
+		SetCurrentCustomer(customer9);
+		SetCurrentCustomer(customer10);
+		SetCurrentCustomer(customer11);
+		SetCurrentCustomer(customer12);
 
 
     }
     
     public Queue GetQueue() 
     {
-    	return queue;
+    	return normalCustomers;
     }
     
-    private void AddToQueue(Customer customer) 
+    private void AddToNormalQueue(Customer customer)
     {
-    	queue.add(customer);
+    	normalCustomers.add(customer);
     }
+
+    private void AddToPriorityQueue(Customer customer)
+	{
+		priorityCustomers.add(customer);
+	}
+
     
     public int AmountOfOrders() 
     {
-    	return queue.size();
+    	return normalCustomers.size();
     }
     
     public void RemoveFromQueue(Customer customer) 
     {
-    	if(customer == queue.peek()) 
+    	if(customer == normalCustomers.peek())
     	{
-    		queue.poll();
+    		normalCustomers.poll();
     		return;
     	}
     	
-    	for(Customer c : queue) 
+    	for(Customer c : normalCustomers)
     	{
     		if(customer == c) 
     		{
-    			queue.remove(c);
+    			normalCustomers.remove(c);
     			return;
     		}
     	}
@@ -83,16 +98,26 @@ public class CustomerOrderProcessor implements Runnable {
     	{
         	run();
     	}
-    	System.out.println("The queue holds: " + queue.size());
+    	System.out.println("The normalCustomers holds: " + normalCustomers.size());
     	currentCustomer = null;
     }
     
-    public Customer GetUnservedCustomer() 
-    {    	
-    	for(Customer c : queue) 
+    public Customer GetUnservedCustomer()
+    {
+		for(Customer c : priorityCustomers)
+		{
+			if(c.getIsBeingServed() == false)
+			{
+				logger.info("Getting priority customer id: " + c.getID());
+				return c;
+			}
+		}
+
+    	for(Customer c : normalCustomers)
     	{
     		if(c.getIsBeingServed() == false) 
     		{
+				logger.info("Getting normal customer id: " + c.getID());
     			return c;
     		}
     	}
@@ -105,7 +130,12 @@ public class CustomerOrderProcessor implements Runnable {
     	//Change message name
         logger.info("Customer " + currentCustomer.getID() + " is ordering");
 
-        AddToQueue(currentCustomer);
+        if (currentCustomer.getIsPriorityCustomer()) {
+			AddToPriorityQueue(currentCustomer);
+		} else {
+			AddToNormalQueue(currentCustomer);
+		}
+
         
         //Change message name
         logger.info("Customer " + currentCustomer.getID() + " order is added to the Queue");

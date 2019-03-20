@@ -30,7 +30,6 @@ public class CustomerOrderQueue {
 
     public synchronized CustomerOrder poll() {
         return this.queue.poll();
-
     }
     
 }
