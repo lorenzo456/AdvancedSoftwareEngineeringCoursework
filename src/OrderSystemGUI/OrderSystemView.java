@@ -42,7 +42,10 @@ public class OrderSystemView
    		customerUIPanel = new JPanel();
    		
    		customerQueueUI = new JTextArea(25,10);
-   	
+   		
+   		customerUIPanel.add(customerQueueUI); 
+   		
+
 
    		staffUIPanel = new JPanel();
    		staff0UI = new JTextArea(25,20);
