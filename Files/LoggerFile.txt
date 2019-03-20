@@ -1,0 +1,36 @@
+2019-03-20 17:19:08.287: INFO: STAFF MEMBER 1 is waiting for orders
+2019-03-20 17:19:08.298: INFO: STAFF MEMBER 2 is waiting for orders
+2019-03-20 17:19:08.341: INFO: Customer 1 is ordering
+2019-03-20 17:19:08.842: INFO: Customer 1 order is added to the Queue
+2019-03-20 17:19:09.339: INFO: Staff member 2 is processing order 1
+2019-03-20 17:19:09.342: INFO: Customer 2 is ordering
+2019-03-20 17:19:09.843: INFO: Customer 2 order is added to the Queue
+2019-03-20 17:19:10.343: INFO: Customer 3 is ordering
+2019-03-20 17:19:10.566: INFO: Staff member 2 has ended order 1
+2019-03-20 17:19:10.843: INFO: Customer 3 order is added to the Queue
+2019-03-20 17:19:11.344: INFO: Customer 4 is ordering
+2019-03-20 17:19:11.791: INFO: Staff member 2 is processing order 2
+2019-03-20 17:19:11.844: INFO: Customer 4 order is added to the Queue
+2019-03-20 17:19:12.345: INFO: Customer 5 is ordering
+2019-03-20 17:19:12.472: INFO: Staff member 1 is processing order 3
+2019-03-20 17:19:12.846: INFO: Customer 5 order is added to the Queue
+2019-03-20 17:19:13.346: INFO: Customer 6 is ordering
+2019-03-20 17:19:13.847: INFO: Customer 6 order is added to the Queue
+2019-03-20 17:19:13.887: INFO: Staff member 1 has ended order 3
+2019-03-20 17:19:14.347: INFO: Customer 7 is ordering
+2019-03-20 17:19:14.808: INFO: Staff member 2 has ended order 2
+2019-03-20 17:19:14.847: INFO: Customer 7 order is added to the Queue
+2019-03-20 17:19:15.302: INFO: Staff member 1 is processing order 4
+2019-03-20 17:19:15.347: INFO: Customer 8 is ordering
+2019-03-20 17:19:15.848: INFO: Customer 8 order is added to the Queue
+2019-03-20 17:19:16.954: INFO: Staff member 1 has ended order 4
+2019-03-20 17:19:17.825: INFO: Staff member 2 is processing order 5
+2019-03-20 17:19:18.606: INFO: Staff member 1 is processing order 6
+2019-03-20 17:19:20.002: INFO: Staff member 1 has ended order 6
+2019-03-20 17:19:20.893: INFO: Staff member 2 has ended order 5
+2019-03-20 17:19:21.398: INFO: Staff member 1 is processing order 7
+2019-03-20 17:19:23.961: INFO: Staff member 2 is processing order 8
+2019-03-20 17:19:25.506: INFO: Staff member 2 has ended order 8
+2019-03-20 17:19:26.216: INFO: Staff member 1 has ended order 7
+2019-03-20 17:19:27.051: INFO: STAFF MEMBER 2 closes the shop
+

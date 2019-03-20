@@ -5,9 +5,10 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import OrderSystemGUI.OrderSystemView;
 import utils.Logger;
 
-public class CustomerOrderProcessor implements Runnable {
+public class CustomerOrderProcessor extends Thread {
 
 
     // Implements the Logger class, as we will use methods of it. We also need the Random method for the random wait time in the end.
@@ -17,11 +18,18 @@ public class CustomerOrderProcessor implements Runnable {
 	
     private MenuList menu;
     private static Logger logger = Logger.getInstance();
-
+    private OrderSystemView view;
+    
     public CustomerOrderProcessor(MenuList menulist) 
     {
     	this.menu = menulist;
     	
+
+    }
+
+    public void Init(OrderSystemView view) 
+    {
+    	this.view = view;
     	ArrayList<Item> temp = new ArrayList<Item>();
     	temp.add(menu.getItemByID("HD01"));
     	temp.add(menu.getItemByID("DE03"));
@@ -43,11 +51,9 @@ public class CustomerOrderProcessor implements Runnable {
     	SetCurrentCustomer(customer7);
     	SetCurrentCustomer(customer8);
     }
-
-
                  
     
-    public Queue GetQueue() 
+    public Queue<Customer> GetQueue() 
     {
     	return queue;
     }
@@ -91,7 +97,7 @@ public class CustomerOrderProcessor implements Runnable {
     	currentCustomer = null;
     }
     
-    public Customer GetUnservedCustomer() 
+    public synchronized Customer GetUnservedCustomer() 
     {    	
     	for(Customer c : queue) 
     	{
@@ -104,14 +110,29 @@ public class CustomerOrderProcessor implements Runnable {
     	return null;
     }
 
-    @Override
     public void run() {
-    	//Change message name
+    	if(currentCustomer == null) 
+    	{
+    		return;
+    	}
+    	
         logger.info("Customer " + currentCustomer.getID() + " is ordering");
-
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         AddToQueue(currentCustomer);
+        view.UpdateAllText();
         
         //Change message name
         logger.info("Customer " + currentCustomer.getID() + " order is added to the Queue");
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 }
