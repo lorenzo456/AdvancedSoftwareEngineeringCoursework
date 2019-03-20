@@ -3,6 +3,9 @@ package domain;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
+
+import javax.swing.JTextArea;
+
 import OrderSystemGUI.OrderSystemView;
 import utils.Logger;
 
@@ -10,13 +13,13 @@ public class Staff extends Thread {
 	private int staffNumber;
 	private int speed = 5;
 
-	private boolean takingOrder;
+	private boolean closingShop;
 	private Customer currentCustomer;
 	private Queue<Customer> queueCustomers = new LinkedList<Customer>();
 	private CustomerOrderProcessor processor;
 	private OrderSystemView view;
 	private static Logger logger = Logger.getInstance();
-
+	private JTextArea panel;
 	private String currentTask;
 	
 
@@ -26,16 +29,20 @@ public class Staff extends Thread {
 		this.processor = processor;
 
 		this.view = view;
-		Logger.getInstance().info("STAFF MEMBER " + staffNumber + " is ready to take an order");
+		currentTask = staffNumber + " is waiting for orders in the queue";
+		Logger.getInstance().info("STAFF MEMBER " + staffNumber + " is waiting for orders in the queue");
 	}
 
-public void run() {
-
-
-		this.view = view; 
-		Logger.getInstance().info("STAFF MEMBER " + staffNumber + " is waiting for orders");
+	public JTextArea GetPanel() 
+	{
+		return panel;
 	}
 
+	public void SetPanel(JTextArea panel) 
+	{
+		this.panel = panel;
+	}
+	
 public void run() {
 	while(queueCustomers.size() == 0) 
 	{
@@ -56,21 +63,19 @@ public void run() {
 
 		if(currentCustomer == null) {
 
-			
-			currentCustomer = processor.GetUnservedCustomer();
-			if(currentCustomer == null) 
-			{	
-				currentTask = staffNumber + " is ready to take an order";
-				Logger.getInstance().info("STAFF MEMBER " + staffNumber + " is ready to take an order");
+			try
+			{
+				currentCustomer = processor.GetUnservedCustomer();
 
-				view.UpdateAllText();
+			}catch(NullPointerException e ) 
+			{
 				continue;
 			}
 
-			if(currentCustomer.getIsBeingServed() == false && currentCustomer != null)
+
+			if(currentCustomer != null &&currentCustomer.getIsBeingServed() == false)
 			{
 				currentCustomer.setIsBeingServed(true);
-				takingOrder = true;
 
 				currentTask = staffNumber + " is currently processing customer " + currentCustomer.getID() + "'s order of: \n" + currentCustomer.GetItemsOrdered();
 				Logger.getInstance().info("Staff member " + staffNumber + " is processing order " + currentCustomer.getID());
@@ -79,6 +84,7 @@ public void run() {
 
 				try {
 					Thread.sleep(result);
+					result = r.nextInt(high-low) + low;
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -89,7 +95,6 @@ public void run() {
 
 				processor.RemoveFromQueue(currentCustomer);
 				currentCustomer = null;
-				takingOrder = false;
 				view.UpdateAllText();
 
 			}else {
@@ -100,28 +105,35 @@ public void run() {
 		}
 		try {
 			Thread.sleep(result);
+			result = r.nextInt(high-low) + low;
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 
 		}
+		currentTask = staffNumber + " is ready to take an order";
+		Logger.getInstance().info("STAFF MEMBER " + staffNumber + " is ready to take an order");
+
+		view.UpdateAllText();
 		System.out.println("THE SIZE IS " + queueCustomers.size());
 	}
 
-
-		}	
-	}
 	
-	if(!Logger.getInstance().GetIsPrinted()) 
-	{
+
 	currentTask = staffNumber + " is closing the shop";
 	Logger.getInstance().info("STAFF MEMBER " + staffNumber + " closes the shop");
-	Logger.getInstance().printFile();
-	}else
-	{
-	currentTask = staffNumber + " is cleaning up";
+	closingShop = Logger.getInstance().print();
+	try {
+		Thread.sleep(3000);
+	} catch (InterruptedException e) {
+		e.printStackTrace();
 	}
-
+	
+	if(closingShop) {
+		Logger.getInstance().printFile();
+	}else {
+		currentTask = staffNumber + " is cleaning up";
+	}
 }
 
 public String GetCurrentCustomerID()
@@ -151,13 +163,10 @@ public String GetCurrentCustomerTask()
 	return currentTask;
 }
 
-public boolean getTakingOrder() {
 
-	return takingOrder;
+public void setSpeed(int speed) {
+    logger.info("Changed staff: " + staffNumber + " speed: "  + speed);
+    this.speed = speed;
 }
 
-	public void setSpeed(int speed) {
-        logger.info("Changed staff: " + staffNumber + " speed: "  + speed);
-	    this.speed = speed;
-	}
 }

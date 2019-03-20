@@ -72,13 +72,13 @@ public class Logger {
         System.out.println(timestamp + ": ERROR: " + message);
     }
     
-    public synchronized void print(String message){
-    if(!printed) 
-    {
-    	printed = true;
-    	Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-    	System.out.println(timestamp + "PRINTING: ");
-    }
+    public synchronized boolean print(){
+	    if(!printed) 
+	    {
+	    	printed = true;
+	    	return true;
+	    }
+    return false;
     }
     
     // Methods about: Order 1 is being processes by Staff 1 ??? maybe put them in order processor :) 

@@ -13,13 +13,13 @@ public class CustomerOrderProcessor extends Thread {
     // Implements the Logger class, as we will use methods of it. We also need the Random method for the random wait time in the end.
 	
 	private Queue<Customer> queue = new LinkedList<>();
-	private Queue<Customer> priorityCustomers = new LinkedList<>();
 
     private Customer currentCustomer;
 	
     private MenuList menu;
     private static Logger logger = Logger.getInstance();
     private OrderSystemView view;
+    private int speed;
     
     public CustomerOrderProcessor(MenuList menulist) 
     {
@@ -31,6 +31,7 @@ public class CustomerOrderProcessor extends Thread {
     public void Init(OrderSystemView view) 
     {
     	this.view = view;
+    	speed = 500;
     	ArrayList<Item> temp = new ArrayList<Item>();
     	temp.add(menu.getItemByID("HD01"));
     	temp.add(menu.getItemByID("DE03"));
@@ -63,41 +64,46 @@ public class CustomerOrderProcessor extends Thread {
 
     }
                  
+    public void SetSpeed(int speed) 
+    {
+    	this.speed = speed;
+    }
+    
+    public int GetSpeed() 
+    {
+    	return speed;
+    }
     
     public Queue<Customer> GetQueue() 
     {
-    	return normalCustomers;
+    	return queue;
     }
     
-    private void AddToNormalQueue(Customer customer)
-    {
-    	normalCustomers.add(customer);
-    }
 
-    private void AddToPriorityQueue(Customer customer)
+    private void AddToQueue(Customer customer)
 	{
-		priorityCustomers.add(customer);
+    	queue.add(customer);
 	}
 
     
     public int AmountOfOrders() 
     {
-    	return normalCustomers.size();
+    	return queue.size();
     }
     
     public void RemoveFromQueue(Customer customer) 
     {
-    	if(customer == normalCustomers.peek())
+    	if(customer == queue.peek())
     	{
-    		normalCustomers.poll();
+    		queue.poll();
     		return;
     	}
     	
-    	for(Customer c : normalCustomers)
+    	for(Customer c : queue)
     	{
     		if(customer == c) 
     		{
-    			normalCustomers.remove(c);
+    			queue.remove(c);
     			return;
     		}
     	}
@@ -110,7 +116,7 @@ public class CustomerOrderProcessor extends Thread {
     	{
         	run();
     	}
-    	System.out.println("The normalCustomers holds: " + normalCustomers.size());
+    	System.out.println("The normalCustomers holds: " + queue.size());
     	currentCustomer = null;
     }
     
@@ -119,9 +125,18 @@ public class CustomerOrderProcessor extends Thread {
     {
 		for(Customer c : queue)
 		{
-			if(c.priority == true && c.getIsBeingServed() == false)
+			if(c.getIsPriorityCustomer() == true && c.getIsBeingServed() == false)
 			{
 				logger.info("Getting priority customer id: " + c.getID());
+				return c;
+			}
+		}
+		
+		for(Customer c : queue)
+		{
+			if(c.getIsBeingServed() == false)
+			{
+				logger.info("Getting normal customer id: " + c.getID());
 				return c;
 			}
 		}
@@ -138,7 +153,7 @@ public class CustomerOrderProcessor extends Thread {
         logger.info("Customer " + currentCustomer.getID() + " is ordering");
 
 		try {
-			Thread.sleep(500);
+			Thread.sleep(speed);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -150,7 +165,7 @@ public class CustomerOrderProcessor extends Thread {
         //Change message name
         logger.info("Customer " + currentCustomer.getID() + " order is added to the Queue");
 		try {
-			Thread.sleep(500);
+			Thread.sleep(speed);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
