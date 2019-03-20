@@ -8,8 +8,7 @@ import java.util.Queue;
 import utils.Logger;
 
 public class CustomerOrderProcessor implements Runnable {
-    private CustomerOrderQueue queue;
-    private CustomerOrder currentCustomer;
+
 
     // Implements the Logger class, as we will use methods of it. We also need the Random method for the random wait time in the end.
 	
@@ -43,34 +42,10 @@ public class CustomerOrderProcessor implements Runnable {
     	SetCurrentCustomer(customer6);
     	SetCurrentCustomer(customer7);
     	SetCurrentCustomer(customer8);
-
-
-                    if(customerId.equals(this.getCurrentCustomerId())){
-                        Order tempOrder = new Order(itemName, description, date);
-                        currentCustomer.addOrder(tempOrder);
-                    } else {
-                        logger.info("Added customer order to queue CustomerId : "+ currentCustomer.getCustomerId()) ;
-                        queue.add(currentCustomer);
-                        
-                        // do we need to include the staff here?
-
-                        this.currentCustomer = new CustomerOrder(customerId);
-                        logger.info("Started new customer order for customerId : "+ currentCustomer.getCustomerId());
-                        Order tempOrder = new Order(itemName, description, date);
-                        currentCustomer.addOrder(tempOrder);
-                    }
-
-                    TimeUnit.MILLISECONDS.sleep(rand.nextInt(1000));
-
-            }
-        } catch (IOException e) {
-            logger.error("Unable to load order list file " + e.getMessage());
-        } catch(InterruptedException e) {
-            logger.warn("Interrupted loading" + e.getMessage());
-        } catch (RuntimeException e) {
-            logger.warn("Unable to create order item " + e.getMessage());
-        }
     }
+
+
+                 
     
     public Queue GetQueue() 
     {

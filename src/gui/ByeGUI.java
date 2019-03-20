@@ -19,11 +19,17 @@ public class ByeGUI {
 	private JFrame f;
   	private JPanel p;
    	private JTextArea t;
+   	private JButton close;
+   	private MenuList menu;
+   	private Basket basket;
+   	
    	
    	private JFrame g;
 
 
-	public ByeGUI() {
+	public ByeGUI(MenuList menu, Basket basket) {
+		this.menu = menu;
+		this.basket = basket;
 		gui();
 	}
 
