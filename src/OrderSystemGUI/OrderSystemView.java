@@ -32,7 +32,7 @@ public class OrderSystemView
 	private void DisplayGui() {
    		frame = new JFrame("OrderSystem");
    		frame.setVisible(true);
-   		frame.setPreferredSize(new Dimension(800, 500));
+   		frame.setPreferredSize(new Dimension(550, 500));
    		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
   		
    		GridLayout grid = new GridLayout(2,1);
@@ -65,10 +65,11 @@ public class OrderSystemView
 	
 	public void SetCustomerQueueUIText() 
 	{
-		String summaryText = "There are currently " + orderSystemModel.GetAmountOfCustomersLeftToServe() +" customers waiting on their order" +"\n";
+		String summaryText = "Customer queue\n\n";
+			summaryText += "There are currently " + orderSystemModel.GetAmountOfCustomersLeftToServe() +" customers waiting on their order" +"\n";
 		for(Customer customer : orderSystemModel.GetCustomers()) 
 		{
-			summaryText += customer.getID() + " \n";
+			summaryText += customer.getID() + " " + " \n";
 		}
 		
 		customerQueueUI.setText(summaryText);		
@@ -77,7 +78,7 @@ public class OrderSystemView
 	
 	public void SetStaffUI0() 
 	{
-		String summaryText = "";
+		String summaryText = "Staff 1\n";
 
 		summaryText += orderSystemModel.GetStaffMembers()[0].GetCurrentCustomerID() + " " + orderSystemModel.GetStaffMembers()[0].GetCurrentCustomerItems();	
 		
@@ -86,7 +87,7 @@ public class OrderSystemView
 	
 	public void SetStaffUI1() 
 	{
-		String summaryText = "";
+		String summaryText = "Staff 2\n";
 
 		summaryText += orderSystemModel.GetStaffMembers()[1].GetCurrentCustomerID() + " " + orderSystemModel.GetStaffMembers()[1].GetCurrentCustomerItems();	
 		

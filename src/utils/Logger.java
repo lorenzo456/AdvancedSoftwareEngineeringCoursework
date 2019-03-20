@@ -50,10 +50,12 @@ public class Logger {
     
     public void info(String message){
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        String  a = timestamp + ": INFO: " + message;
+        String  a = timestamp + ": INFO: " + message + "/n";
         System.out.println(a);
         logstring += a;
     }
+    
+    // check where we use this and delete it
 
     public void warn(String message){
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
