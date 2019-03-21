@@ -7,6 +7,7 @@ import javax.swing.*;
 import domain.Customer;
 import domain.Staff;
 
+
 public class OrderSystemView {
     private OrderSystemModel orderSystemModel;
     private OrderSystemController orderSystemController;
@@ -20,6 +21,11 @@ public class OrderSystemView {
     private boolean staffInitialized;
     private HashMap<Staff, JTextArea> staffUIList;
 
+    /**
+     * This is the constructor of the OrderSystemView class
+     * @param orderSystemModel - it needs the Model (MVC pattern)
+     * @param orderSystemController - it needs the Controller (MVC pattern)
+     */
     public OrderSystemView(OrderSystemModel orderSystemModel, OrderSystemController orderSystemController) {
         this.orderSystemModel = orderSystemModel;
         this.orderSystemController = orderSystemController;
@@ -27,11 +33,17 @@ public class OrderSystemView {
         this.staffUIList = new HashMap<>();
     }
 
+    /**
+     * This method initialises the View
+     */
     public void InitializeView() {
         DisplayGui();
         UpdateAllText();
     }
 
+    /**
+     * This method is called to display the GUI
+     */
     private void DisplayGui() {
         frame = new JFrame("OrderSystem");
         frame.setVisible(true);
@@ -122,6 +134,9 @@ public class OrderSystemView {
         }
     }
 
+    /**
+     * This methods set the text that will be displayed in the GUI to see the costumers that are waiting to be served
+     */
     public void SetCustomerQueueUIText() {
 		String summaryText = "Customer queue\n\n";
         summaryText += "There are currently " + orderSystemModel.GetAmountOfCustomersLeftToServe() + " customers waiting on their order" + "\n";
@@ -138,11 +153,18 @@ public class OrderSystemView {
 
     }
 
+    /**
+     * This methods sets the speed of the text displayed
+     * @param speed - it needs to know the new speed 
+     */
     public void SetSpeedText(int speed) {
         speedLabel.setText(Integer.toString(speed));
     }
 
 
+    /**
+     * This methods update all the text 
+     */
     public void UpdateAllText() {
         SetCustomerQueueUIText();
 
@@ -151,6 +173,10 @@ public class OrderSystemView {
         }
     }
 
+    /**
+     * This method removes a staff member
+     * @param s - it needs to know what staff member it has to remove
+     */
     public void RemoveStaffUI(Staff s) {
         JTextArea ui = staffUIList.get(s);
         int currentSize = frame.getSize().width;
