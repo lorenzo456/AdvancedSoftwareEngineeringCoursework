@@ -37,6 +37,8 @@ public class Logger {
         System.out.println(a);
         logstring += a;
     }
+    
+    // check where we use this and delete it
 
     public synchronized boolean print() {
         if (!printed) {

@@ -9,6 +9,7 @@ public class Customer {
 	private ArrayList<Item> OrderedItems;
 	
 	private String ID;
+	private String Name;
 	
 	public Customer(String ID, ArrayList<Item> orderedItems) 
 	{
@@ -41,6 +42,10 @@ public class Customer {
 	public String getID() 
 	{
 		return ID;
+	}
+	
+	public String getName() {
+		return Name;
 	}
 	
 	public String GetItemsOrdered() 
