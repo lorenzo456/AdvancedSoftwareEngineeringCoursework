@@ -21,6 +21,9 @@ public class ShopManager {
 
     private static Logger logger = Logger.getInstance();
 
+    /**
+     * This methods creates Threads that will be used in Staff and CustomerOrderProcessor classes
+     */
     public void Start() {
         menuList = new MenuList(this);
         basket = new Basket(menuList);
@@ -46,21 +49,35 @@ public class ShopManager {
         processor.start();
     }
 
+    /**
+     * This method adds costumers to the Queue
+     * @param customer
+     */
     public void AddToQueue(Customer customer) {
         logger.info(customer.getID() + " has ordered " + customer.GetItemsOrdered());
         processor.AddToQueue(customer);
     }
 
+    /**
+     * This methods starts the program for every staff members
+     */
     public void StartProgram() {
         for (Staff staff : staffMembers) {
             staff.start();
         }
     }
 
+    /**
+     * This method makes Online orders
+     */
     public void OrderOnline() {
         new OrderGUI(menuList, basket);
     }
 
+    /**
+     * This method creates a staff member and it send it to the model
+     * @return the staff created
+     */
     public Staff AddStaff() {
         Staff temp = new Staff(System.currentTimeMillis() , processor, view);
         staffMembers.add(temp);
