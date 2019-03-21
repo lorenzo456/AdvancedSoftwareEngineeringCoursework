@@ -8,14 +8,18 @@ import java.sql.Timestamp;
 public class Logger {
     private static volatile Logger instance;
     private static Object mutex = new Object();
-
+    private boolean printed;
 	// Singleton pattern, the "instance" of type Logger must be provate and static.
 	
 	
     private Logger() {
-    	
+    	printed = false;
     }
-
+    
+    public boolean GetIsPrinted() 
+    {
+    	return printed;
+    }
     // Protecting the Logger method by using syncronization as we are implementing this method in threads.
    
     public static Logger getInstance() {
@@ -70,9 +74,13 @@ public class Logger {
         System.out.println(timestamp + ": ERROR: " + message);
     }
     
-    public void print(String message){
-    	Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-    	System.out.println(timestamp + "PRINTING: ");
+    public synchronized boolean print(){
+	    if(!printed) 
+	    {
+	    	printed = true;
+	    	return true;
+	    }
+    return false;
     }
     
     // Methods about: Order 1 is being processes by Staff 1 ??? maybe put them in order processor :) 
@@ -80,20 +88,14 @@ public class Logger {
        
     
     
-    public void printFile(String fileName) 
+    public void printFile() 
     {
     	try {
     		System.out.println("PRINTED");
-			PrintWriter out = new PrintWriter(new FileWriter(fileName));
-			out.println(logstring);
-			
-			/** What do we want to print? 
-			 		List of orders?
-			 		Queue?
-			 		Customer order is being processed by Staff 1?
-			 		All of this¿ - Yes  
-			 */
+			PrintWriter out = new PrintWriter(new FileWriter("Files/LoggerFile.txt"));
+			out.println(logstring);			
 			out.close();
+			System.exit(0);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} 

@@ -19,7 +19,6 @@ import javax.swing.JTextArea;
 import gui.OrderGUI;
 import domain.Basket;
 import domain.Item;
-import domain.ItemCategory;
 import domain.MenuList;
 
 

@@ -1,29 +1,33 @@
 package OrderSystemGUI;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
 import domain.Customer;
+import domain.Staff;
 
 public class OrderSystemView 
 {
 	private OrderSystemModel orderSystemModel;
+	private OrderSystemController orderSystemController;
+
 	private JFrame frame;
-	private JPanel customerUIPanel,staffUIPanel;
+	private JLabel speedLabel;
+	private JPanel customerUIPanel,staffUIPanel, speedControlPanel, customerControlPanel;
 	private JTextArea customerQueueUI,staff0UI, staff1UI;
-	//private JButton tempAddButton, tempRemoveButton;
+
+	private JButton increaseSpeedButton, descreseSpeedButton, startProgramButton, orderOnlineButton, addStaffButton;
+	private boolean staffInitialized;
 	
-	public OrderSystemView(OrderSystemModel orderSystemModel) 
+	public OrderSystemView(OrderSystemModel orderSystemModel, OrderSystemController orderSystemController)
 	{
 		this.orderSystemModel = orderSystemModel;
-
+		this.orderSystemController = orderSystemController;
 	}
-	
-	public void InitializeView() 
+
+	public void InitializeView()
 	{
 		DisplayGui();
 		UpdateAllText();
@@ -40,14 +44,40 @@ public class OrderSystemView
    		frame.setLayout(grid);
 
    		customerUIPanel = new JPanel();
-   		
+   		customerUIPanel.setLayout(new BorderLayout());
+
+   		customerControlPanel = new JPanel();
    		customerQueueUI = new JTextArea(25,10);
    		
+		customerControlPanel.add(customerQueueUI);
+
+
+		speedControlPanel = new JPanel();
+		speedLabel = new JLabel("5");
+   		increaseSpeedButton = new JButton("+");
+   		increaseSpeedButton.addActionListener(orderSystemController);
+		descreseSpeedButton = new JButton("-");
+		descreseSpeedButton.addActionListener(orderSystemController);
+		startProgramButton = new JButton("StartProgram");
+		startProgramButton.addActionListener(orderSystemController);
+		orderOnlineButton = new JButton("OrderOnline");
+		orderOnlineButton.addActionListener(orderSystemController);
+		addStaffButton = new JButton("AddStaff");
+		addStaffButton.addActionListener(orderSystemController);
+		speedControlPanel.add(speedLabel);
+		speedControlPanel.add(increaseSpeedButton);
+		speedControlPanel.add(descreseSpeedButton);
+		speedControlPanel.add(startProgramButton);
+   		speedControlPanel.add(orderOnlineButton);
+   		speedControlPanel.add(addStaffButton);
    		customerUIPanel.add(customerQueueUI); 
    		
 
+		customerUIPanel.add(customerControlPanel, BorderLayout.WEST);
+		customerUIPanel.add(speedControlPanel, BorderLayout.EAST);
 
    		staffUIPanel = new JPanel();
+   		/*
    		staff0UI = new JTextArea(25,20);
    		staff0UI.setBackground(Color.green);
 
@@ -56,11 +86,39 @@ public class OrderSystemView
    		
    		staffUIPanel.add(staff0UI);
    		staffUIPanel.add(staff1UI);
-		
+		*/
    		frame.add(customerUIPanel);
    		frame.add(staffUIPanel);
    		frame.pack();
    		frame.setVisible(true);
+	}
+	
+	public void AddInitialStaffUI() 
+	{
+		for(Staff s : orderSystemModel.GetStaffMembers()) 
+		{
+			AddStaffUI(s);
+		}
+		staffInitialized = true;
+	} 
+	public void AddStaffUI(Staff s) 
+	{
+	   		JTextArea ui = new JTextArea(25,20);
+	   		ui.setBackground(Color.green);
+	   		staffUIPanel.add(ui);
+	   		frame.add(staffUIPanel);
+	   		frame.pack();
+	   		frame.setVisible(true);
+	   		s.SetPanel(ui);
+	}
+	
+	public void SetStaffUI() 
+	{
+
+		for(Staff s : orderSystemModel.GetStaffMembers()) 
+		{
+			s.GetPanel().setText(s.GetCurrentCustomerTask());
+		}		
 	}
 	
 	public void SetCustomerQueueUIText() 
@@ -75,29 +133,21 @@ public class OrderSystemView
 		customerQueueUI.setText(summaryText);		
 				
 	}
-	
-	public void SetStaffUI0() 
-	{
-		String summaryText = "Staff 1\n";
 
-		summaryText += orderSystemModel.GetStaffMembers()[0].GetCurrentCustomerID() + " " + orderSystemModel.GetStaffMembers()[0].GetCurrentCustomerItems();	
-		
-		staff0UI.setText(summaryText);
+	public void SetSpeedText(int speed){
+		speedLabel.setText(Integer.toString(speed));
 	}
-	
-	public void SetStaffUI1() 
-	{
-		String summaryText = "Staff 2\n";
 
-		summaryText += orderSystemModel.GetStaffMembers()[1].GetCurrentCustomerID() + " " + orderSystemModel.GetStaffMembers()[1].GetCurrentCustomerItems();	
-		
-		staff1UI.setText(summaryText);
-	}
 	
 	public void UpdateAllText() 
 	{
 		SetCustomerQueueUIText();
-		SetStaffUI0();
-		SetStaffUI1();
+		if(staffInitialized) 
+		{
+			SetStaffUI();
+		}
+
+		//SetStaffUI0();
+		//SetStaffUI1();
 	}
 }

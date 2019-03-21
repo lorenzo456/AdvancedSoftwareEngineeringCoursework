@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Customer {
 	private boolean isBeingServed;
+	private boolean isPriorityCustomer;
+
 	private ArrayList<Item> OrderedItems;
 	
 	private String ID;
@@ -13,7 +15,20 @@ public class Customer {
 	{
 		this.ID = ID;
 		this.OrderedItems = orderedItems;
-		isBeingServed = false;
+		this.isBeingServed = false;
+		this.isPriorityCustomer = false;
+	}
+
+	public Customer(String ID, ArrayList<Item> orderedItems, boolean isPriorityCustomer)
+	{
+		this.ID = ID;
+		this.OrderedItems = orderedItems;
+		this.isPriorityCustomer = isPriorityCustomer;
+		this.isBeingServed = false;
+	}
+
+	public boolean getIsPriorityCustomer(){
+		return isPriorityCustomer;
 	}
 
 	public boolean getIsBeingServed() {
