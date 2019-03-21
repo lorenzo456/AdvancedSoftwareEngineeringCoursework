@@ -58,7 +58,6 @@ public class Basket {
         	{
         		if(basket.get(i).getId().equals(id)) 
         		{
-        			//System.out.println("REMOVING " + id);
         			check++;
         			basket.remove(i);
         		}

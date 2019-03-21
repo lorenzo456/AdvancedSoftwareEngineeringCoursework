@@ -1,6 +1,6 @@
 package domain;
 
-public class Item implements Comparable <Item> {
+public class Item implements Comparable<Item> {
     private String Id;
     private String name;
     private String description;
@@ -19,26 +19,13 @@ public class Item implements Comparable <Item> {
         this.type = type;
         isDiscounted = false;
     }
-    
 
-    public boolean getIsDiscounted() 
-    {
-    	return isDiscounted;
+    public int compareTo(Item i) {
+        return name.compareTo(i.getName());
     }
-    
-    public void setIsDiscounted(boolean value) 
-    {
-    	isDiscounted = value;
-    }
-    
-    public int compareTo(Item i) 
-    {
-    	return name.compareTo(i.getName());
-    }
-    
-    
+
     public String getId() {
-            return Id;
+        return Id;
     }
 
     public String getName() {
@@ -49,20 +36,13 @@ public class Item implements Comparable <Item> {
         return description;
     }
 
-  
+
     public double getCost() {
         return cost;
     }
-   
+
     public ItemCategory getCategory() {
         return category;
     }
 
-    public ItemType getType() {
-        return type;
-    }
-    
-    
-    
-    
 }	

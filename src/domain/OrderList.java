@@ -30,7 +30,6 @@ public class OrderList {
     public void printToFile(String fileName) 
     {
     	try {
-    		//System.out.println("PRINTED");
 			PrintWriter out = new PrintWriter(new FileWriter(fileName));
 			out.println(getListOfOrders());
 			out.close();

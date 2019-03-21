@@ -4,58 +4,65 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import domain.Staff;
+import utils.Logger;
 
-public class OrderSystemController implements ActionListener
-{
-	private OrderSystemModel orderSystemModel;
-	private OrderSystemView orderSystemView;
-	
-	public OrderSystemController(OrderSystemModel orderSystemModel)
-	{
-		this.orderSystemModel = orderSystemModel;
-	}
-	
-	public void UpdatedSystem() 
-	{
-		orderSystemView.UpdateAllText();
-	}
+public class OrderSystemController implements ActionListener {
+    private OrderSystemModel orderSystemModel;
+    private OrderSystemView orderSystemView;
 
-	@Override
-	public void actionPerformed(ActionEvent actionEvent) {
-		if(actionEvent.getActionCommand().equals("+"))
-		{
-			int speed = this.orderSystemModel.increaseSpeed();
-			this.orderSystemModel.SetStaffSpeed(speed);
-			orderSystemView.SetSpeedText(speed);
-		}
+    private static Logger logger = Logger.getInstance();
 
-		if (actionEvent.getActionCommand().equals("-"))
-		{
-			int speed = this.orderSystemModel.descreaseSpeed();
-			this.orderSystemModel.SetStaffSpeed(speed);
-			orderSystemView.SetSpeedText(speed);
-		}
-		
-		if(actionEvent.getActionCommand().equals("StartProgram")) 
-		{
-			orderSystemModel.StartProgram();
-			orderSystemView.AddInitialStaffUI();
-		}
-		
-		if(actionEvent.getActionCommand().equals("OrderOnline")) 
-		{
-			orderSystemModel.OrderOnline();
-		}
-		
-		if(actionEvent.getActionCommand().equals("AddStaff")) 
-		{
-			Staff temp = orderSystemModel.AddStaff();			
-			orderSystemView.AddStaffUI(temp);
-			temp.start();
-		}
-	}
+    public OrderSystemController(OrderSystemModel orderSystemModel) {
+        this.orderSystemModel = orderSystemModel;
+    }
 
-	public void setView(OrderSystemView orderSystemView) {
-		this.orderSystemView = orderSystemView;
-	}
+    @Override
+    public void actionPerformed(ActionEvent actionEvent) {
+        if (actionEvent.getActionCommand().equals("StartProcessing")) {
+            if (!orderSystemModel.isInitialized()) {
+                logger.info("Programs started processing orders");
+                orderSystemModel.StartProgram();
+                orderSystemView.AddInitialStaffUI();
+                orderSystemModel.setInitialized(true);
+            }
+        }
+
+        if (actionEvent.getActionCommand().equals("+")) {
+            int speed = this.orderSystemModel.increaseSpeed();
+            this.orderSystemModel.SetStaffSpeed(speed);
+            orderSystemView.SetSpeedText(speed);
+        }
+
+        if (actionEvent.getActionCommand().equals("-")) {
+            int speed = this.orderSystemModel.decreaseSpeed();
+            this.orderSystemModel.SetStaffSpeed(speed);
+            orderSystemView.SetSpeedText(speed);
+        }
+
+        if (actionEvent.getActionCommand().equals("OrderOnline")) {
+            orderSystemModel.OrderOnline();
+        }
+
+        if (actionEvent.getActionCommand().equals("AddStaff")) {
+            if (orderSystemModel.isInitialized()) {
+                logger.info("Added staff member");
+                Staff temp = orderSystemModel.AddStaff();
+                orderSystemView.AddStaffUI(temp);
+                temp.start();
+            }
+        }
+
+        if (actionEvent.getActionCommand().equals("RemoveStaff")) {
+            if (orderSystemModel.hasStaff() && orderSystemModel.isInitialized()){
+                logger.info("Removed staff member");
+                Staff temp = orderSystemModel.RemoveStaff();
+                orderSystemView.RemoveStaffUI(temp);
+                temp.finish();
+            }
+        }
+    }
+
+    public void setView(OrderSystemView orderSystemView) {
+        this.orderSystemView = orderSystemView;
+    }
 }

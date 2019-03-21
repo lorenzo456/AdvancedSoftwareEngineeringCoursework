@@ -1,8 +1,7 @@
 package domain;
 
-public enum Discount 
-{
-	none,
-	student,
-	family,
+public enum Discount {
+    none,
+    student,
+    family,
 }
