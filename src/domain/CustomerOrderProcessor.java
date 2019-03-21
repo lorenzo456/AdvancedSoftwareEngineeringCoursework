@@ -41,19 +41,19 @@ public class CustomerOrderProcessor extends Thread
         temp3.add(menu.getItemByID("DE03"));
         temp3.add(menu.getItemByID("DE04"));
 
-        Customer customer1 = new Customer("1", temp1);
-        Customer customer2 = new Customer("2", temp2);
-        Customer customer3 = new Customer("3", temp3);
-        Customer customer4 = new Customer("4", temp2);
-        Customer customer5 = new Customer("5", temp2);
-        Customer customer6 = new Customer("6", temp1);
-        Customer customer7 = new Customer("7", temp3);
-        Customer customer8 = new Customer("8", temp2);
+        Customer customer1 = new Customer("Sabrina", temp1);
+        Customer customer2 = new Customer("Lorenzo", temp2);
+        Customer customer3 = new Customer("Jowita", temp3);
+        Customer customer4 = new Customer("Lucia", temp2);
+        Customer customer5 = new Customer("Odhran", temp2);
+        Customer customer6 = new Customer("Karan", temp1);
+        Customer customer7 = new Customer("Emanuele", temp3);
+        Customer customer8 = new Customer("Maria", temp2);
 
-        Customer customer9 = new Customer("9", temp1, true);
-        Customer customer10 = new Customer("10", temp2, true);
-        Customer customer11 = new Customer("11", temp3, true);
-        Customer customer12 = new Customer("12", temp1, true);
+        Customer customer9 = new Customer("Mike", temp1, true);
+        Customer customer10 = new Customer("Louise", temp2, true);
+        Customer customer11 = new Customer("Sara", temp3, true);
+        Customer customer12 = new Customer("Horacio", temp1, true);
 
         customers.add(customer1);
         customers.add(customer2);
@@ -66,7 +66,7 @@ public class CustomerOrderProcessor extends Thread
 		customers.add(customer9);
 		customers.add(customer10);
 		customers.add(customer11);
-		customers.add(customer12);
+		customers.add(customer12); 
 
     }
 
@@ -117,7 +117,6 @@ public class CustomerOrderProcessor extends Thread
     }
 
     public void run() {
-
 		for (Customer c : customers)
 		{
 			logger.info("Customer " + c.getID() + " is ordering");

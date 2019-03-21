@@ -1,5 +1,4 @@
 package OrderSystemGUI;
-
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
@@ -37,23 +36,30 @@ public class OrderSystemView {
     private void DisplayGui() {
         frame = new JFrame("OrderSystem");
         frame.setVisible(true);
-        frame.setPreferredSize(new Dimension(800, 500));
+        frame.setPreferredSize(new Dimension(600, 500));
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         GridLayout grid = new GridLayout(2, 1);
 
         frame.setLayout(grid);
 
+
         customerUIPanel = new JPanel();
         customerUIPanel.setLayout(new BorderLayout());
 
         customerControlPanel = new JPanel();
-        customerQueueUI = new JTextArea(25, 10);
+        customerQueueUI = new JTextArea(30, 30);
 
         customerControlPanel.add(customerQueueUI);
-
+        
 
         speedControlPanel = new JPanel();
+        
+
+        GridLayout grid2 = new GridLayout(7,0);
+        
+        speedControlPanel.setLayout(grid2);
+        
         speedLabel = new JLabel("5");
         increaseSpeedButton = new JButton("+");
         increaseSpeedButton.addActionListener(orderSystemController);
@@ -66,6 +72,7 @@ public class OrderSystemView {
         addStaffButton = new JButton("AddStaff");
         addStaffButton.addActionListener(orderSystemController);
         removeStaffButton = new JButton("RemoveStaff");
+        
         removeStaffButton.addActionListener(orderSystemController);
         speedControlPanel.add(removeStaffButton);
         speedControlPanel.add(speedLabel);
@@ -75,11 +82,11 @@ public class OrderSystemView {
         speedControlPanel.add(orderOnlineButton);
         speedControlPanel.add(addStaffButton);
         speedControlPanel.add(removeStaffButton);
-        customerUIPanel.add(customerQueueUI);
-
+      
+        
 
         customerUIPanel.add(customerControlPanel, BorderLayout.WEST);
-        customerUIPanel.add(speedControlPanel, BorderLayout.EAST);
+        customerUIPanel.add(speedControlPanel, BorderLayout.CENTER);
 
         staffUIPanel = new JPanel();
 
@@ -98,8 +105,8 @@ public class OrderSystemView {
 
     public void AddStaffUI(Staff s) {
         JTextArea ui = new JTextArea(25, 20);
-		int i = orderSystemModel.GetStaffMembers().size();
-	   	frame.setPreferredSize(new Dimension(650+(150*(i-2)), 500));
+        int currentSize = frame.getSize().width;
+	   	frame.setPreferredSize(new Dimension(currentSize + 150, 500));
         ui.setBackground(Color.green);
         staffUIList.put(s, ui);
         staffUIPanel.add(ui);
@@ -111,7 +118,8 @@ public class OrderSystemView {
 
     public void SetStaffUI() {
         for (Staff s : orderSystemModel.GetStaffMembers()) {
-            s.GetPanel().setText(s.GetCurrentCustomerTask());
+        	String label = "Staff" + s.getId() + "\n" ;
+            s.GetPanel().setText(label + s.GetCurrentCustomerTask());
         }
     }
 
@@ -141,6 +149,9 @@ public class OrderSystemView {
 
     public void RemoveStaffUI(Staff s) {
         JTextArea ui = staffUIList.get(s);
+        int currentSize = frame.getSize().width;
+	   	frame.setPreferredSize(new Dimension(currentSize - 150, 500));
+	   	frame.pack();
         staffUIPanel.remove(ui);
         staffUIPanel.revalidate();
         staffUIPanel.repaint();

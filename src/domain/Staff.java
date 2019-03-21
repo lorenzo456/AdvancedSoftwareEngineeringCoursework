@@ -33,7 +33,7 @@ public class Staff extends Thread {
 
         this.view = view;
         currentTask = staffNumber + " is waiting for orders in the queue";
-        logger.info("STAFF MEMBER " + staffNumber + " is waiting for orders in the queue");
+        logger.info("STAFF MEMBER " + currentTask);
     }
 
     public Customer GetCurrentCustomer()
@@ -71,7 +71,7 @@ public class Staff extends Thread {
 					currentCustomer.setIsBeingServed(true);
 
 					currentTask = staffNumber + " is currently processing customer " + currentCustomer.getID() + "'s order of: \n" + currentCustomer.GetItemsOrdered();
-					logger.info("Staff member " + staffNumber + " is processing order " + currentCustomer.getID());
+					logger.info("Staff member " + currentTask);
 
 
 					view.UpdateAllText();
@@ -84,7 +84,7 @@ public class Staff extends Thread {
 					}
 
 					currentTask = staffNumber + " has completed processing customer " + currentCustomer.getID() + "'s order of: \n" + currentCustomer.GetItemsOrdered();
-					logger.info("Staff member " + staffNumber + " has ended order " + currentCustomer.getID());
+					logger.info("Staff member " + currentTask);
 
 
 					processor.RemoveFromQueue(currentCustomer);
@@ -118,7 +118,7 @@ public class Staff extends Thread {
 
         if (isFinished == false) {
             currentTask = staffNumber + " is closing the shop";
-            logger.info("STAFF MEMBER " + staffNumber + " closes the shop");
+            logger.info("STAFF MEMBER " + currentTask);
             closingShop = Logger.getInstance().print();
             try {
                 Thread.sleep(3000);
@@ -130,6 +130,7 @@ public class Staff extends Thread {
                 Logger.getInstance().printFile();
             } else {
                 currentTask = staffNumber + " is cleaning up";
+                logger.info("STAFF MEMBER " + currentTask);
             }
         }
     }

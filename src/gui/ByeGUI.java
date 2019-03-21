@@ -51,7 +51,7 @@ public class ByeGUI {
             public void actionPerformed(ActionEvent e) 
             {
             	//get random costumer name
-            	Customer customer = new Customer("randomName", basket.getBasketAsList(), true);
+            	Customer customer = new Customer("Online Customer", basket.getBasketAsList(), true);
             	//add customer to queue
             	menu.GetShop().AddToQueue(customer);
             	
