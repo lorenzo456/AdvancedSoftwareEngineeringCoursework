@@ -1,4 +1,4 @@
-package OrderSystemGUI;
+package MVC;
 import java.awt.*;
 import java.util.HashMap;
 

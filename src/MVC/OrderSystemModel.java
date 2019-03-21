@@ -1,4 +1,4 @@
-package OrderSystemGUI;
+package MVC;
 
 import java.util.ArrayList;
 import java.util.Queue;
