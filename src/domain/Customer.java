@@ -26,10 +26,10 @@ public class Customer {
 	}
 
 	/**
-	 * 
-	 * @param ID
-	 * @param orderedItems
-	 * @param isPriorityCustomer
+	 * This is the constructor of the Customer class
+	 * @param ID This is the customer ID
+	 * @param orderedItems These are the items the customer has ordered
+	 * @param isPriorityCustomer This boolean determines if the customer is a priority or not
 	 */
 	public Customer(String ID, ArrayList<Item> orderedItems, boolean isPriorityCustomer)
 	{
@@ -39,27 +39,46 @@ public class Customer {
 		this.isBeingServed = false;
 	}
 
+	/**
+	 * @return returns a if the customer is a priority or not
+	 */
 	public boolean getIsPriorityCustomer(){
 		return isPriorityCustomer;
 	}
 
+	/**
+	 * @return returns if the customer is currently being served or not
+	 */
 	public boolean getIsBeingServed() {
 		return isBeingServed;	
 	}
 	
+	/**
+	 * sets if the customer is currently being served or not.
+	 * @param value value of customer being served.
+	 */
 	public void setIsBeingServed(boolean value) {
 		isBeingServed = value;
 	}
 
+	/**
+	 * @return returns the ID of the customer.
+	 */
 	public String getID() 
 	{
 		return ID;
 	}
 	
+	/**
+	 * @return returns the name of the customer.
+	 */
 	public String getName() {
 		return Name;
 	}
 	
+	/**
+	 * @return returns the orders the customer has placed in a string, each order is separated by a line break
+	 */
 	public String GetItemsOrdered() 
 	{
 		String temp = "";

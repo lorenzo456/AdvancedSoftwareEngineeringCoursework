@@ -12,6 +12,10 @@ public class OrderSystemController implements ActionListener {
 
     private static Logger logger = Logger.getInstance();
 
+    /**
+     * This is the constructor for the orderSystemController
+     * @param orderSystemModel Needs an orderSystemModel parameter
+     */
     public OrderSystemController(OrderSystemModel orderSystemModel) {
         this.orderSystemModel = orderSystemModel;
     }
@@ -62,6 +66,10 @@ public class OrderSystemController implements ActionListener {
         }
     }
 
+    /**
+     * Sets the view reference of the class. 
+     * @param orderSystemView uses this orderSystemView as a reference.
+     */
     public void setView(OrderSystemView orderSystemView) {
         this.orderSystemView = orderSystemView;
     }
