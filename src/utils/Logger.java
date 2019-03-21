@@ -38,18 +38,6 @@ public class Logger {
         logstring += a;
     }
 
-    public void warn(String message) {
-        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        String b = timestamp + ": WARN: " + message;
-        System.out.println(b);
-        logstring += b;
-    }
-
-    public void error(String message) {
-        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        System.out.println(timestamp + ": ERROR: " + message);
-    }
-
     public synchronized boolean print() {
         if (!printed) {
             printed = true;
@@ -57,9 +45,6 @@ public class Logger {
         }
         return false;
     }
-
-    // Methods about: Order 1 is being processes by Staff 1 ??? maybe put them in order processor :) 
-
 
     public void printFile() {
         try {

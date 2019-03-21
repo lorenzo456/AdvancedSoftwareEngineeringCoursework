@@ -36,6 +36,11 @@ public class Staff extends Thread {
         logger.info("STAFF MEMBER " + staffNumber + " is waiting for orders in the queue");
     }
 
+    public Customer GetCurrentCustomer()
+	{
+    	return currentCustomer;
+	}
+
     public JTextArea GetPanel() {
         return panel;
     }
@@ -54,52 +59,48 @@ public class Staff extends Thread {
             }
         }
 
-        while (queueCustomers.size() > 0 && isFinished == false) {
+        while (queueCustomers.size() > 0) {
             Random r = new Random();
             int low = 3000 / speed;
             int high = 15000 / speed;
             int result = r.nextInt(high - low) + low;
 
-            if (currentCustomer == null) {
+            try {
+				currentCustomer = processor.GetWaitingCustomer();
+				if (currentCustomer.getIsBeingServed() == false) {
+					currentCustomer.setIsBeingServed(true);
 
-                try {
-                    currentCustomer = processor.GetWaitingCustomer();
-
-                } catch (NullPointerException e) {
-                    continue;
-                }
-
-
-                if (currentCustomer != null && currentCustomer.getIsBeingServed() == false) {
-                    currentCustomer.setIsBeingServed(true);
-
-                    currentTask = staffNumber + " is currently processing customer " + currentCustomer.getID() + "'s order of: \n" + currentCustomer.GetItemsOrdered();
-                    logger.info("Staff member " + staffNumber + " is processing order " + currentCustomer.getID());
+					currentTask = staffNumber + " is currently processing customer " + currentCustomer.getID() + "'s order of: \n" + currentCustomer.GetItemsOrdered();
+					logger.info("Staff member " + staffNumber + " is processing order " + currentCustomer.getID());
 
 
-                    view.UpdateAllText();
+					view.UpdateAllText();
 
-                    try {
-                        Thread.sleep(result);
-                    } catch (InterruptedException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
+					try {
+						Thread.sleep(result);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 
-                    currentTask = staffNumber + " has completed processing customer " + currentCustomer.getID() + "'s order of: \n" + currentCustomer.GetItemsOrdered();
-                    logger.info("Staff member " + staffNumber + " has ended order " + currentCustomer.getID());
+					currentTask = staffNumber + " has completed processing customer " + currentCustomer.getID() + "'s order of: \n" + currentCustomer.GetItemsOrdered();
+					logger.info("Staff member " + staffNumber + " has ended order " + currentCustomer.getID());
 
 
-                    processor.RemoveFromQueue(currentCustomer);
-                    currentCustomer = null;
-                    view.UpdateAllText();
+					processor.RemoveFromQueue(currentCustomer);
+					currentCustomer = null;
+					view.UpdateAllText();
 
-                } else {
-                    currentCustomer = null;
+				}else
+				{
+					currentCustomer = null;
+				}
 
-                }
+			} catch (NullPointerException e) {
+				continue;
+			}
 
-            }
+
 
             try {
                 result = r.nextInt(high - low) + low;
@@ -133,21 +134,6 @@ public class Staff extends Thread {
         }
     }
 
-    public String GetCurrentCustomerID() {
-        if (currentCustomer != null) {
-            return currentCustomer.getID();
-        } else {
-            return "";
-        }
-    }
-
-    public String GetCurrentCustomerItems() {
-        if (currentCustomer != null) {
-            return currentCustomer.GetItemsOrdered();
-        } else {
-            return "";
-        }
-    }
 
     public String GetCurrentCustomerTask() {
         return currentTask;

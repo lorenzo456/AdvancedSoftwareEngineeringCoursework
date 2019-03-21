@@ -1,85 +1,90 @@
-2019-03-21 00:59:42.735: INFO: STAFF MEMBER 1 is waiting for orders in the queue
-2019-03-21 00:59:42.745: INFO: STAFF MEMBER 2 is waiting for orders in the queue
-2019-03-21 00:59:43.391: WARN: No more customers to process2019-03-21 00:59:43.392: INFO: Customer 1 is ordering
-2019-03-21 00:59:43.894: INFO: Customer 1 order is added to the Queue
-2019-03-21 00:59:44.394: INFO: Customer 2 is ordering
-2019-03-21 00:59:44.896: INFO: Customer 2 order is added to the Queue
-2019-03-21 00:59:45.396: INFO: Customer 3 is ordering
-2019-03-21 00:59:45.899: INFO: Customer 3 order is added to the Queue
-2019-03-21 00:59:46.4: INFO: Customer 4 is ordering
-2019-03-21 00:59:46.478: INFO: Programs started processing orders
-2019-03-21 00:59:46.48: INFO: Getting normal customer id: 1
-2019-03-21 00:59:46.48: INFO: Getting normal customer id: 2
-2019-03-21 00:59:46.48: INFO: Staff member 1 is processing order 1
-2019-03-21 00:59:46.48: INFO: Staff member 2 is processing order 2
-2019-03-21 00:59:46.903: INFO: Customer 4 order is added to the Queue
-2019-03-21 00:59:47.404: INFO: Customer 5 is ordering
-2019-03-21 00:59:47.907: INFO: Customer 5 order is added to the Queue
-2019-03-21 00:59:48.0: INFO: Staff member 2 has ended order 2
-2019-03-21 00:59:48.408: INFO: Customer 6 is ordering
-2019-03-21 00:59:48.912: INFO: Customer 6 order is added to the Queue
-2019-03-21 00:59:49.122: INFO: Staff member 1 has ended order 1
-2019-03-21 00:59:49.413: INFO: Customer 7 is ordering
-2019-03-21 00:59:49.917: INFO: Customer 7 order is added to the Queue
-2019-03-21 00:59:50.417: INFO: Customer 8 is ordering
-2019-03-21 00:59:50.631: INFO: STAFF MEMBER 2 is ready to take an order
-2019-03-21 00:59:50.634: INFO: Getting normal customer id: 3
-2019-03-21 00:59:50.635: INFO: Staff member 2 is processing order 3
-2019-03-21 00:59:50.922: INFO: Customer 8 order is added to the Queue
-2019-03-21 00:59:51.423: INFO: Customer 9 is ordering
-2019-03-21 00:59:51.926: INFO: Customer 9 order is added to the Queue
-2019-03-21 00:59:51.982: INFO: STAFF MEMBER 1 is ready to take an order
-2019-03-21 00:59:51.986: INFO: Getting priority customer id: 9
-2019-03-21 00:59:51.986: INFO: Staff member 1 is processing order 9
-2019-03-21 00:59:52.293: INFO: Staff member 2 has ended order 3
-2019-03-21 00:59:52.426: INFO: Customer 10 is ordering
-2019-03-21 00:59:52.929: INFO: Customer 10 order is added to the Queue
-2019-03-21 00:59:53.43: INFO: Customer 11 is ordering
-2019-03-21 00:59:53.807: INFO: Staff member 1 has ended order 9
-2019-03-21 00:59:53.933: INFO: Customer 11 order is added to the Queue
-2019-03-21 00:59:54.434: INFO: Customer 12 is ordering
-2019-03-21 00:59:54.474: INFO: Added staff member
-2019-03-21 00:59:54.475: INFO: STAFF MEMBER 1553129994475 is waiting for orders in the queue
-2019-03-21 00:59:54.484: INFO: Getting priority customer id: 10
-2019-03-21 00:59:54.484: INFO: Staff member 1553129994475 is processing order 10
-2019-03-21 00:59:54.939: INFO: Customer 12 order is added to the Queue
-2019-03-21 00:59:55.131: INFO: STAFF MEMBER 2 is ready to take an order
-2019-03-21 00:59:55.134: INFO: Getting priority customer id: 11
-2019-03-21 00:59:55.135: INFO: Staff member 2 is processing order 11
-2019-03-21 00:59:55.371: INFO: STAFF MEMBER 1 is ready to take an order
-2019-03-21 00:59:55.373: INFO: Getting priority customer id: 12
-2019-03-21 00:59:55.374: INFO: Staff member 1 is processing order 12
-2019-03-21 00:59:55.679: INFO: Staff member 1553129994475 has ended order 10
-2019-03-21 00:59:55.963: INFO: Added staff member
-2019-03-21 00:59:55.963: INFO: STAFF MEMBER 1553129995963 is waiting for orders in the queue
-2019-03-21 00:59:55.968: INFO: Getting normal customer id: 4
-2019-03-21 00:59:55.968: INFO: Staff member 1553129995963 is processing order 4
-2019-03-21 00:59:56.529: INFO: Staff member 2 has ended order 11
-2019-03-21 00:59:57.037: INFO: Staff member 1553129995963 has ended order 4
-2019-03-21 00:59:57.153: INFO: Staff member 1 has ended order 12
-2019-03-21 00:59:58.172: INFO: STAFF MEMBER 1553129995963 is ready to take an order
-2019-03-21 00:59:58.176: INFO: Getting normal customer id: 5
-2019-03-21 00:59:58.176: INFO: Staff member 1553129995963 is processing order 5
-2019-03-21 00:59:58.468: INFO: STAFF MEMBER 1553129994475 is ready to take an order
-2019-03-21 00:59:58.472: INFO: Getting normal customer id: 6
-2019-03-21 00:59:58.473: INFO: Staff member 1553129994475 is processing order 6
-2019-03-21 00:59:58.786: INFO: STAFF MEMBER 2 is ready to take an order
-2019-03-21 00:59:58.789: INFO: Getting normal customer id: 7
-2019-03-21 00:59:58.789: INFO: Staff member 2 is processing order 7
-2019-03-21 00:59:59.111: INFO: STAFF MEMBER 1 is ready to take an order
-2019-03-21 00:59:59.114: INFO: Getting normal customer id: 8
-2019-03-21 00:59:59.114: INFO: Staff member 1 is processing order 8
-2019-03-21 00:59:59.951: INFO: Staff member 1 has ended order 8
-2019-03-21 01:00:00.424: INFO: Staff member 1553129995963 has ended order 5
-2019-03-21 01:00:00.746: INFO: Staff member 2 has ended order 7
-2019-03-21 01:00:00.815: INFO: STAFF MEMBER 1 is ready to take an order
-2019-03-21 01:00:00.874: INFO: Staff member 1553129994475 has ended order 6
-2019-03-21 01:00:02.412: INFO: STAFF MEMBER 1 is ready to take an order
-2019-03-21 01:00:02.413: INFO: STAFF MEMBER 1 closes the shop
-2019-03-21 01:00:02.829: INFO: STAFF MEMBER 2 is ready to take an order
-2019-03-21 01:00:02.832: INFO: STAFF MEMBER 2 closes the shop
-2019-03-21 01:00:03.106: INFO: STAFF MEMBER 1553129994475 is ready to take an order
-2019-03-21 01:00:03.108: INFO: STAFF MEMBER 1553129994475 closes the shop
-2019-03-21 01:00:03.301: INFO: STAFF MEMBER 1553129995963 is ready to take an order
-2019-03-21 01:00:03.303: INFO: STAFF MEMBER 1553129995963 closes the shop
+2019-03-21 15:37:53.98: INFO: STAFF MEMBER 1 is waiting for orders in the queue
+2019-03-21 15:37:53.996: INFO: STAFF MEMBER 2 is waiting for orders in the queue
+2019-03-21 15:37:54.543: INFO: Customer 1 is ordering
+2019-03-21 15:37:55.045: INFO: Customer 1 order is added to the Queue
+2019-03-21 15:37:55.545: INFO: Customer 2 is ordering
+2019-03-21 15:37:56.047: INFO: Customer 2 order is added to the Queue
+2019-03-21 15:37:56.547: INFO: Customer 3 is ordering
+2019-03-21 15:37:57.049: INFO: Customer 3 order is added to the Queue
+2019-03-21 15:37:57.549: INFO: Customer 4 is ordering
+2019-03-21 15:37:58.051: INFO: Customer 4 order is added to the Queue
+2019-03-21 15:37:58.551: INFO: Customer 5 is ordering
+2019-03-21 15:37:59.053: INFO: Customer 5 order is added to the Queue
+2019-03-21 15:37:59.553: INFO: Customer 6 is ordering
+2019-03-21 15:38:00.054: INFO: Customer 6 order is added to the Queue
+2019-03-21 15:38:00.554: INFO: Customer 7 is ordering
+2019-03-21 15:38:01.055: INFO: Customer 7 order is added to the Queue
+2019-03-21 15:38:01.555: INFO: Customer 8 is ordering
+2019-03-21 15:38:02.058: INFO: Customer 8 order is added to the Queue
+2019-03-21 15:38:02.559: INFO: Customer 9 is ordering
+2019-03-21 15:38:03.06: INFO: Customer 9 order is added to the Queue
+2019-03-21 15:38:03.56: INFO: Customer 10 is ordering
+2019-03-21 15:38:04.062: INFO: Customer 10 order is added to the Queue
+2019-03-21 15:38:04.563: INFO: Customer 11 is ordering
+2019-03-21 15:38:05.064: INFO: Customer 11 order is added to the Queue
+2019-03-21 15:38:05.564: INFO: Customer 12 is ordering
+2019-03-21 15:38:06.066: INFO: Customer 12 order is added to the Queue
+2019-03-21 15:38:11.721: INFO: Programs started processing orders
+2019-03-21 15:38:11.721: INFO: Getting priority customer id: 9
+2019-03-21 15:38:11.722: INFO: Staff member 2 is processing order 9
+2019-03-21 15:38:11.722: INFO: Getting priority customer id: 10
+2019-03-21 15:38:11.722: INFO: Staff member 1 is processing order 10
+2019-03-21 15:38:13.633: INFO: Staff member 2 has ended order 9
+2019-03-21 15:38:14.378: INFO: Staff member 1 has ended order 10
+2019-03-21 15:38:15.811: INFO: STAFF MEMBER 2 is ready to take an order
+2019-03-21 15:38:15.812: INFO: Getting priority customer id: 11
+2019-03-21 15:38:15.812: INFO: Staff member 2 is processing order 11
+2019-03-21 15:38:16.2: INFO: STAFF MEMBER 1 is ready to take an order
+2019-03-21 15:38:16.201: INFO: Getting priority customer id: 12
+2019-03-21 15:38:16.201: INFO: Staff member 1 is processing order 12
+2019-03-21 15:38:17.663: INFO: Staff member 1 has ended order 12
+2019-03-21 15:38:18.181: INFO: Staff member 2 has ended order 11
+2019-03-21 15:38:19.597: INFO: STAFF MEMBER 1 is ready to take an order
+2019-03-21 15:38:19.598: INFO: Getting normal customer id: 1
+2019-03-21 15:38:19.598: INFO: Staff member 1 is processing order 1
+2019-03-21 15:38:20.0: INFO: STAFF MEMBER 2 is ready to take an order
+2019-03-21 15:38:20.001: INFO: Getting normal customer id: 2
+2019-03-21 15:38:20.001: INFO: Staff member 2 is processing order 2
+2019-03-21 15:38:20.3: INFO: Added staff member
+2019-03-21 15:38:20.3: INFO: STAFF MEMBER 1553182700300 is waiting for orders in the queue
+2019-03-21 15:38:20.303: INFO: Getting normal customer id: 3
+2019-03-21 15:38:20.303: INFO: Staff member 1553182700300 is processing order 3
+2019-03-21 15:38:20.653: INFO: Staff member 1 has ended order 1
+2019-03-21 15:38:20.929: INFO: Staff member 1553182700300 has ended order 3
+2019-03-21 15:38:21.082: INFO: Added staff member
+2019-03-21 15:38:21.082: INFO: STAFF MEMBER 1553182701082 is waiting for orders in the queue
+2019-03-21 15:38:21.084: INFO: Getting normal customer id: 4
+2019-03-21 15:38:21.085: INFO: Staff member 1553182701082 is processing order 4
+2019-03-21 15:38:21.46: INFO: Staff member 2 has ended order 2
+2019-03-21 15:38:22.301: INFO: Staff member 1553182701082 has ended order 4
+2019-03-21 15:38:23.051: INFO: STAFF MEMBER 1 is ready to take an order
+2019-03-21 15:38:23.052: INFO: Getting normal customer id: 5
+2019-03-21 15:38:23.053: INFO: Staff member 1 is processing order 5
+2019-03-21 15:38:23.52: INFO: STAFF MEMBER 2 is ready to take an order
+2019-03-21 15:38:23.522: INFO: Getting normal customer id: 6
+2019-03-21 15:38:23.522: INFO: Staff member 2 is processing order 6
+2019-03-21 15:38:23.65: INFO: STAFF MEMBER 1553182700300 is ready to take an order
+2019-03-21 15:38:23.651: INFO: Getting normal customer id: 7
+2019-03-21 15:38:23.652: INFO: Staff member 1553182700300 is processing order 7
+2019-03-21 15:38:24.341: INFO: Staff member 2 has ended order 6
+2019-03-21 15:38:24.427: INFO: STAFF MEMBER 1553182701082 is ready to take an order
+2019-03-21 15:38:24.428: INFO: Getting normal customer id: 8
+2019-03-21 15:38:24.428: INFO: Staff member 1553182701082 is processing order 8
+2019-03-21 15:38:24.52: INFO: Staff member 1 has ended order 5
+2019-03-21 15:38:24.722: INFO: Staff member 1553182700300 has ended order 7
+2019-03-21 15:38:25.766: INFO: Removed staff member
+2019-03-21 15:38:25.766: INFO: Staff finished: 1553182701082
+2019-03-21 15:38:25.886: INFO: STAFF MEMBER 2 is ready to take an order
+2019-03-21 15:38:25.887: INFO: Getting normal customer id: 8
+2019-03-21 15:38:25.887: INFO: Staff member 2 is processing order 8
+2019-03-21 15:38:26.373: INFO: Removed staff member
+2019-03-21 15:38:26.374: INFO: Staff finished: 1553182700300
+2019-03-21 15:38:26.442: INFO: STAFF MEMBER 1553182700300 is ready to take an order
+2019-03-21 15:38:26.716: INFO: STAFF MEMBER 1 is ready to take an order
+2019-03-21 15:38:26.726: INFO: Staff member 1553182701082 has ended order 8
+2019-03-21 15:38:26.727: INFO: STAFF MEMBER 1 closes the shop
+2019-03-21 15:38:27.028: INFO: Removed staff member
+2019-03-21 15:38:27.028: INFO: Staff finished: 2
+2019-03-21 15:38:27.091: INFO: Staff member 2 has ended order 8
+2019-03-21 15:38:27.543: INFO: STAFF MEMBER 1553182701082 is ready to take an order
 

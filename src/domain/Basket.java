@@ -35,19 +35,6 @@ public class Basket {
     	discount = newDiscount;
     }
     
-    public void RemoveFromBasketById(String id) 
-    {
-    	for(int i = 0; i < basket.size(); i ++) 
-    	{
-    		if(basket.get(i).getId() == id) 
-    		{
-    			basket.remove();
-    			return;
-    		}
-    	}   	
-    	
-    }
-    
     public void RemoveAllItemsOfId(String id)
     {
     	int check = 1;

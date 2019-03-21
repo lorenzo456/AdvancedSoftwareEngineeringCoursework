@@ -1,20 +1,23 @@
 package domain;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Queue;
+import java.util.concurrent.LinkedBlockingDeque;
 
 import OrderSystemGUI.OrderSystemView;
 import utils.Logger;
 
-public class CustomerOrderProcessor extends Thread {
-    private Queue<Customer> queue = new LinkedList<>();
-    private Customer currentCustomer;
+public class CustomerOrderProcessor extends Thread
+{
+    private Queue<Customer> queue = new LinkedBlockingDeque<>();
     private MenuList menu;
     private OrderSystemView view;
+	private static Object mutex = new Object();
 
-    private int speed = 500;
+
+	private int speed = 500;
     private static Logger logger = Logger.getInstance();
+    private ArrayList<Customer> customers = new ArrayList<Customer>();
 
     public CustomerOrderProcessor(MenuList menulist) {
         this.menu = menulist;
@@ -52,30 +55,26 @@ public class CustomerOrderProcessor extends Thread {
         Customer customer11 = new Customer("11", temp3, true);
         Customer customer12 = new Customer("12", temp1, true);
 
-        SetCurrentCustomer(customer1);
-        SetCurrentCustomer(customer2);
-        SetCurrentCustomer(customer3);
-        SetCurrentCustomer(customer4);
-        SetCurrentCustomer(customer5);
-        SetCurrentCustomer(customer6);
-        SetCurrentCustomer(customer7);
-        SetCurrentCustomer(customer8);
+        customers.add(customer1);
+        customers.add(customer2);
+		customers.add(customer3);
+		customers.add(customer4);
+		customers.add(customer5);
+		customers.add(customer6);
+		customers.add(customer7);
+		customers.add(customer8);
+		customers.add(customer9);
+		customers.add(customer10);
+		customers.add(customer11);
+		customers.add(customer12);
 
-        SetCurrentCustomer(customer9);
-        SetCurrentCustomer(customer10);
-        SetCurrentCustomer(customer11);
-        SetCurrentCustomer(customer12);
-    }
-
-    public void SetSpeed(int speed) {
-        this.speed = speed;
     }
 
     public Queue<Customer> GetQueue() {
         return queue;
     }
 
-    private void AddToQueue(Customer customer) {
+    public void AddToQueue(Customer customer) {
         queue.add(customer);
     }
 
@@ -97,52 +96,48 @@ public class CustomerOrderProcessor extends Thread {
         }
     }
 
-    public void SetCurrentCustomer(Customer customer) {
-        currentCustomer = customer;
-        if (currentCustomer != null) {
-            run();
-        }
-        currentCustomer = null;
-    }
-
-
     public synchronized Customer GetWaitingCustomer() {
-        for (Customer c : queue) {
-            if (c.getIsPriorityCustomer() == true && c.getIsBeingServed() == false) {
-                logger.info("Getting priority customer id: " + c.getID());
-                return c;
-            }
-        }
+		synchronized (mutex) {
 
-        for (Customer c : queue) {
-            if (c.getIsBeingServed() == false && c.getIsBeingServed() == false) {
-                logger.info("Getting normal customer id: " + c.getID());
-                return c;
-            }
-        }
+			for (Customer c : queue) {
+				if (c.getIsPriorityCustomer() == true && c.getIsBeingServed() == false) {
+					logger.info("Getting priority customer id: " + c.getID());
+					return c;
+				}
+			}
 
+			for (Customer c : queue) {
+				if (c.getIsBeingServed() == false && c.getIsBeingServed() == false) {
+					logger.info("Getting normal customer id: " + c.getID());
+					return c;
+				}
+			}
+		}
         return null;
     }
 
     public void run() {
-        try {
-            if (currentCustomer == null) {
-                logger.warn("No more customers to process");
-                return;
-            }
 
-            logger.info("Customer " + currentCustomer.getID() + " is ordering");
-            Thread.sleep(speed);
+		for (Customer c : customers)
+		{
+			logger.info("Customer " + c.getID() + " is ordering");
+			try {
+				Thread.sleep(speed);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			AddToQueue(c);
+			view.UpdateAllText();
 
-            AddToQueue(currentCustomer);
-            view.UpdateAllText();
+			logger.info("Customer " + c.getID() + " order is added to the Queue");
+			try {
+				Thread.sleep(speed);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 
-            logger.info("Customer " + currentCustomer.getID() + " order is added to the Queue");
-            Thread.sleep(speed);
-
-        } catch (InterruptedException e) {
-            logger.error("CustomerProcessor thread interrupted " + e.getMessage());
-
-        }
     }
 }

@@ -134,7 +134,6 @@ public class ItemsGUI extends JFrame implements ActionListener  {
 			}
 		});
   		
-  		//end part right
   		right.add(text_right);
   		
 	    
@@ -145,7 +144,6 @@ public class ItemsGUI extends JFrame implements ActionListener  {
   		center.add(num);
   		  	
   		
-  		//panel left
   		left = new JPanel();
   		left.setBackground(Color.GRAY);
   		text_left = new JTextArea(25,15);
@@ -154,18 +152,13 @@ public class ItemsGUI extends JFrame implements ActionListener  {
   		left.add(text_left);
 
  	    
- 	    //create South Panel for buttons and fill it
  	    down = new JPanel();
  	    down.setBackground(Color.GREEN);
  	    down.add(b1);
  	    down.add(b2);
  	    down.add(b3);
- 	  //  down.add(b4);
  	    down.add(b5, BorderLayout.EAST);
- 	    
- 	    
- 	    //add panel to JFrame
- 	    
+
  	    f.add(down, BorderLayout.SOUTH);
  	    f.add(up, BorderLayout.NORTH);
  		f.add(right, BorderLayout.EAST);
@@ -173,7 +166,6 @@ public class ItemsGUI extends JFrame implements ActionListener  {
  		f.add(left, BorderLayout.WEST);
  		text_right.setText(basket.DisplayBasket());
 
- 		//scalable
  		f.pack();
 	}
 	
@@ -182,7 +174,6 @@ public class ItemsGUI extends JFrame implements ActionListener  {
 		JRadioButton tempButton = new JRadioButton(b[itemNumber]);
 	    	tempButton.addActionListener(e -> {
 	    	tempId = ids[itemNumber];	    	
-	    	//System.out.println(ids[itemNumber]);
         });
 	    	
     	group.add(tempButton);
@@ -192,8 +183,7 @@ public class ItemsGUI extends JFrame implements ActionListener  {
 
 	private void OnSelected(String id, int amount) 
 	{
-		//System.out.println(id +" "+amount );
-	
+
 		if(amount == 0) 
 		{
 			//System.out.println("REMOVE ALL ITEMS: " + id);

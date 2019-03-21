@@ -48,7 +48,7 @@ public class ShopManager {
     }
 
     public void AddToQueue(Customer customer) {
-        processor.SetCurrentCustomer(customer);
+        processor.AddToQueue(customer);
         logger.info(customer.getID() + " has ordered " + customer.GetItemsOrdered() + " online");
     }
 

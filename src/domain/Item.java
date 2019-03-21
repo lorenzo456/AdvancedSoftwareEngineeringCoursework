@@ -8,15 +8,13 @@ public class Item implements Comparable<Item> {
     public boolean isDiscounted;
 
     private ItemCategory category;
-    private ItemType type;
 
-    public Item(String id, String name, String description, double cost, ItemCategory category, ItemType type) {
+    public Item(String id, String name, String description, double cost, ItemCategory category) {
         Id = id;
         this.name = name;
         this.description = description;
         this.cost = cost;
         this.category = category;
-        this.type = type;
         isDiscounted = false;
     }
 

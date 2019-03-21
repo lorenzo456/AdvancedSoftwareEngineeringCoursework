@@ -38,11 +38,6 @@ public class Customer {
 		isBeingServed = value;
 	}
 
-	public void addOrderedItems(ArrayList orderedItems) 
-	{
-		this.OrderedItems = orderedItems;
-	}
-	
 	public String getID() 
 	{
 		return ID;

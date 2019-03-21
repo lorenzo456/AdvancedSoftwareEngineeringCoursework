@@ -39,7 +39,12 @@ public class OrderSystemModel {
     }
 
     public Staff RemoveStaff() {
-        return staffMembers.remove(staffMembers.size() -1);
+		Staff temp = staffMembers.remove(staffMembers.size() -1);
+		if(temp.GetCurrentCustomer() != null)
+		{
+			temp.GetCurrentCustomer().setIsBeingServed(false);
+		}
+        return temp;
     }
 
     public ArrayList<Staff> GetStaffMembers() {
