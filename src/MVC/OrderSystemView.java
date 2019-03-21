@@ -118,7 +118,7 @@ public class OrderSystemView {
     public void SetStaffUI() {
         for (Staff s : orderSystemModel.GetStaffMembers()) {
         	String label = "Staff" + s.getId() + "\n" ;
-            s.GetPanel().setText(label + s.GetCurrentCustomerTask());
+            s.GetPanel().setText(label + s.GetCurrentStaffTask());
         }
     }
 
