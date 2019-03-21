@@ -123,7 +123,6 @@ public class CustomerOrderProcessor extends Thread
 			try {
 				Thread.sleep(speed);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			AddToQueue(c);
@@ -133,7 +132,6 @@ public class CustomerOrderProcessor extends Thread
 			try {
 				Thread.sleep(speed);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

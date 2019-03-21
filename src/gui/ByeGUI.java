@@ -13,7 +13,6 @@ import javax.swing.JTextArea;
 import domain.Basket;
 import domain.Customer;
 import domain.MenuList;
-import domain.ShopManager;
 
 public class ByeGUI {
 	private JFrame f;
@@ -24,7 +23,6 @@ public class ByeGUI {
    	private Basket basket;
    	
    	
-   	private JFrame g;
 
 
 	public ByeGUI(MenuList menu, Basket basket) {
@@ -56,7 +54,7 @@ public class ByeGUI {
             	menu.GetShop().AddToQueue(customer);
             	
             	basket.RemoveAllItemsFromBasket();
-    			OrderGUI orderGui = new OrderGUI(menu, basket);
+				new OrderGUI(menu, basket);
              	f.dispose();
             }
         });

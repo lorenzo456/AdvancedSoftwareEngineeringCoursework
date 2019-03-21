@@ -52,9 +52,9 @@ public class OrderList {
             	}
             	
                 String[] parts = line.split(separator);
-                String customerId = parts[0].trim();
-                String itemName = parts[1].trim();
-        		String description = parts[2].trim();
+                parts[0].trim();
+                parts[1].trim();
+        		parts[2].trim();
                 String date = parts[3].trim();
                 
                // System.out.println(customerId + " " + itemName + " " +  description + " " + date);

@@ -98,7 +98,7 @@ public class Basket {
     	return temp;
     }
 
-    public ArrayList getBasketAsList() 
+    public ArrayList<Item> getBasketAsList() 
     {
     	ArrayList<Item> temp = new ArrayList<Item>(basket);
 

@@ -31,8 +31,7 @@ public class ItemsGUI extends JFrame implements ActionListener  {
 	private JButton b1, b2, b3, b4, b5;
    	private JLabel lab_up;
    	private JTextArea text_left, text_right;
-   	private JComboBox num;
-	private String[] ids;
+   	private String[] ids;
 	private String name;
 	private String category;
 	String tempId;
@@ -61,7 +60,7 @@ public class ItemsGUI extends JFrame implements ActionListener  {
 			text_left.setText("");
 		}else if(event.getSource() == b5) 
 		{
-			OrderGUI orderGui = new OrderGUI(menu, basket);
+			new OrderGUI(menu, basket);
 			f.dispose();
 		}
 	}
@@ -125,7 +124,7 @@ public class ItemsGUI extends JFrame implements ActionListener  {
 		num.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
-           String s = (String) num.getSelectedItem();    
+           num.getSelectedItem();    
     	   if(num.getSelectedIndex()>= 0 && tempId != null) 
     	   {
         	   OnSelected(tempId, num.getSelectedIndex());

@@ -16,12 +16,12 @@ import domain.MenuList;
 
 public class CheckOutGUI  extends JFrame implements ActionListener {
 	private JButton b1, b2;
-	private JPanel p, p1, p2, p3;
-	private JFrame f, f1;
+	private JPanel p, p1, p2;
+	private JFrame f;
 	private String name;
 	private MenuList menu;
 	private Basket basket;
-	private JTextArea text, t;
+	private JTextArea text;
 	private JLabel label;
 	private OrderGUI orderGUI;
 
@@ -77,7 +77,7 @@ public class CheckOutGUI  extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource() == b1) 
 		{
-			OrderGUI orderGui = new OrderGUI(menu, basket);
+			new OrderGUI(menu, basket);
 			f.dispose(); 
 		}
 			else if(event.getSource() == b2) 
@@ -85,7 +85,7 @@ public class CheckOutGUI  extends JFrame implements ActionListener {
 			//Customer confirms order
 			
 			orderGUI.printOrdersToFile();
-			ByeGUI b = new ByeGUI(menu, basket);
+			new ByeGUI(menu, basket);
 			f.dispose();	   		
 	   		
 		}

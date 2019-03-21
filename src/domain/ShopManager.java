@@ -17,7 +17,6 @@ public class ShopManager {
 
     private MenuList menuList;
     private Basket basket;
-    private OrderGUI orderGUI;
     private ArrayList<Staff> staffMembers;
 
     private static Logger logger = Logger.getInstance();
@@ -48,8 +47,8 @@ public class ShopManager {
     }
 
     public void AddToQueue(Customer customer) {
+        logger.info(customer.getID() + " has ordered " + customer.GetItemsOrdered());
         processor.AddToQueue(customer);
-        logger.info(customer.getID() + " has ordered " + customer.GetItemsOrdered() + " online");
     }
 
     public void StartProgram() {
@@ -59,7 +58,7 @@ public class ShopManager {
     }
 
     public void OrderOnline() {
-        orderGUI = new OrderGUI(menuList, basket);
+        new OrderGUI(menuList, basket);
     }
 
     public Staff AddStaff() {

@@ -218,28 +218,28 @@ public class OrderGUI extends JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Hot Drinks")) {
-            ItemsGUI gui = new ItemsGUI(menuList, basket, "HotDrinks", ItemCategory.HotDrink.name());
+            new ItemsGUI(menuList, basket, "HotDrinks", ItemCategory.HotDrink.name());
             this.dispose();
         }
         
         if(e.getActionCommand().equals("Checkout")) 
         {
-        	CheckOutGUI gui = new CheckOutGUI(menuList, basket, "Checkout", this);
+        	new CheckOutGUI(menuList, basket, "Checkout", this);
         	this.dispose();
         }
         
         if (e.getActionCommand().equals("Cold Drinks")) {
-            ItemsGUI gui = new ItemsGUI(menuList, basket, "Cold Drinks", ItemCategory.ColdDrink.name());
+            new ItemsGUI(menuList, basket, "Cold Drinks", ItemCategory.ColdDrink.name());
             this.dispose();
         }
 
         if (e.getActionCommand().equals("Desserts")) {
-            ItemsGUI gui = new ItemsGUI(menuList, basket, "Desserts", ItemCategory.Dessert.name());
+            new ItemsGUI(menuList, basket, "Desserts", ItemCategory.Dessert.name());
             this.dispose();
         }
 
         if (e.getActionCommand().equals("Meals")) {
-            ItemsGUI gui = new ItemsGUI(menuList, basket, "Meals", ItemCategory.Meal.name());
+            new ItemsGUI(menuList, basket, "Meals", ItemCategory.Meal.name());
             this.dispose();
         }
         
