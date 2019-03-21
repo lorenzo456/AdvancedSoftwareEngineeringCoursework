@@ -26,6 +26,12 @@ public class Staff extends Thread {
     private static Logger logger = Logger.getInstance();
 
 
+    /**
+     * This is the constructor of the Staff class
+     * @param staffNumber - this is the number of the stuff
+     * @param processor - this is the costumer order processor
+     * @param view - this is the the view from MVC pattern
+     */
     public Staff(long staffNumber, CustomerOrderProcessor processor, OrderSystemView view) {
         this.staffNumber = staffNumber;
         this.queueCustomers = processor.GetQueue();
@@ -36,19 +42,32 @@ public class Staff extends Thread {
         logger.info("STAFF MEMBER " + currentTask);
     }
 
+    /**
+     * This method is used for getting the current costumer
+     * @return the current costumer
+     */
     public Customer GetCurrentCustomer()
 	{
     	return currentCustomer;
 	}
 
+    /**
+     * This method is used to get a panel
+     * @return the panel
+     */
     public JTextArea GetPanel() {
         return panel;
     }
 
+    /**
+     * This method set the panel in to panel
+     * @param panel
+     */
     public void SetPanel(JTextArea panel) {
         this.panel = panel;
     }
 
+    // This method is used to make the staff thread run
     public void run() {
         while (queueCustomers.size() == 0 && isFinished == false) {
             try {
@@ -133,20 +152,32 @@ public class Staff extends Thread {
     }
 
 
-    public String GetCurrentCustomerTask() {
+    /**
+     * This method is used to know what the staff member is currently doing
+     * @return the current task
+     */
+    public String GetCurrentStaffTask() {
         return currentTask;
     }
 
 
+    /**
+     * This method sets the speed of the process
+     * @param speed
+     */
     public void setSpeed(int speed) {
         logger.info("Changed staff: " + staffNumber + " speed: " + speed);
         this.speed = speed;
     }
 
+    /**
+     * This method display staff that has finished the job
+     */
     public void finish() {
         logger.info("Staff finished: " + staffNumber);
         this.isFinished = true;
     }
+
 
     @Override
     public boolean equals(Object o) {
