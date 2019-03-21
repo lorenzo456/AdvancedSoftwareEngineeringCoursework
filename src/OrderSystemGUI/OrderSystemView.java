@@ -98,6 +98,8 @@ public class OrderSystemView {
 
     public void AddStaffUI(Staff s) {
         JTextArea ui = new JTextArea(25, 20);
+		int i = orderSystemModel.GetStaffMembers().size();
+	   	frame.setPreferredSize(new Dimension(650+(150*(i-2)), 500));
         ui.setBackground(Color.green);
         staffUIList.put(s, ui);
         staffUIPanel.add(ui);
@@ -114,7 +116,8 @@ public class OrderSystemView {
     }
 
     public void SetCustomerQueueUIText() {
-        String summaryText = "There are currently " + orderSystemModel.GetAmountOfCustomersLeftToServe() + " customers waiting on their order" + "\n";
+		String summaryText = "Customer queue\n\n";
+        summaryText += "There are currently " + orderSystemModel.GetAmountOfCustomersLeftToServe() + " customers waiting on their order" + "\n";
         for (Customer customer : orderSystemModel.GetCustomers()) {
             summaryText += customer.getID() + " \n";
         }
