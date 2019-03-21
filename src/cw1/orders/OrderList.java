@@ -1,4 +1,4 @@
-package domain;
+package cw1.orders;
 
 import java.io.BufferedReader;
 import java.io.FileWriter;

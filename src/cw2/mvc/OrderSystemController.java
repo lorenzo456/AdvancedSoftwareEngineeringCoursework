@@ -1,10 +1,10 @@
-package MVC;
+package cw2.mvc;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import domain.Staff;
-import utils.Logger;
+import cw2.staff.Staff;
+import cw2.utils.Logger;
 
 public class OrderSystemController implements ActionListener {
     private OrderSystemModel orderSystemModel;

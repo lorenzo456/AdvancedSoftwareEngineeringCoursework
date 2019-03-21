@@ -1,11 +1,13 @@
-package domain;
+package cw2.customers;
 
 import java.util.ArrayList;
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingDeque;
 
-import MVC.OrderSystemView;
-import utils.Logger;
+import cw1.items.Item;
+import cw1.menu.MenuList;
+import cw2.mvc.OrderSystemView;
+import cw2.utils.Logger;
 
 public class CustomerOrderProcessor extends Thread
 {

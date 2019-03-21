@@ -1,4 +1,4 @@
-package domain;
+package cw2.managers;
 
 public class Main {
 	

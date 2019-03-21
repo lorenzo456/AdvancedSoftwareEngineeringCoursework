@@ -1,12 +1,17 @@
-package domain;
+package cw2.managers;
 
 import java.util.ArrayList;
 
-import MVC.OrderSystemController;
-import MVC.OrderSystemModel;
-import MVC.OrderSystemView;
-import gui.OrderGUI;
-import utils.Logger;
+import cw1.basket.Basket;
+import cw1.gui.OrderGUI;
+import cw1.menu.MenuList;
+import cw2.customers.Customer;
+import cw2.customers.CustomerOrderProcessor;
+import cw2.mvc.OrderSystemController;
+import cw2.mvc.OrderSystemModel;
+import cw2.mvc.OrderSystemView;
+import cw2.staff.Staff;
+import cw2.utils.Logger;
 
 public class ShopManager {
 

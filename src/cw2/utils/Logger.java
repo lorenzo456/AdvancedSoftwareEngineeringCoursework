@@ -1,4 +1,4 @@
-package utils;
+package cw2.utils;
 
 import java.io.FileWriter;
 import java.io.IOException;

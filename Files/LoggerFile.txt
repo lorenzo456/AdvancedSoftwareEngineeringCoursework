@@ -1,174 +1,181 @@
-2019-03-21 18:08:24.907: INFO: STAFF MEMBER 1 is waiting for orders in the queue
-2019-03-21 18:08:24.944: INFO: STAFF MEMBER 2 is waiting for orders in the queue
-2019-03-21 18:08:25.314: INFO: Customer Sabrina is ordering
-2019-03-21 18:08:25.816: INFO: Customer Sabrina order is added to the Queue
-2019-03-21 18:08:26.317: INFO: Customer Lorenzo is ordering
-2019-03-21 18:08:26.819: INFO: Customer Lorenzo order is added to the Queue
-2019-03-21 18:08:27.319: INFO: Customer Jowita is ordering
-2019-03-21 18:08:27.821: INFO: Customer Jowita order is added to the Queue
-2019-03-21 18:08:28.321: INFO: Customer Lucia is ordering
-2019-03-21 18:08:28.822: INFO: Customer Lucia order is added to the Queue
-2019-03-21 18:08:29.322: INFO: Customer Odhran is ordering
-2019-03-21 18:08:29.824: INFO: Customer Odhran order is added to the Queue
-2019-03-21 18:08:30.324: INFO: Customer Karan is ordering
-2019-03-21 18:08:30.826: INFO: Customer Karan order is added to the Queue
-2019-03-21 18:08:30.995: INFO: Programs started processing orders
-2019-03-21 18:08:30.997: INFO: Getting normal customer id: Sabrina
-2019-03-21 18:08:30.997: INFO: Staff member 1 is currently processing customer Sabrina's order of: 
+2019-03-21 22:10:35.85: INFO: STAFF MEMBER 1 is waiting for orders in the queue
+2019-03-21 22:10:35.856: INFO: STAFF MEMBER 2 is waiting for orders in the queue
+2019-03-21 22:10:36.369: INFO: Customer Sabrina is ordering
+2019-03-21 22:10:36.871: INFO: Customer Sabrina order is added to the Queue
+2019-03-21 22:10:37.371: INFO: Customer Lorenzo is ordering
+2019-03-21 22:10:37.872: INFO: Customer Lorenzo order is added to the Queue
+2019-03-21 22:10:38.372: INFO: Customer Jowita is ordering
+2019-03-21 22:10:38.613: INFO: Programs started processing orders
+2019-03-21 22:10:38.614: INFO: Getting normal customer id: Sabrina
+2019-03-21 22:10:38.614: INFO: Staff member 1 is currently processing customer Sabrina's order of: 
 Cafe Latte 
 Cinnamon roll 
 Ham Sandwich 
 
-2019-03-21 18:08:30.997: INFO: Getting normal customer id: Lorenzo
-2019-03-21 18:08:30.997: INFO: Staff member 2 is currently processing customer Lorenzo's order of: 
+2019-03-21 22:10:38.614: INFO: Getting normal customer id: Lorenzo
+2019-03-21 22:10:38.614: INFO: Staff member 2 is currently processing customer Lorenzo's order of: 
 Water bottle 
 Cafe Mocha 
 Ham Sandwich 
 
-2019-03-21 18:08:31.326: INFO: Customer Emanuele is ordering
-2019-03-21 18:08:31.833: INFO: Customer Emanuele order is added to the Queue
-2019-03-21 18:08:32.095: INFO: Staff member 1 has completed processing customer Sabrina's order of: 
-Cafe Latte 
-Cinnamon roll 
-Ham Sandwich 
-
-2019-03-21 18:08:32.333: INFO: Customer Maria is ordering
-2019-03-21 18:08:32.714: INFO: STAFF MEMBER 1 is ready to take an order
-2019-03-21 18:08:32.716: INFO: Getting normal customer id: Jowita
-2019-03-21 18:08:32.716: INFO: Staff member 1 is currently processing customer Jowita's order of: 
+2019-03-21 22:10:38.875: INFO: Customer Jowita order is added to the Queue
+2019-03-21 22:10:39.375: INFO: Customer Lucia is ordering
+2019-03-21 22:10:39.604: INFO: Added staff member
+2019-03-21 22:10:39.605: INFO: STAFF MEMBER 1553206239605 is waiting for orders in the queue
+2019-03-21 22:10:39.609: INFO: Getting normal customer id: Jowita
+2019-03-21 22:10:39.609: INFO: Staff member 1553206239605 is currently processing customer Jowita's order of: 
 Iced tea 
 Cinnamon roll 
 Bagel 
 
-2019-03-21 18:08:32.834: INFO: Customer Maria order is added to the Queue
-2019-03-21 18:08:33.334: INFO: Customer Mike is ordering
-2019-03-21 18:08:33.468: INFO: Staff member 2 has completed processing customer Lorenzo's order of: 
+2019-03-21 22:10:39.876: INFO: Customer Lucia order is added to the Queue
+2019-03-21 22:10:40.376: INFO: Customer Odhran is ordering
+2019-03-21 22:10:40.877: INFO: Customer Odhran order is added to the Queue
+2019-03-21 22:10:40.948: INFO: Staff member 1 has completed processing customer Sabrina's order of: 
+Cafe Latte 
+Cinnamon roll 
+Ham Sandwich 
+
+2019-03-21 22:10:41.377: INFO: Customer Karan is ordering
+2019-03-21 22:10:41.538: INFO: Staff member 2 has completed processing customer Lorenzo's order of: 
 Water bottle 
 Cafe Mocha 
 Ham Sandwich 
 
-2019-03-21 18:08:33.834: INFO: Customer Mike order is added to the Queue
-2019-03-21 18:08:34.335: INFO: Customer Louise is ordering
-2019-03-21 18:08:34.836: INFO: Customer Louise order is added to the Queue
-2019-03-21 18:08:35.026: INFO: Staff member 1 has completed processing customer Jowita's order of: 
+2019-03-21 22:10:41.878: INFO: Customer Karan order is added to the Queue
+2019-03-21 22:10:41.916: INFO: Added staff member
+2019-03-21 22:10:41.916: INFO: STAFF MEMBER 1553206241916 is waiting for orders in the queue
+2019-03-21 22:10:41.92: INFO: Getting normal customer id: Lucia
+2019-03-21 22:10:41.92: INFO: Staff member 1553206241916 is currently processing customer Lucia's order of: 
+Water bottle 
+Cafe Mocha 
+Ham Sandwich 
+
+2019-03-21 22:10:41.982: INFO: Staff member 1553206239605 has completed processing customer Jowita's order of: 
 Iced tea 
 Cinnamon roll 
 Bagel 
 
-2019-03-21 18:08:35.336: INFO: Customer Sara is ordering
-2019-03-21 18:08:35.836: INFO: Customer Sara order is added to the Queue
-2019-03-21 18:08:36.336: INFO: Customer Horacio is ordering
-2019-03-21 18:08:36.39: INFO: STAFF MEMBER 2 is ready to take an order
-2019-03-21 18:08:36.39: INFO: Getting priority customer id: Mike
-2019-03-21 18:08:36.39: INFO: Staff member 2 is currently processing customer Mike's order of: 
-Cafe Latte 
-Cinnamon roll 
-Ham Sandwich 
-
-2019-03-21 18:08:36.837: INFO: Customer Horacio order is added to the Queue
-2019-03-21 18:08:37.209: INFO: STAFF MEMBER 1 is ready to take an order
-2019-03-21 18:08:37.209: INFO: Getting priority customer id: Louise
-2019-03-21 18:08:37.209: INFO: Staff member 1 is currently processing customer Louise's order of: 
+2019-03-21 22:10:42.159: INFO: STAFF MEMBER 2 is ready to take an order
+2019-03-21 22:10:42.16: INFO: Getting normal customer id: Odhran
+2019-03-21 22:10:42.16: INFO: Staff member 2 is currently processing customer Odhran's order of: 
 Water bottle 
 Cafe Mocha 
 Ham Sandwich 
 
-2019-03-21 18:08:38.338: INFO: Staff member 2 has completed processing customer Mike's order of: 
+2019-03-21 22:10:42.378: INFO: Customer Emanuele is ordering
+2019-03-21 22:10:42.667: INFO: Staff member 1553206241916 has completed processing customer Lucia's order of: 
+Water bottle 
+Cafe Mocha 
+Ham Sandwich 
+
+2019-03-21 22:10:42.879: INFO: Customer Emanuele order is added to the Queue
+2019-03-21 22:10:42.933: INFO: STAFF MEMBER 1553206239605 is ready to take an order
+2019-03-21 22:10:42.933: INFO: Getting normal customer id: Karan
+2019-03-21 22:10:42.934: INFO: Staff member 1553206239605 is currently processing customer Karan's order of: 
 Cafe Latte 
 Cinnamon roll 
 Ham Sandwich 
 
-2019-03-21 18:08:39.077: INFO: STAFF MEMBER 2 is ready to take an order
-2019-03-21 18:08:39.077: INFO: Getting priority customer id: Sara
-2019-03-21 18:08:39.077: INFO: Staff member 2 is currently processing customer Sara's order of: 
+2019-03-21 22:10:43.379: INFO: Customer Maria is ordering
+2019-03-21 22:10:43.648: INFO: STAFF MEMBER 1 is ready to take an order
+2019-03-21 22:10:43.649: INFO: Getting normal customer id: Emanuele
+2019-03-21 22:10:43.649: INFO: Staff member 1 is currently processing customer Emanuele's order of: 
 Iced tea 
 Cinnamon roll 
 Bagel 
 
-2019-03-21 18:08:39.262: INFO: Staff member 1 has completed processing customer Louise's order of: 
+2019-03-21 22:10:43.879: INFO: Customer Maria order is added to the Queue
+2019-03-21 22:10:44.081: INFO: STAFF MEMBER 1553206241916 is ready to take an order
+2019-03-21 22:10:44.082: INFO: Getting normal customer id: Maria
+2019-03-21 22:10:44.082: INFO: Staff member 1553206241916 is currently processing customer Maria's order of: 
 Water bottle 
 Cafe Mocha 
 Ham Sandwich 
 
-2019-03-21 18:08:40.689: INFO: Staff member 2 has completed processing customer Sara's order of: 
+2019-03-21 22:10:44.093: INFO: Staff member 2 has completed processing customer Odhran's order of: 
+Water bottle 
+Cafe Mocha 
+Ham Sandwich 
+
+2019-03-21 22:10:44.38: INFO: Customer Mike is ordering
+2019-03-21 22:10:44.534: INFO: Staff member 1553206239605 has completed processing customer Karan's order of: 
+Cafe Latte 
+Cinnamon roll 
+Ham Sandwich 
+
+2019-03-21 22:10:44.882: INFO: Customer Mike order is added to the Queue
+2019-03-21 22:10:45.383: INFO: Customer Louise is ordering
+2019-03-21 22:10:45.645: INFO: Staff member 1553206241916 has completed processing customer Maria's order of: 
+Water bottle 
+Cafe Mocha 
+Ham Sandwich 
+
+2019-03-21 22:10:45.883: INFO: Customer Louise order is added to the Queue
+2019-03-21 22:10:45.9: INFO: Staff member 1 has completed processing customer Emanuele's order of: 
 Iced tea 
 Cinnamon roll 
 Bagel 
 
-2019-03-21 18:08:41.559: INFO: STAFF MEMBER 1 is ready to take an order
-2019-03-21 18:08:41.559: INFO: Getting priority customer id: Horacio
-2019-03-21 18:08:41.559: INFO: Staff member 1 is currently processing customer Horacio's order of: 
+2019-03-21 22:10:46.384: INFO: Customer Sara is ordering
+2019-03-21 22:10:46.731: INFO: STAFF MEMBER 2 is ready to take an order
+2019-03-21 22:10:46.731: INFO: Getting priority customer id: Mike
+2019-03-21 22:10:46.731: INFO: Staff member 2 is currently processing customer Mike's order of: 
 Cafe Latte 
 Cinnamon roll 
 Ham Sandwich 
 
-2019-03-21 18:08:43.454: INFO: Staff member 1 has completed processing customer Horacio's order of: 
-Cafe Latte 
-Cinnamon roll 
-Ham Sandwich 
-
-2019-03-21 18:08:43.497: INFO: STAFF MEMBER 2 is ready to take an order
-2019-03-21 18:08:43.497: INFO: Getting normal customer id: Lucia
-2019-03-21 18:08:43.497: INFO: Staff member 2 is currently processing customer Lucia's order of: 
+2019-03-21 22:10:46.862: INFO: STAFF MEMBER 1553206239605 is ready to take an order
+2019-03-21 22:10:46.862: INFO: Getting priority customer id: Louise
+2019-03-21 22:10:46.863: INFO: Staff member 1553206239605 is currently processing customer Louise's order of: 
 Water bottle 
 Cafe Mocha 
 Ham Sandwich 
 
-2019-03-21 18:08:44.088: INFO: STAFF MEMBER 1 is ready to take an order
-2019-03-21 18:08:44.088: INFO: Getting normal customer id: Odhran
-2019-03-21 18:08:44.088: INFO: Staff member 1 is currently processing customer Odhran's order of: 
-Water bottle 
-Cafe Mocha 
-Ham Sandwich 
-
-2019-03-21 18:08:45.2: INFO: Staff member 2 has completed processing customer Lucia's order of: 
-Water bottle 
-Cafe Mocha 
-Ham Sandwich 
-
-2019-03-21 18:08:45.236: INFO: Staff member 1 has completed processing customer Odhran's order of: 
-Water bottle 
-Cafe Mocha 
-Ham Sandwich 
-
-2019-03-21 18:08:46.141: INFO: STAFF MEMBER 1 is ready to take an order
-2019-03-21 18:08:46.141: INFO: Getting normal customer id: Karan
-2019-03-21 18:08:46.141: INFO: Staff member 1 is currently processing customer Karan's order of: 
-Cafe Latte 
-Cinnamon roll 
-Ham Sandwich 
-
-2019-03-21 18:08:47.769: INFO: Staff member 1 has completed processing customer Karan's order of: 
-Cafe Latte 
-Cinnamon roll 
-Ham Sandwich 
-
-2019-03-21 18:08:47.817: INFO: STAFF MEMBER 2 is ready to take an order
-2019-03-21 18:08:47.817: INFO: Getting normal customer id: Emanuele
-2019-03-21 18:08:47.817: INFO: Staff member 2 is currently processing customer Emanuele's order of: 
+2019-03-21 22:10:46.884: INFO: Customer Sara order is added to the Queue
+2019-03-21 22:10:47.144: INFO: STAFF MEMBER 1553206241916 is ready to take an order
+2019-03-21 22:10:47.144: INFO: Getting priority customer id: Sara
+2019-03-21 22:10:47.145: INFO: Staff member 1553206241916 is currently processing customer Sara's order of: 
 Iced tea 
 Cinnamon roll 
 Bagel 
 
-2019-03-21 18:08:48.95: INFO: STAFF MEMBER 1 is ready to take an order
-2019-03-21 18:08:48.95: INFO: Getting normal customer id: Maria
-2019-03-21 18:08:48.95: INFO: Staff member 1 is currently processing customer Maria's order of: 
+2019-03-21 22:10:47.385: INFO: Customer Horacio is ordering
+2019-03-21 22:10:47.708: INFO: Staff member 1553206239605 has completed processing customer Louise's order of: 
 Water bottle 
 Cafe Mocha 
 Ham Sandwich 
 
-2019-03-21 18:08:49.883: INFO: Staff member 1 has completed processing customer Maria's order of: 
-Water bottle 
-Cafe Mocha 
-Ham Sandwich 
-
-2019-03-21 18:08:50.317: INFO: Staff member 2 has completed processing customer Emanuele's order of: 
+2019-03-21 22:10:47.885: INFO: Customer Horacio order is added to the Queue
+2019-03-21 22:10:48.315: INFO: Staff member 1553206241916 has completed processing customer Sara's order of: 
 Iced tea 
 Cinnamon roll 
 Bagel 
 
-2019-03-21 18:08:52.258: INFO: STAFF MEMBER 1 is ready to take an order
-2019-03-21 18:08:52.258: INFO: STAFF MEMBER 1 is closing the shop
-2019-03-21 18:08:53.166: INFO: STAFF MEMBER 2 is ready to take an order
-2019-03-21 18:08:53.166: INFO: STAFF MEMBER 2 is closing the shop
+2019-03-21 22:10:48.418: INFO: Staff member 2 has completed processing customer Mike's order of: 
+Cafe Latte 
+Cinnamon roll 
+Ham Sandwich 
+
+2019-03-21 22:10:48.452: INFO: STAFF MEMBER 1 is ready to take an order
+2019-03-21 22:10:48.452: INFO: Getting priority customer id: Horacio
+2019-03-21 22:10:48.453: INFO: Staff member 1 is currently processing customer Horacio's order of: 
+Cafe Latte 
+Cinnamon roll 
+Ham Sandwich 
+
+2019-03-21 22:10:49.068: INFO: STAFF MEMBER 1553206239605 is ready to take an order
+2019-03-21 22:10:49.434: INFO: STAFF MEMBER 1553206241916 is ready to take an order
+2019-03-21 22:10:50.161: INFO: Staff member 1 has completed processing customer Horacio's order of: 
+Cafe Latte 
+Cinnamon roll 
+Ham Sandwich 
+
+2019-03-21 22:10:50.161: INFO: STAFF MEMBER 1553206241916 is closing the shop
+2019-03-21 22:10:50.161: INFO: STAFF MEMBER 1553206239605 is closing the shop
+2019-03-21 22:10:50.475: INFO: STAFF MEMBER 2 is ready to take an order
+2019-03-21 22:10:50.475: INFO: STAFF MEMBER 2 is closing the shop
+2019-03-21 22:10:52.477: INFO: STAFF MEMBER 1 is ready to take an order
+2019-03-21 22:10:52.477: INFO: STAFF MEMBER 1 is closing the shop
+2019-03-21 22:10:53.161: INFO: STAFF MEMBER 1553206239605 is cleaning up
 

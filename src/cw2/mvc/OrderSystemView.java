@@ -1,11 +1,11 @@
-package MVC;
+package cw2.mvc;
 import java.awt.*;
 import java.util.HashMap;
 
 import javax.swing.*;
 
-import domain.Customer;
-import domain.Staff;
+import cw2.customers.Customer;
+import cw2.staff.Staff;
 
 
 public class OrderSystemView {
@@ -60,7 +60,8 @@ public class OrderSystemView {
 
         customerControlPanel = new JPanel();
         customerQueueUI = new JTextArea(30, 30);
-
+        customerQueueUI.setEditable(false);
+        customerQueueUI.setAutoscrolls(true);
         customerControlPanel.add(customerQueueUI);
         
 
@@ -71,7 +72,7 @@ public class OrderSystemView {
         
         speedControlPanel.setLayout(grid2);
         
-        speedLabel = new JLabel("5");
+        speedLabel = new JLabel("Speed: 5");
         increaseSpeedButton = new JButton("+");
         increaseSpeedButton.addActionListener(orderSystemController);
         descreseSpeedButton = new JButton("-");
@@ -116,6 +117,7 @@ public class OrderSystemView {
 
     public void AddStaffUI(Staff s) {
         JTextArea ui = new JTextArea(25, 20);
+        ui.setEditable(false);
         int currentSize = frame.getSize().width;
 	   	frame.setPreferredSize(new Dimension(currentSize + 150, 500));
         ui.setBackground(Color.green);
@@ -158,7 +160,7 @@ public class OrderSystemView {
      * @param speed - it needs to know the new speed 
      */
     public void SetSpeedText(int speed) {
-        speedLabel.setText(Integer.toString(speed));
+        speedLabel.setText("Speed: " +Integer.toString(speed));
     }
 
 

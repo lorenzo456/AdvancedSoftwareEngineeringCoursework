@@ -1,4 +1,4 @@
-package gui;
+package cw1.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -9,9 +9,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import gui.OrderGUI;
-import domain.Basket;
-import domain.MenuList;
+
+import cw1.basket.Basket;
+import cw1.gui.OrderGUI;
+import cw1.menu.MenuList;
 
 
 public class CheckOutGUI  extends JFrame implements ActionListener {

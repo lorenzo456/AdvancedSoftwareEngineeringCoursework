@@ -1,4 +1,4 @@
-package domain;
+package cw1.menu;
 
 
 import java.io.BufferedReader;
@@ -7,6 +7,10 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.TreeSet;
+
+import cw1.items.Item;
+import cw1.items.ItemCategory;
+import cw2.managers.ShopManager;
 
 
 

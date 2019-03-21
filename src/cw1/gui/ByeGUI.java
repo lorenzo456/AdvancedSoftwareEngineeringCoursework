@@ -1,4 +1,4 @@
-package gui;
+package cw1.gui;
 
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -10,9 +10,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-import domain.Basket;
-import domain.Customer;
-import domain.MenuList;
+import cw1.basket.Basket;
+import cw1.menu.MenuList;
+import cw2.customers.Customer;
 
 public class ByeGUI {
 	private JFrame f;

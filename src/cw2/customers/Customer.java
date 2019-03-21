@@ -1,6 +1,8 @@
-package domain;
+package cw2.customers;
 
 import java.util.ArrayList;
+
+import cw1.items.Item;
 
 public class Customer {
 	private boolean isBeingServed;

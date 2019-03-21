@@ -1,12 +1,12 @@
-package MVC;
+package cw2.mvc;
 
 import java.util.ArrayList;
 import java.util.Queue;
 
-import domain.Customer;
-import domain.CustomerOrderProcessor;
-import domain.ShopManager;
-import domain.Staff;
+import cw2.customers.Customer;
+import cw2.customers.CustomerOrderProcessor;
+import cw2.managers.ShopManager;
+import cw2.staff.Staff;
 
 public class OrderSystemModel {
 

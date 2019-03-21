@@ -1,4 +1,4 @@
-package domain;
+package cw1.orders;
 
 public class Order {
 

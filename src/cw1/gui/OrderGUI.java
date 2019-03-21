@@ -1,4 +1,4 @@
-package gui;
+package cw1.gui;
 
 import domain.*;
 
@@ -9,9 +9,17 @@ import java.time.format.DateTimeFormatter;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-import java.awt.Font;
 
-import gui.ItemsGUI;
+import cw1.basket.Basket;
+import cw1.basket.Discount;
+import cw1.gui.ItemsGUI;
+import cw1.items.Item;
+import cw1.items.ItemCategory;
+import cw1.menu.MenuList;
+import cw1.orders.Order;
+import cw1.orders.OrderList;
+
+import java.awt.Font;
 
 
 public class OrderGUI extends JFrame implements ActionListener{

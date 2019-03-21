@@ -1,7 +1,10 @@
-package domain;
+package cw1.basket;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+
+import cw1.items.Item;
+import cw1.menu.MenuList;
 
 public class Basket {
 	private Discount discount = Discount.none;

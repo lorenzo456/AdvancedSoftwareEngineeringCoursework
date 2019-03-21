@@ -1,4 +1,4 @@
-package gui;
+package cw1.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -16,10 +16,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
-import gui.OrderGUI;
-import domain.Basket;
-import domain.Item;
-import domain.MenuList;
+
+import cw1.basket.Basket;
+import cw1.gui.OrderGUI;
+import cw1.items.Item;
+import cw1.menu.MenuList;
 
 
 

@@ -1,4 +1,4 @@
-package domain;
+package cw1.items;
 
 public enum ItemCategory {
     HotDrink,

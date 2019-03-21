@@ -1,4 +1,4 @@
-package domain;
+package cw2.staff;
 
 import java.util.LinkedList;
 import java.util.Objects;
@@ -7,8 +7,10 @@ import java.util.Random;
 
 import javax.swing.JTextArea;
 
-import MVC.OrderSystemView;
-import utils.Logger;
+import cw2.customers.Customer;
+import cw2.customers.CustomerOrderProcessor;
+import cw2.mvc.OrderSystemView;
+import cw2.utils.Logger;
 
 public class Staff extends Thread {
     private long staffNumber;

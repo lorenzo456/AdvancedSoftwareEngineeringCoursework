@@ -1,4 +1,4 @@
-package domain;
+package cw1.items;
 
 public class Item implements Comparable<Item> {
     private String Id;
