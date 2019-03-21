@@ -16,7 +16,7 @@ public class OrderSystemView
 	private JFrame frame;
 	private JLabel speedLabel;
 	private JPanel customerUIPanel,staffUIPanel, speedControlPanel, customerControlPanel;
-	private JTextArea customerQueueUI,staff0UI, staff1UI;
+	private JTextArea customerQueueUI;
 
 	private JButton increaseSpeedButton, descreseSpeedButton, startProgramButton, orderOnlineButton, addStaffButton;
 	private boolean staffInitialized;
@@ -36,7 +36,7 @@ public class OrderSystemView
 	private void DisplayGui() {
    		frame = new JFrame("OrderSystem");
    		frame.setVisible(true);
-   		frame.setPreferredSize(new Dimension(550, 500));
+   		frame.setPreferredSize(new Dimension(750, 500));
    		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
   		
    		GridLayout grid = new GridLayout(2,1);
@@ -77,16 +77,7 @@ public class OrderSystemView
 		customerUIPanel.add(speedControlPanel, BorderLayout.EAST);
 
    		staffUIPanel = new JPanel();
-   		/*
-   		staff0UI = new JTextArea(25,20);
-   		staff0UI.setBackground(Color.green);
-
-   		staff1UI = new JTextArea(25,20);
-   		staff1UI.setBackground(Color.WHITE);
-   		
-   		staffUIPanel.add(staff0UI);
-   		staffUIPanel.add(staff1UI);
-		*/
+   	
    		frame.add(customerUIPanel);
    		frame.add(staffUIPanel);
    		frame.pack();
@@ -104,6 +95,8 @@ public class OrderSystemView
 	public void AddStaffUI(Staff s) 
 	{
 	   		JTextArea ui = new JTextArea(25,20);
+	   		int i = orderSystemModel.GetStaffMembers().size();
+	   		frame.setPreferredSize(new Dimension(650+(150*(i-2)), 500));
 	   		ui.setBackground(Color.green);
 	   		staffUIPanel.add(ui);
 	   		frame.add(staffUIPanel);
@@ -147,7 +140,5 @@ public class OrderSystemView
 			SetStaffUI();
 		}
 
-		//SetStaffUI0();
-		//SetStaffUI1();
 	}
 }

@@ -30,9 +30,13 @@ public class Staff extends Thread {
 
 		this.view = view;
 		currentTask = staffNumber + " is waiting for orders in the queue";
-		Logger.getInstance().info("STAFF MEMBER " + staffNumber + " is waiting for orders in the queue");
+		Logger.getInstance().info("STAFF MEMBER " + currentTask);
 	}
 
+	public int getstaffNumber() {
+		return staffNumber;
+	}
+	
 	public JTextArea GetPanel() 
 	{
 		return panel;
@@ -78,7 +82,7 @@ public void run() {
 				currentCustomer.setIsBeingServed(true);
 
 				currentTask = staffNumber + " is currently processing customer " + currentCustomer.getID() + "'s order of: \n" + currentCustomer.GetItemsOrdered();
-				Logger.getInstance().info("Staff member " + staffNumber + " is processing order " + currentCustomer.getID());
+				Logger.getInstance().info("Staff member " + currentTask);
 
 				view.UpdateAllText();
 
@@ -91,7 +95,7 @@ public void run() {
 				}
 
 				currentTask = staffNumber + " has completed processing customer " + currentCustomer.getID() + "'s order of: \n" + currentCustomer.GetItemsOrdered();
-				Logger.getInstance().info("Staff member " + staffNumber + " has ended order " + currentCustomer.getID());
+				Logger.getInstance().info("Staff member " + currentTask);
 
 				processor.RemoveFromQueue(currentCustomer);
 				currentCustomer = null;
@@ -112,7 +116,7 @@ public void run() {
 
 		}
 		currentTask = staffNumber + " is ready to take an order";
-		Logger.getInstance().info("STAFF MEMBER " + staffNumber + " is ready to take an order");
+		Logger.getInstance().info("STAFF MEMBER " + currentTask);
 
 		view.UpdateAllText();
 		System.out.println("THE SIZE IS " + queueCustomers.size());
@@ -121,7 +125,7 @@ public void run() {
 	
 
 	currentTask = staffNumber + " is closing the shop";
-	Logger.getInstance().info("STAFF MEMBER " + staffNumber + " closes the shop");
+	Logger.getInstance().info("STAFF MEMBER " + currentTask);
 	closingShop = Logger.getInstance().print();
 	try {
 		Thread.sleep(3000);
@@ -133,6 +137,7 @@ public void run() {
 		Logger.getInstance().printFile();
 	}else {
 		currentTask = staffNumber + " is cleaning up";
+		Logger.getInstance().info("STAFF MEMBER " + currentTask);
 	}
 }
 
@@ -165,8 +170,9 @@ public String GetCurrentCustomerTask()
 
 
 public void setSpeed(int speed) {
+	this.speed = speed;
     logger.info("Changed staff: " + staffNumber + " speed: "  + speed);
-    this.speed = speed;
+  
 }
 
 }

@@ -32,5 +32,4 @@ public class CustomerOrderQueue {
         return this.queue.poll();
     }
     
-    // Are we implementing this? And if we do, where? 
 }
