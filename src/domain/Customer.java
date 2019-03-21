@@ -11,6 +11,12 @@ public class Customer {
 	private String ID;
 	private String Name;
 	
+
+	/**
+	 * This is the constructor of the Customer class
+	 * @param ID This is the customer ID 
+	 * @param orderedItems These are the items the customer has ordered through the GUI
+	 */
 	public Customer(String ID, ArrayList<Item> orderedItems) 
 	{
 		this.ID = ID;
@@ -19,6 +25,12 @@ public class Customer {
 		this.isPriorityCustomer = false;
 	}
 
+	/**
+	 * 
+	 * @param ID
+	 * @param orderedItems
+	 * @param isPriorityCustomer
+	 */
 	public Customer(String ID, ArrayList<Item> orderedItems, boolean isPriorityCustomer)
 	{
 		this.ID = ID;

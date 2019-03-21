@@ -54,7 +54,6 @@ public class Staff extends Thread {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
@@ -79,7 +78,6 @@ public class Staff extends Thread {
 					try {
 						Thread.sleep(result);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 
@@ -106,7 +104,6 @@ public class Staff extends Thread {
                 result = r.nextInt(high - low) + low;
                 Thread.sleep(result);
             } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
 
             }
