@@ -125,8 +125,13 @@ public class OrderSystemView {
     public void SetCustomerQueueUIText() {
 		String summaryText = "Customer queue\n\n";
         summaryText += "There are currently " + orderSystemModel.GetAmountOfCustomersLeftToServe() + " customers waiting on their order" + "\n";
-        for (Customer customer : orderSystemModel.GetCustomers()) {
-            summaryText += customer.getID() + " \n";
+        for (Customer customer : orderSystemModel.GetCustomers()) 
+        {
+        	String displayText = customer.getID();
+        	if (customer.getIsPriorityCustomer() == true) {
+        		displayText += " (PRIORITY)"; 
+        	}
+            summaryText += displayText + " \n";
         }
 
         customerQueueUI.setText(summaryText);
