@@ -1,7 +1,5 @@
 package cw1.gui;
 
-import domain.*;
-
 import java.awt.*;
 import java.awt.event.*;
 import java.time.LocalDateTime;
