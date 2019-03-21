@@ -38,7 +38,6 @@ public class Logger {
         logstring += a;
     }
     
-    // check where we use this and delete it
 
     public synchronized boolean print() {
         if (!printed) {
