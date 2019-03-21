@@ -7,7 +7,7 @@ import java.util.Random;
 
 import javax.swing.JTextArea;
 
-import OrderSystemGUI.OrderSystemView;
+import MVC.OrderSystemView;
 import utils.Logger;
 
 public class Staff extends Thread {

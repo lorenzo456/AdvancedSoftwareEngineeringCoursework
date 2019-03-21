@@ -2,9 +2,9 @@ package domain;
 
 import java.util.ArrayList;
 
-import OrderSystemGUI.OrderSystemController;
-import OrderSystemGUI.OrderSystemModel;
-import OrderSystemGUI.OrderSystemView;
+import MVC.OrderSystemController;
+import MVC.OrderSystemModel;
+import MVC.OrderSystemView;
 import gui.OrderGUI;
 import utils.Logger;
 
@@ -42,8 +42,8 @@ public class ShopManager {
         model.SetStaffMembers(staffMembers);
         view.InitializeView();
 
-        processor.start();
         processor.Init(view);
+        processor.start();
     }
 
     public void AddToQueue(Customer customer) {

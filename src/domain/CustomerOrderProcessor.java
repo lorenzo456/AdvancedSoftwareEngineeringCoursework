@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingDeque;
 
-import OrderSystemGUI.OrderSystemView;
+import MVC.OrderSystemView;
 import utils.Logger;
 
 public class CustomerOrderProcessor extends Thread
