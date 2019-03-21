@@ -13,7 +13,7 @@ import cw2.mvc.OrderSystemView;
 import cw2.utils.Logger;
 
 public class Staff extends Thread {
-    private long staffNumber;
+    private int staffNumber;
     private int speed = 5;
     private boolean isFinished = false;
     private boolean closingShop = false;
@@ -35,7 +35,7 @@ public class Staff extends Thread {
      * @param view - this is the the view from MVC pattern
      */
     public Staff(long staffNumber, CustomerOrderProcessor processor, OrderSystemView view) {
-        this.staffNumber = staffNumber;
+        this.staffNumber = Math.round(staffNumber);
         this.queueCustomers = processor.GetQueue();
         this.processor = processor;
 

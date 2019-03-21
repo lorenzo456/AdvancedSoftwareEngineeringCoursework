@@ -48,7 +48,7 @@ public class OrderSystemController implements ActionListener {
         }
 
         if (actionEvent.getActionCommand().equals("AddStaff")) {
-            if (orderSystemModel.isInitialized()) {
+            if (orderSystemModel.isInitialized() && orderSystemModel.GetStaffMembers().size() < 4) {
                 logger.info("Added staff member");
                 Staff temp = orderSystemModel.AddStaff();
                 orderSystemView.AddStaffUI(temp);

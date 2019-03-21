@@ -47,7 +47,7 @@ public class OrderSystemView {
     private void DisplayGui() {
         frame = new JFrame("OrderSystem");
         frame.setVisible(true);
-        frame.setPreferredSize(new Dimension(600, 500));
+        frame.setPreferredSize(new Dimension(600, 600));
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         GridLayout grid = new GridLayout(2, 1);
@@ -59,7 +59,7 @@ public class OrderSystemView {
         customerUIPanel.setLayout(new BorderLayout());
 
         customerControlPanel = new JPanel();
-        customerQueueUI = new JTextArea(30, 30);
+        customerQueueUI = new JTextArea(50, 30);
         customerQueueUI.setEditable(false);
         customerQueueUI.setAutoscrolls(true);
         customerControlPanel.add(customerQueueUI);
@@ -118,6 +118,7 @@ public class OrderSystemView {
     public void AddStaffUI(Staff s) {
         JTextArea ui = new JTextArea(25, 20);
         ui.setEditable(false);
+        ui.setLineWrap(true);
         int currentSize = frame.getSize().width;
 	   	frame.setPreferredSize(new Dimension(currentSize + 150, 500));
         ui.setBackground(Color.green);
