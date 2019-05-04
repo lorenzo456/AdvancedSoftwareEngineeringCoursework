@@ -3,6 +3,8 @@ package OrderSystemGUI;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import domain.Staff;
+
 public class OrderSystemController implements ActionListener
 {
 	private OrderSystemModel orderSystemModel;
@@ -32,6 +34,24 @@ public class OrderSystemController implements ActionListener
 			int speed = this.orderSystemModel.descreaseSpeed();
 			this.orderSystemModel.SetStaffSpeed(speed);
 			orderSystemView.SetSpeedText(speed);
+		}
+		
+		if(actionEvent.getActionCommand().equals("StartProgram")) 
+		{
+			orderSystemModel.StartProgram();
+			orderSystemView.AddInitialStaffUI();
+		}
+		
+		if(actionEvent.getActionCommand().equals("OrderOnline")) 
+		{
+			orderSystemModel.OrderOnline();
+		}
+		
+		if(actionEvent.getActionCommand().equals("AddStaff")) 
+		{
+			Staff temp = orderSystemModel.AddStaff();			
+			orderSystemView.AddStaffUI(temp);
+			temp.start();
 		}
 	}
 

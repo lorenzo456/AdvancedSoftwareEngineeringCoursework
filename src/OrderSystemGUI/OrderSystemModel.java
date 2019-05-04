@@ -1,10 +1,12 @@
 package OrderSystemGUI;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
 import domain.Customer;
 import domain.CustomerOrderProcessor;
+import domain.ShopManager;
 import domain.Staff;
 
 public class OrderSystemModel 
@@ -14,20 +16,34 @@ public class OrderSystemModel
 
 	private Queue<Integer> customerQueue = new LinkedList<>();
 	private CustomerOrderProcessor processor;
-	private Staff[] staffMembers;
+	private ArrayList<Staff> staffMembers;
+	private ShopManager shop;
 	
-	public OrderSystemModel(CustomerOrderProcessor processor) 
+	public OrderSystemModel(CustomerOrderProcessor processor, ShopManager shop) 
 	{
 		this.processor = processor;
-		//this.staffMembers = staffMembers;
+		this.shop = shop;
 	}
 	
-	public void SetStaffMembers(Staff[] staffMembers) 
+	public void StartProgram() 
+	{
+		shop.StartProgram();
+	}
+	public void OrderOnline() 
+	{
+		shop.OrderOnline();
+	}
+	public void SetStaffMembers(ArrayList<Staff> staffMembers) 
 	{
 		this.staffMembers = staffMembers;
 	}
 	
-	public Staff[] GetStaffMembers()
+	public Staff AddStaff() 
+	{
+		return shop.AddStaff();
+	}
+	
+	public ArrayList<Staff> GetStaffMembers()
 	{
 		return staffMembers;
 	}
@@ -52,8 +68,8 @@ public class OrderSystemModel
 		}
 	}
 
-
-	public int increaseSpeed() {
+	
+	public int increaseSpeed() {	
 		if(this.simulationSpeed == 10){
 			return this.simulationSpeed;
 		}
@@ -62,10 +78,12 @@ public class OrderSystemModel
 	}
 
 	public int descreaseSpeed() {
+		
 		if(this.simulationSpeed == 1){
 			return this.simulationSpeed;
 		}
 		this.simulationSpeed -= 1;
 		return this.simulationSpeed;
 	}
+	
 }

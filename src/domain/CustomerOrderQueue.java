@@ -30,7 +30,7 @@ public class CustomerOrderQueue {
 
     public synchronized CustomerOrder poll() {
         return this.queue.poll();
-
     }
     
+    // Are we implementing this? And if we do, where? 
 }

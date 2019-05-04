@@ -23,6 +23,10 @@ public class ByeGUI {
    	private MenuList menu;
    	private Basket basket;
    	
+   	
+   	private JFrame g;
+
+
 	public ByeGUI(MenuList menu, Basket basket) {
 		this.menu = menu;
 		this.basket = basket;
@@ -47,7 +51,7 @@ public class ByeGUI {
             public void actionPerformed(ActionEvent e) 
             {
             	//get random costumer name
-            	Customer customer = new Customer("randomName", basket.getBasketAsList());
+            	Customer customer = new Customer("randomName", basket.getBasketAsList(), true);
             	//add customer to queue
             	menu.GetShop().AddToQueue(customer);
             	
@@ -64,6 +68,17 @@ public class ByeGUI {
    		p.add(close);
    		f.add(p);
    		f.pack();
+   		
+   		// add button to come back shopping! (new order, same customerID?).
+   		
+   		/*
+   		 * 
+   		 * g = new JFrame("New Order");
+   		g.setVisible(true);
+   		g.setSize(40, 50);
+   		 */
+   		
+
 		
 	}
 
